@@ -21,7 +21,7 @@ Each page ends with a provenance block, an MDX comment listing the sources it wa
 
 ```
 {/* provenance
-- perch-frontend-app: apps/www/lang/en.json (labels: thread.new, playbook.pin)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader.tsx (defaultMessage "New thread")
 - perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md
 */}
 ```
@@ -32,7 +32,8 @@ A page with no provenance block is not finished.
 
 1. **Typed contracts** (authoritative, cannot drift from code):
    `~/workspace/perchinsights/perch-frontend-app` on `develop`: `apps/www` is the UI
-   (`lang/` holds the UI strings, `pages/` and `components/` the screens); `apps/bff` is the
+   (`pages/` and `components/` are the screens; the English UI strings are the react-intl
+   `defaultMessage` values inline in `components/**`, and `lang/pt-BR.json` is the translation); `apps/bff` is the
    tRPC layer (`router/<domain>.<action>.ts`) with Prisma at `apps/bff/prisma/schema.prisma`.
    `~/workspace/perchinsights/perch-backend-stack` on `develop`: `apps/guide-web` is the Guide
    HTTP service.
