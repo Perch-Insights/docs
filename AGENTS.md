@@ -105,6 +105,7 @@ Do not document, in this cut:
 Run from the repo root and fix everything they report:
 
 ```
+mint validate
 mint broken-links
 ```
 
