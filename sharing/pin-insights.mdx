@@ -3,16 +3,98 @@ title: "Pin insights"
 description: "Pin the insights you care about so the Guide keeps them in mind and you can find them again."
 ---
 
-After this page you will be able to pin an insight from a finalized report, see how many insights a report has pinned, use the **Pinned** filter to view only pinned insights, and unpin an insight when it is no longer relevant.
+After this page you will be able to pin an insight from a finished report, see how many insights a report has pinned, use the **Pinned** filter to view only pinned insights, and unpin an insight when it is no longer relevant.
 
-{/* TODO fill */}
+## Pin an insight
+
+Pinning tells the Guide which insights matter to you. You can pin any insight in a finished report in an analysis you own.
+
+<Steps>
+  <Step title="Open a finished report">
+    In the **Guide** panel, find the **Insight report** card and make sure it is expanded. The pin button is not there while the header still reads **Writing…**. See [Read reports and insights](/analyses/reports-and-insights).
+  </Step>
+  <Step title="Click Pin insight">
+    Each insight has a pin button at the right end of the row of buttons along its bottom edge. Hover over it to see **Pin insight**, then click it.
+  </Step>
+  <Step title="Check the insight is pinned">
+    The insight now carries a **Pinned** badge next to its type badge and a colored bar down its left edge. The pin button now reads **Unpin insight**. Perch shows no confirmation message beyond these changes.
+  </Step>
+</Steps>
+
+Two counts update as well:
+
+- The report header shows **N pinned** under the report title, where N is the number of pinned insights in that report.
+- The **Pinned** button in the **Guide** panel header shows the total number of pinned insights across every report in the analysis.
+
+## What pinning does
+
+From the next message you send in that analysis, the Guide reads every pinned insight along with your question. You do not need to repeat or paste them. You can refer to them directly, for example by asking the Guide "Consolidate my pinned insights".
+
+A pin stays in place until you unpin it, including after you close and reopen the analysis.
+
+Pins belong to the report they were made on. A finished report never changes, so if the Guide writes a new version of a report, the new report starts with no pins.
+
+<Note>
+An analysis can hold at most 30 pinned insights. If you try to pin another, the pin is removed again and an error message appears. Unpin an insight first, then try again.
+</Note>
+
+## See only your pinned insights
+
+The **Pinned** button in the **Guide** panel header narrows the conversation to the reports that have pinned insights, and shows only those insights.
+
+<Steps>
+  <Step title="Click Pinned">
+    Click **Pinned** in the panel header. Hovering over it first shows **Filter to pinned insights**. The button turns solid and the heading **Pinned insights** appears above the list.
+  </Step>
+  <Step title="Read the pinned insights">
+    The first report is expanded and shows its summary followed by only its pinned insights. Every other report starts collapsed, with its **N pinned** line under the title. Click a header to expand or collapse a report.
+  </Step>
+  <Step title="Go back to the full conversation">
+    Click **Show full conversation** next to the heading, or click **Pinned** again.
+  </Step>
+</Steps>
+
+If nothing is pinned yet, the list reads **No pinned insights yet. Pin an insight from a report and it will show up here.** While the conversation is still loading, it reads **Loading pinned insights…** instead.
+
+You can copy, vote on, and unpin insights in this view exactly as in the full conversation. An insight you unpin here disappears from the list at once, and a report with no pinned insights left drops out of the list.
+
+<Note>
+Sending a new message, or answering or cancelling a **Guide Question**, returns the panel to the full conversation.
+</Note>
+
+## Unpin an insight
+
+<Steps>
+  <Step title="Find the pinned insight">
+    Open the report in the conversation, or click **Pinned** in the panel header to list only pinned insights.
+  </Step>
+  <Step title="Click Unpin insight">
+    Hover over the pin button at the right end of the insight's button row. It reads **Unpin insight**. Click it.
+  </Step>
+  <Step title="Check the insight is unpinned">
+    The **Pinned** badge and the colored bar disappear, the report's **N pinned** line and the **Pinned** count go down by one, and the Guide stops reading that insight with your later messages.
+  </Step>
+</Steps>
+
+## What you can do in an analysis you do not own
+
+In an analysis another member owns, you still see the **Pinned** badge and colored bar on insights the owner pinned, the **N pinned** line on each report, and the **Pinned** filter with its count. There is no **Pin insight** or **Unpin insight** button, because only the owner of an analysis can pin insights.
 
 {/* provenance
-- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx ("Pin insight" and "Unpin insight" for the thread owner on finalized reports; "Pinned" badge; pinned insights get a highlighted left border)
-- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("N pinned" count on the report header)
-- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx ("Pinned" filter pill with the pinned insight count; "Pinned insights" heading; "Show full conversation")
-- perch-frontend-app: apps/www/components/ai/AIChat/ChatFilterPill.tsx (filter pill with count)
-- perch-frontend-app: apps/www/components/ai/AIChat/FilteredReportList.tsx ("No pinned insights yet. Pin an insight from a report and it will show up here.")
-- perch-frontend-app: apps/bff/router/thread.chat.setInsightPinned.ts ("Only the owner of this analysis can pin insights")
-- perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md (section "Report section pins": pinned sections are injected into the Guide's context on later turns; 30 pins per thread; pins stay with the report they were made on)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx (pin button at the right end of the insight's button row, titled "Pin insight" or "Unpin insight", rendered only when canPin; "Pinned" badge with a pin icon next to the type badge and a primary-colored left border when pinned; the pin state flips optimistically on click with no success toast; on error the flip is reverted and an error toast shows the server message or "Failed to update the pin"; copy and vote buttons unchanged in either state)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("N pinned" line with a pin icon under the report title whenever at least one insight is pinned; canPin is isFinal and thread.isOwner, so no pin button while the header reads "Writing…" or for non-owners; pinnedSectionsOnly renders the summary and only the pinned insights)
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx ("Pinned" filter pill in the "Guide" panel header with count pinnedInsightCount, the total of pinned insights across all reports; tooltips "Filter to pinned insights" and "Show full conversation"; heading "Pinned insights" with a "Show full conversation" button; pinnedReportMessages recomputed from section pin state, so a report with no pinned insights left leaves the filtered list; the filter resets to the full conversation on send, on answering a question, and on cancelling a question)
+- perch-frontend-app: apps/www/components/ai/AIChat/ChatFilterPill.tsx (pill with label, count, solid style when active, and the active or inactive tooltip)
+- perch-frontend-app: apps/www/components/ai/AIChat/FilteredReportList.tsx (Pinned view: first report expanded and the rest collapsed, each with pinnedSectionsOnly; empty states "No pinned insights yet. Pin an insight from a report and it will show up here." and "Loading pinned insights…")
+- perch-frontend-app: apps/www/components/ai/AIChat/useAIChatState.ts (optimisticUpdateSectionPinState appends a section_pin_state message; section_pin_state events set isPinned on the matching insight, so replayed history restores pins after a reload; a report snapshot with the same artifact id keeps the pin state of its sections)
+- perch-frontend-app: apps/www/components/ai/AIChat/types.ts (each insight carries isPinned, folded in from section_pin_state)
+- perch-frontend-app: packages/schemas/ThreadChat.ts and apps/bff/lib/guide/chat-client.ts (section_pin_state event with artifactId, sectionId, and pinned forwarded from the Guide to the UI)
+- perch-frontend-app: apps/bff/router/thread.chat.setInsightPinned.ts (pinned is the desired end state; the analysis is looked up by authorId and a non-owner gets "Only the owner of this analysis can pin insights"; other Guide errors, including the cap, are rethrown as "Error code from Guide: <status>")
+- perch-frontend-app: apps/bff/lib/guide/internal/client-http.ts (toggleSectionPin posts to the Guide's pins/toggle endpoint; StatusCodeError message "Error code from Guide: <status>")
+- perch-frontend-app: apps/bff/middlewares/formatError.ts (tRPC errors keep the thrown message, which is what the pin error toast shows)
+- perch-backend-stack: apps/guide-web/src/guide_web/routers/pins.py (owner gate, 404 for a section that is not on the report, 409 when the per-analysis pin cap is reached, section_pin_state broadcast to every open session of the analysis)
+- perch-backend-stack: libs/db/src/db/repositories/section_pin.py (MAX_ACTIVE_PINS_PER_THREAD is 30; re-pinning an already pinned insight never counts against the cap; get_pinned_sections drops pins whose section no longer exists on the report)
+- perch-backend-stack: apps/guide-web/src/guide_web/routers/agent_ws.py (_merge_pinned_section_focus appends every pinned section to the context of each new turn, so the Guide reads pinned insights with every later message without the UI resending them)
+- perch-backend-stack: libs/chat/src/chat/events/pins.py (SectionPinStateEvent is persisted and replayed in position on reconnect)
+- perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md (section "Report section pins": pins are a stateful toggle that stays until unpinned; pinned sections are injected into the Guide's context on later turns, so asks like "consolidate my pinned insights" work; pins stay bound to the report they were made on and do not carry across to a regenerated report; 30 pins per thread)
 */}
