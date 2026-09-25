@@ -200,8 +200,7 @@
     "step": "Click the name",
     "labels": [],
     "file": "images/save-a-playbook/click-the-name.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "playbook-rename"
   },
   {
     "id": "save-a-playbook/click-the-visibility-button",
