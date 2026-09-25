@@ -253,8 +253,7 @@
       "Latest run report"
     ],
     "file": "images/run-a-playbook/open-the-playbook-page.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "playbook-page"
   },
   {
     "id": "run-a-playbook/filter-and-sort-the-list",
