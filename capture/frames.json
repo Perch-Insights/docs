@@ -318,8 +318,7 @@
       "Public"
     ],
     "file": "images/share-an-analysis/click-confirm.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "analysis-visibility-dialog"
   },
   {
     "id": "share-an-analysis/click-clone-analysis",
