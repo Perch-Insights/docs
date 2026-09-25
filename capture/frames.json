@@ -67,8 +67,7 @@
       "Add to Favorites"
     ],
     "file": "images/start-an-analysis/click-the-star.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "analysis-favorite"
   },
   {
     "id": "start-an-analysis/filter-by-favorite-status",
