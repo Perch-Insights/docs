@@ -50,12 +50,10 @@ Read-only. Never modify these repositories.
 Use the product's words. Do not invent synonyms.
 
 - **Guide**: Perch's AI analyst. Users chat with it. Never "the AI", "the bot", "the assistant".
-- **Thread**: a conversation with the Guide. A thread can pin and run a playbook. The UI labels
-  threads **Analyses** ("New Analysis", "All Analyses"). Bold the on-screen label exactly as shown,
-  and call the object a thread in prose.
+- **Analysis**: a conversation with the Guide. The screen says **New Analysis** and **All Analyses**.
+  Internally this is a "thread"; never use that word in the docs. An analysis can pin and run a playbook.
 - **Playbook**: a reusable, parameterized analysis the Guide can run again.
 - **Run**: one execution of a playbook. "Last run report" is the latest run by creation date.
-- **Analysis**: a unit of analytical output. It can become the first run of a playbook.
 - **Report**: the finalized output of a run. Reports are immutable once finalized.
 - **Insight**: one section of a report, shown as a card. Insights can be pinned, voted on, and copied individually.
 - **Workspace**: a client environment. Never "tenant" (the old name) or "project".
@@ -63,8 +61,8 @@ Use the product's words. Do not invent synonyms.
 - **Terra**: the semantic-layer management app. Out of scope for the first cut (see boundaries).
 - **Member**: a person with access to a workspace. Never "user" when referring to a person in a workspace.
 
-Capitalize Guide, Playbook, Thread, Workspace, Terra only at the start of a sentence or when
-naming the UI element. In running prose they are common nouns: "open a thread", "pin the playbook".
+Capitalize Guide, Playbook, Analysis, Workspace, Terra only at the start of a sentence or when
+naming the UI element. In running prose they are common nouns: "open an analysis", "pin the playbook".
 
 ## Style
 
@@ -81,7 +79,7 @@ naming the UI element. In running prose they are common nouns: "open a thread", 
 ## Content boundaries
 
 First cut is **the Guide, in the order a new user meets it**: sign in and workspaces,
-starting a thread, asking questions, reading reports and insights, playbooks and runs,
+starting an analysis, asking questions, reading reports and insights, playbooks and runs,
 sharing and pinning. Stop there.
 
 Do not document, in this cut:

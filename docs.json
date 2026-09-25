@@ -18,11 +18,11 @@
         ]
       },
       {
-        "group": "Threads",
+        "group": "Analyses",
         "pages": [
-          "threads/start-a-thread",
-          "threads/ask-questions",
-          "threads/reports-and-insights"
+          "analyses/start-an-analysis",
+          "analyses/ask-questions",
+          "analyses/reports-and-insights"
         ]
       },
       {
@@ -36,7 +36,7 @@
         "group": "Sharing and pinning",
         "pages": [
           "sharing/pin-insights",
-          "sharing/share-a-thread"
+          "sharing/share-an-analysis"
         ]
       }
     ]
