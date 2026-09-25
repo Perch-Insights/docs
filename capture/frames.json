@@ -124,14 +124,12 @@
     "section": "Answer a Guide Question",
     "step": "Move through the questions",
     "labels": [
-      "Enter",
+      "1 of 3",
       "Next",
-      "Optional",
       "Required"
     ],
     "file": "images/ask-questions/move-through-the-questions.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "ask-question-guide-question"
   },
   {
     "id": "ask-questions/choose-where-it-goes",

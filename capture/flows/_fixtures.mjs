@@ -68,7 +68,7 @@ export async function openAnalysis(page, BASE, WORKSPACE, id) {
   }
 }
 
-async function createAnalysis(page, BASE, WORKSPACE, title) {
+export async function createAnalysis(page, BASE, WORKSPACE, title) {
   await page.goto(`${BASE}/w/${WORKSPACE}/analyses`, { waitUntil: 'load' });
   await page.getByRole('button', { name: 'New Analysis' }).click();
   await page.waitForURL(/\/analyses\/\d+/, { timeout: MIN });
@@ -89,13 +89,13 @@ async function renameAnalysis(page, title) {
 
 // ---------- the Guide ----------
 
-const stopButton = (page) => page.getByRole('button', { name: 'Stop' });
-const composer = (page) => page.getByPlaceholder('Ask about your data...');
+export const stopButton = (page) => page.getByRole('button', { name: 'Stop' });
+export const composer = (page) => page.getByPlaceholder('Ask about your data...');
 // The Guide panel is a grid of header, conversation, composer; a pending Guide Question replaces the composer.
-const composerArea = (page) => page.locator('aside[data-cy="AIChat"] > div').last();
+export const composerArea = (page) => page.locator('aside[data-cy="AIChat"] > div').last();
 
 // Wait until the Guide has been idle for a few seconds (no Stop button in the composer).
-async function settle(page, timeout = GUIDE_TURN_TIMEOUT) {
+export async function settle(page, timeout = GUIDE_TURN_TIMEOUT) {
   const deadline = Date.now() + timeout;
   let quietSince = null;
   let lastLog = 0;
@@ -113,7 +113,7 @@ async function settle(page, timeout = GUIDE_TURN_TIMEOUT) {
   throw new Error('the Guide did not finish its turn in time');
 }
 
-async function send(page, message) {
+export async function send(page, message) {
   await freeComposer(page);
   const field = composer(page);
   await field.waitFor({ timeout: MIN });
@@ -126,12 +126,12 @@ async function send(page, message) {
 const reportIsFinal = async (page) => (await page.getByTitle('Copy report').count()) > 0;
 
 // The composer is replaced by a Guide Question card (badge "Pending", possibly collapsed) while one is open.
-async function questionIsOpen(page) {
+export async function questionIsOpen(page) {
   if (await composer(page).isVisible().catch(() => false)) return false;
   return (await composerArea(page).getByText('Pending', { exact: true }).count()) > 0;
 }
 
-async function expandQuestion(page) {
+export async function expandQuestion(page) {
   const area = composerArea(page);
   const collapsed = area.getByRole('button', { expanded: false }).first();
   if (await collapsed.isVisible().catch(() => false)) { await collapsed.click(); await page.waitForTimeout(400); }
@@ -139,7 +139,7 @@ async function expandQuestion(page) {
 
 // Cancel whatever Guide Question is open so the message field comes back (a follow-up question the Guide
 // asks after a report, for example). The Guide may answer the cancellation, so let it settle.
-async function freeComposer(page) {
+export async function freeComposer(page) {
   for (let i = 0; i < 3 && (await questionIsOpen(page)); i++) {
     await expandQuestion(page);
     log('cancelling an open Guide Question');
