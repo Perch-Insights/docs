@@ -1,23 +1,182 @@
 ---
 title: "Save a playbook"
-description: "Turn an analysis's analysis into a playbook you can find on the analyses list and run again."
+description: "Save an analysis as a playbook you can find on the analyses list, read, rename, share, and change with the Guide."
 ---
 
-After this page you will be able to reply to a **Playbook proposal** in the chat to save it, open the playbook from the **Playbooks** section of the analyses list, read its description and **Plan**, rename it, and start an edit analysis with the Guide to change it.
+After this page you will be able to reply to a **Playbook proposal** in the chat to save it, open the playbook from the **Playbooks** section of the analyses list, read its description and **Plan**, rename it, make it **Public** or **Private**, and start an edit analysis with the Guide to change it.
 
-{/* TODO fill */}
+## Save a playbook from an analysis
+
+A playbook is a reusable analysis the Guide can run again. The Guide saves one only after it has proposed it and you have agreed.
+
+<Steps>
+  <Step title="Ask the Guide to save the analysis">
+    In an analysis you own, type a request such as **Save this as a playbook** in the **Guide** panel and send it. The Guide answers with a **Playbook proposal** card.
+  </Step>
+  <Step title="Read the proposal">
+    The card header shows the Guide icon, the label **Playbook proposal**, the proposed name, and a grey **Pending** badge. The body below describes what the playbook will do. Click the header to collapse or expand the card.
+  </Step>
+  <Step title="Reply to the Guide">
+    The bottom of the card tells you how to answer: reply **save this playbook** to keep it, **discard this** to dismiss it, or describe what you would like changed. Type your reply in the **Ask about your data...** field as you would any other message. The Guide saves the playbook only when your reply clearly says to.
+  </Step>
+  <Step title="Check the result">
+    Once the playbook is saved, the badge turns green and reads **Accepted**, the card collapses, and the name in the card header becomes a link that opens the playbook in a new browser tab. If you discard the proposal, the badge turns red and reads **Rejected** with an X, and the card collapses.
+  </Step>
+</Steps>
+
+After the playbook is saved, the line under the analysis title reads **in** followed by the playbook name. Click that name to open the playbook. When the Guide mentions the playbook by name in a reply, that name is also a link that opens the playbook in a new tab.
+
+If you ask the Guide to change an analysis that already belongs to a playbook, or you name an existing playbook, the Guide proposes an update instead. The name in the card header links to the playbook, and the note at the bottom offers **update** followed by the playbook name to apply the changes, **save as a new playbook** to create a separate one, or **discard this**.
+
+<Note>
+The reply instructions appear only in an analysis you own. If the playbook you name belongs to another member and is private, the Guide proposes a new playbook of your own instead of an update to theirs.
+</Note>
+
+## Find your playbooks
+
+<Steps>
+  <Step title="Open the analyses list">
+    Click **Analyses** in the left sidebar, or the home button at the top left of any analysis. Once the workspace has at least one playbook you can see, a **Playbooks** section appears above the **Analyses** section with the subtitle **Reusable analyses you can re-run.** and a count in the form **Showing 6 of 9 playbooks**.
+  </Step>
+  <Step title="Read the playbook cards">
+    Each card shows the playbook name, the first two lines of its description, and an owner badge that reads **You** for your own playbooks or the owner's name for anyone else's. A playbook that has been run also shows a **Last run** link with how long ago it ran. Click that link to open the analysis of the latest run.
+  </Step>
+  <Step title="Page through the list">
+    The section shows six playbooks at a time. Use the **Previous playbooks** and **Next playbooks** arrow buttons on either side to move between pages. Playbooks that ran most recently come first. Playbooks that have never run come last.
+  </Step>
+  <Step title="Open a playbook">
+    Click anywhere on a card to open the playbook page.
+  </Step>
+</Steps>
+
+You see every public playbook in the workspace plus your own private ones. Other members' private playbooks do not appear.
+
+In the **Analyses** section below, the **Playbook** column shows a chip with the playbook name on every analysis that saved or ran a playbook. Click the chip to open that playbook.
+
+## Read a playbook page
+
+The header of a playbook page shows the playbook name, then **Created at** with the date and time and **by** with the owner badge. On the right are the buttons **Plan** and **Run**. If you own the playbook, a **Private** or **Public** button and an **Edit** button appear as well.
+
+Below the header:
+
+- **Description** is the Guide's summary of what the playbook does.
+- **Latest run report** and the **Past Runs** list show what the playbook produced when it ran. See [Run a playbook](/playbooks/run-a-playbook).
+
+### Read the plan
+
+<Steps>
+  <Step title="Open the plan">
+    Click **Plan** in the header. The **Analysis plan** dialog opens with the full plan the Guide follows on every run.
+  </Step>
+  <Step title="Close it">
+    Click the X close button in the dialog to return to the page.
+  </Step>
+</Steps>
+
+If you own the playbook, the bottom of the dialog reads **Edit the plan by chatting with the Guide** next to an **Edit** button. See [Change a playbook with the Guide](#change-a-playbook-with-the-guide).
+
+If the playbook no longer exists, the page reads **Playbook not found**. If it is another member's private playbook, the page reads **Sorry, you do not have access to this playbook. Please contact the owner to grant you access.** with a **Return to Home** button that takes you back to the analyses list.
+
+## Rename a playbook
+
+You can rename a playbook you own.
+
+<Steps>
+  <Step title="Click the name">
+    Click the playbook name in the header. It becomes an editable field.
+  </Step>
+  <Step title="Type the new name">
+    The field accepts up to 255 characters and shows a counter such as **240/255** as you approach the limit. Perch saves names of at most 200 characters.
+  </Step>
+  <Step title="Save">
+    Press Enter or click anywhere outside the field. Perch confirms with **Playbook renamed**. Extra spaces are trimmed, and if you did not change the name nothing happens.
+  </Step>
+</Steps>
+
+The new name appears at once in the **in** badge of every analysis that belongs to the playbook and on its card in the **Playbooks** section.
+
+Two names are rejected:
+
+- An empty name. Perch shows **Title cannot be empty** and keeps the old name.
+- A name another playbook in the workspace already uses, in any letter case. Perch shows **A playbook with this name already exists** and keeps the old name.
+
+A name longer than 200 characters fails with **Failed to rename playbook**.
+
+## Make a playbook public or private
+
+The button in the header shows the playbook's current visibility: **Private** with a lock icon, or **Public** with an open lock. Only the owner sees this button. A private playbook is visible only to you. A public playbook is visible to every member of the workspace.
+
+<Steps>
+  <Step title="Click the visibility button">
+    Hover over it to see **Make playbook public** or **Make playbook private**, then click.
+  </Step>
+  <Step title="Confirm when making it public">
+    Making a playbook public opens a dialog titled **Make Playbook public** that reads **All users with access to this workspace will be able to view this playbook**. Click **Confirm**. Making it private again needs no confirmation.
+  </Step>
+</Steps>
+
+Perch confirms with **Playbook visibility updated** and the button switches label and icon. If the change fails, Perch shows **Failed to update playbook visibility** and the button returns to its previous state.
+
+A playbook the Guide saves is private unless you asked the Guide to share it with the workspace when it was proposed.
+
+## Change a playbook with the Guide
+
+You cannot edit the plan directly. Instead, you open an analysis that is tied to the playbook and ask the Guide for the change.
+
+<Steps>
+  <Step title="Click Edit">
+    On a playbook you own, click **Edit** in the header, or **Edit** at the bottom of the **Analysis plan** dialog.
+  </Step>
+  <Step title="Wait for the edit analysis">
+    Perch creates a new analysis named with today's date followed by **Playbook Edit**, such as **July 3, 2024 • Playbook Edit**, and opens it. Its header shows **in** and the playbook name. Perch does not run the playbook when it opens this analysis. If the analysis cannot be created, Perch shows **Failed to start editing playbook**.
+  </Step>
+  <Step title="Describe the change">
+    Tell the Guide what to change in the **Guide** panel. The Guide answers with a **Playbook proposal** card whose header links to the playbook.
+  </Step>
+  <Step title="Apply or discard the change">
+    Reply **update** followed by the playbook name to apply the change, **save as a new playbook** to keep the original and create a new one, or **discard this**. The badge on the card turns to **Accepted** or **Rejected** as described above.
+  </Step>
+</Steps>
+
+## See a playbook's details in the chat
+
+When you ask the Guide to show the full details of a playbook it has mentioned, it posts a **Playbook** card. The card header shows the Guide icon, the label **Playbook**, and the playbook name as a link that opens the playbook in a new tab. The body holds the playbook's full details. Click the header to collapse or expand the card. This card is read-only and has nothing to accept or reject.
+
+## What you can do with a playbook you do not own
+
+On a public playbook that another member owns, you can open the page, read the **Description**, open the **Plan**, run it, and open its runs. There is no **Edit** button, no visibility button, the **Analysis plan** dialog has no **Edit** footer, and clicking the name does not open the rename field.
 
 {/* provenance
-- perch-frontend-app: apps/www/components/ai/PlaybookProposalCard/PlaybookProposalCard.tsx ("Playbook proposal" card; owner replies "save this playbook", "update <name>", "save as a new playbook", or "discard this"; statuses Pending, Accepted, Rejected)
-- perch-frontend-app: apps/www/components/ai/PlaybookDetailsCard/PlaybookDetailsCard.tsx ("Playbook" card in chat linking to the playbook page)
-- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx and apps/www/components/pages/AiHomePage/PlaybooksCarousel.tsx ("Playbooks" section, "Reusable analyses you can re-run."; each card shows name, description, owner, and "Last run")
+- perch-frontend-app: apps/www/components/ai/PlaybookProposalCard/PlaybookProposalCard.tsx ("Playbook proposal" card with Guide icon, name, and Pending / Accepted / Rejected badges; Rejected shows an X; card collapses when accepted or rejected; header click toggles; name links to the playbook in a new tab once targetedPlaybook is set; owner-only reply note offering "save this playbook" / "discard this", or "update <name>" / "save as a new playbook" / "discard this" for an update)
+- perch-frontend-app: apps/www/components/ai/PlaybookDetailsCard/PlaybookDetailsCard.tsx ("Playbook" card with the name linking to the playbook page in a new tab, full details in the body, header click toggles; no accept or reject controls)
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (PlaybookProposalCard and PlaybookDetailsCard rendered in place in the conversation)
+- perch-frontend-app: apps/www/components/ai/AIChat/useAIChatState.ts (a playbook proposal starts pending; playbook_proposal_accepted sets targetedPlaybook and status accepted; playbook_proposal_rejected sets rejected; playbook_created refetches the header's parent playbook)
+- perch-frontend-app: apps/bff/lib/guide/chat-client.ts (playbook_proposal carries targetedPlaybook only when the Guide targets an existing playbook; playbook_responded becomes accepted or rejected; show_playbook_details forwarded with name and markdown)
+- perch-frontend-app: packages/schemas/ThreadChat.ts (playbook proposal, accepted, rejected, created, and show details event fields)
+- perch-frontend-app: apps/www/components/ai/ChatMessageAnchor/ChatMessageAnchor.tsx (a playbook link in a Guide reply opens the playbook in a new tab)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx (line under the title reads "in" plus the parent playbook name linking to the playbook page)
+- perch-frontend-app: apps/bff/router/thread.getParentPlaybook.ts (parent playbook resolved from the analysis's playbook summaries)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("Playbooks" section shown only when at least one playbook is returned; "Reusable analyses you can re-run."; "Showing N of M playbooks" count; refetched every five minutes)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/PlaybooksCarousel.tsx (card with name, description clamped to two lines, OwnerBadge, and "Last run · <time ago>" link to the latest run analysis; whole card links to the playbook page; six per page; "Previous playbooks" and "Next playbooks" buttons)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/SectionHeader.tsx and packages/kit/components/ResultsCount/ResultsCount.tsx (section title, "Showing X of Y <label>" count, and subtitle)
+- perch-frontend-app: apps/www/components/ai/OwnerBadge/OwnerBadge.tsx (badge reads "You" for the signed-in member, otherwise first and last name, or "Unknown")
+- perch-frontend-app: apps/bff/router/playbook.findMany.ts (playbooks fetched for the signed-in member, sorted by last run descending with never-run playbooks last; owner and visibility on each item)
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadListTable.tsx and apps/www/components/ai/ThreadListTable/PlaybookChip.tsx ("Playbook" column on the analyses list, hidden on the playbook page; chip with the playbook name links to the playbook page)
 - perch-frontend-app: apps/www/pages/w/[workspace]/playbooks/[playbookId]/index.tsx (playbook page route)
-- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookDetailsPage.tsx ("Description"; "Playbook not found"; access denied message)
-- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageHeader.tsx (owner can rename; "Created at" and owner; "Plan" opens the "Analysis plan" dialog; "Edit" starts an edit thread for the owner)
-- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx (thread header shows a badge linking to the parent playbook)
-- perch-frontend-app: apps/bff/router/playbook.getDetails.ts (playbook detail contract: plan, owner, schedule, last run report)
-- perch-frontend-app: apps/bff/data/createThreadTitle.ts (edit threads are titled "{date} • Playbook Edit")
-- perch-backend-stack: apps/guide-web/docs/integration/workspace-playbooks.md (workspace playbook model; proposals are accepted as new or as an update; playbook name and summary)
-- perch-backend-stack: apps/guide-web/docs/integration/user-ownership.md (playbook owner; rename endpoint; edit versus fork rule)
-- perch-backend-stack: apps/guide-web/docs/integration/resource-links.md (the Guide links to a saved playbook inside a message)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookDetailsPage.tsx ("Description"; "Playbook not found"; access denied message with "Return to Home" linking to the analyses list; "Past Runs" list includes manual investigations; playbook details refetched every minute)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageHeader.tsx (home button with "All Analyses" tooltip; EditableTitle rename for the owner with toasts "Playbook renamed", "A playbook with this name already exists", "Failed to rename playbook"; rename patches the header badge and the playbooks list; "Created at" with date and "by" OwnerBadge; visibility button; "Plan" opens the "Analysis plan" dialog; owner-only "Edit" in the header and in the dialog footer next to "Edit the plan by chatting with the Guide"; "Failed to start editing playbook"; "Run")
+- perch-frontend-app: packages/kit/components/Dialog/Dialog.tsx (dialogs have an X close button)
+- perch-frontend-app: packages/kit/components/EditableTitle/EditableTitle.tsx and packages/kit/components/EditInput/EditInput.tsx (click the name to edit when canEdit; Enter or blur saves; whitespace trimmed and collapsed; unchanged value does nothing; "Title cannot be empty"; 255-character limit with a counter shown within 20 characters of it)
+- perch-frontend-app: apps/bff/router/playbook.setName.ts (rename allowed only for the owner; a name conflict becomes "A playbook with this name already exists"; other rejections, including a name over the Guide's limit, surface as the generic failure)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookVisibilityButton.tsx and apps/www/components/ai/VisibilityToggleButton/VisibilityToggleButton.tsx (owner-only "Private" / "Public" button with lock icons; tooltips "Make playbook public" / "Make playbook private"; "Make Playbook public" confirmation with "All users with access to this workspace will be able to view this playbook" and "Confirm"; toasts "Playbook visibility updated" and "Failed to update playbook visibility"; optimistic update rolled back on error)
+- perch-frontend-app: apps/bff/router/playbook.toggleVisibility.ts (visibility change allowed only for the owner)
+- perch-frontend-app: apps/bff/router/playbook.getDetails.ts (playbook detail contract: plan, owner, isOwner, last run report; private playbook of another member returns the access error)
+- perch-frontend-app: apps/bff/router/playbook.edit.ts (Edit creates a new analysis tied to the playbook with auto run off and a single "Initial Analysis" step, then starts the Guide's conversation)
+- perch-frontend-app: apps/bff/data/createThreadTitle.ts (edit analyses are titled "{date} • Playbook Edit")
+- perch-backend-stack: libs/chat/src/chat/agent/prompt.py ("Save this as a playbook" is the request the Guide handles as a manual capture)
+- perch-backend-stack: libs/chat/src/chat/tools/playbook/propose.py (the Guide proposes a new playbook or an update to an existing one; a private playbook owned by someone else is proposed as a new playbook instead; visibility carried on the proposal)
+- perch-backend-stack: libs/chat/src/chat/tools/suggestion/accept.py and libs/chat/src/chat/tools/suggestion/_instructions.py (the Guide accepts a playbook proposal only on clear user confirmation, and treats "discard" style replies as rejection)
+- perch-backend-stack: apps/guide-web/docs/integration/workspace-playbooks.md (proposals are accepted as new or as an update; "show_playbook_details" card appears when the user asks for a playbook's full details)
+- perch-backend-stack: apps/guide-web/docs/integration/user-ownership.md (playbooks default to private; a member sees public playbooks plus their own private ones; another member's private playbook returns forbidden; rename limited to 200 characters and unique per workspace, case-insensitive; the Guide sets a proposal public when asked to share it with the workspace)
+- perch-backend-stack: apps/guide-web/docs/integration/resource-links.md (the Guide links to a saved playbook by name inside a message)
 */}
