@@ -191,8 +191,7 @@
       "Playbooks"
     ],
     "file": "images/save-a-playbook/open-the-analyses-list.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "playbooks-section"
   },
   {
     "id": "save-a-playbook/click-the-name",
