@@ -341,11 +341,10 @@
     "step": "Ask the Guide to save the analysis",
     "labels": [
       "Playbook proposal",
-      "Save this as a playbook"
+      "Pending"
     ],
     "file": "images/save-a-playbook/ask-the-guide-to-save-the-analysis.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow",
-    "note": "Deferred to the end: needs the pending Playbook proposal card on the standing \"Docs: Playbook Proposal\" analysis (1276), which already has the save request sent. Run the capture in the foreground and wait; do not end the iteration while it runs."
+    "flow": "playbook-proposal",
+    "note": "Framed on the pending Playbook proposal card in the standing \"Docs: Playbook Proposal\" analysis (1276): header, proposed name, Pending badge and the opening of the description. The \"Save this as a playbook\" request sits far above the card, behind the report the Guide wrote first, so it was replaced as a label by the Pending badge inside the crop. The flow only frames a proposal for a new playbook; when the Guide proposes an update to the existing fixture playbook instead, it asks once for a standalone proposal and waits, so run the capture in the foreground."
   }
 ]
