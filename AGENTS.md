@@ -108,6 +108,29 @@ Do not document, in this cut:
   playbook page. Flag-gated features (share link, SSO login, Guide demo tab) are out of the first cut.
 - Run one shell command per call. Compound commands joined with `&&` or `;` are refused in the run.
 
+## Screenshots
+
+Images are generated, never hand-made. `capture/README.md` explains the harness: `capture/frames.json`
+is the shot list, `capture/flows/*.mjs` drive a signed-in browser to the documented state, and
+`npm run capture -- <frame-id>` asserts the step's on-screen labels are visible before saving the PNG.
+
+- Environment: `demo.perchinsights.com`, workspace **Docs** only (id in `capture/capture.mjs`). Flows may
+  create, edit, and delete analyses and playbooks in Docs. They must never open, let alone change,
+  any other workspace. Never switch workspaces in a flow.
+- The signed-in session comes from `PERCH_DOCS_STATE`, set in the environment. Never read, print, copy,
+  or commit that file. If a capture lands on the login page, stop and report; do not try to sign in.
+- Frames are cropped to the element or band the step is about (return a locator or a clip from the
+  flow). A full-viewport frame needs a reason in the frame's `why_full` field.
+- Look at every PNG you produce (the Read tool renders images). A frame that shows the wrong state,
+  a loading spinner, an empty panel, or a truncated label is a failure, not a success.
+- Fixtures: create what a frame needs (an analysis with a question answered, a finished report, a
+  saved playbook with one run, a pinned insight) once, with a recognisable name prefixed `Docs:`,
+  and reuse it across frames. Record fixture names and ids in key_learnings so later iterations reuse
+  rather than recreate them. Guide answers take minutes; wait for the finished state, do not screenshot
+  the writing state unless the step is about it.
+- Data in frames is PNC demo data and is fine to show. Never include the account menu, email
+  addresses, or the workspace switcher panel listing other workspaces.
+
 ## Verification before claiming success
 
 Run from the repo root and fix everything they report:
@@ -116,6 +139,8 @@ Run from the repo root and fix everything they report:
 mint validate
 mint broken-links
 ```
+
+For a screenshot iteration, also: the frame's PNG exists, you looked at it, and `npm run capture -- <id>` exits 0.
 
 Then check by hand: the page has a provenance block, every term matches the terminology list,
 the page is in `docs.json`, and every behavior described traces to a listed source.
