@@ -46,34 +46,42 @@ const ctx = await browser.newContext({ storageState: state, viewport: { width: 1
 let failed = 0;
 for (const frame of selected) {
   const page = await ctx.newPage();
+  let shot = page; // the page the frame is taken from; a flow may hand back another one (see below)
   try {
     const { default: flow } = await import(path.join(here, 'flows', frame.flow + '.mjs'));
-    const target = await flow({ page, BASE, WORKSPACE, frame });
+    let target = await flow({ page, BASE, WORKSPACE, frame });
+    // A flow may return { page, target } to frame a page it opened in another browser context, for states the
+    // signed-in session cannot show (the login page redirects signed-in members). That context is closed after the shot.
+    if (target && typeof target === 'object' && 'page' in target) { shot = target.page; target = target.target ?? null; }
     for (const label of frame.labels) {
-      const loc = page.getByText(label, { exact: false }).first();
+      // on-screen text, or a field placeholder (the login fields have no label other than their placeholder)
+      const loc = shot.getByText(label, { exact: false }).or(shot.getByPlaceholder(label, { exact: false })).first();
       if (!(await loc.isVisible().catch(() => false))) throw new Error(`required label not visible: "${label}"`);
     }
     const out = path.join(repo, frame.file);
     fs.mkdirSync(path.dirname(out), { recursive: true });
     if (target && typeof target === 'object' && 'clip' in target) {
-      await page.screenshot({ path: out, clip: target.clip }); // flow computed its own region
+      await shot.screenshot({ path: out, clip: target.clip }); // flow computed its own region
     } else if (target && typeof target.boundingBox === 'function') {
       // crop to the returned element plus padding; padding keeps the surrounding context readable
       const pad = frame.padding ?? 16;
       const box = await target.boundingBox();
       if (!box) throw new Error('crop target has no bounding box');
-      const vp = page.viewportSize();
+      const vp = shot.viewportSize();
       const clip = { x: Math.max(0, box.x - pad), y: Math.max(0, box.y - pad),
         width: Math.min(vp.width, box.x + box.width + pad) - Math.max(0, box.x - pad),
         height: Math.min(vp.height, box.y + box.height + pad) - Math.max(0, box.y - pad) };
-      await page.screenshot({ path: out, clip });
+      await shot.screenshot({ path: out, clip });
     } else {
-      await page.screenshot({ path: out }); // full viewport: only when the shot list justifies it
+      await shot.screenshot({ path: out }); // full viewport: only when the shot list justifies it
     }
     console.log(`ok   ${frame.id} -> ${frame.file}`);
   } catch (e) {
     failed++; console.log(`FAIL ${frame.id}: ${e.message.split('\n')[0]}`);
-  } finally { await page.close(); }
+  } finally {
+    if (shot !== page) await shot.context().close().catch(() => {});
+    await page.close();
+  }
 }
 await browser.close();
 process.exit(failed ? 1 : 0);

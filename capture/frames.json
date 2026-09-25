@@ -9,8 +9,7 @@
       "Password"
     ],
     "file": "images/sign-in/enter-your-credentials.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "sign-in"
   },
   {
     "id": "sign-in/open-the-workspaces-panel",
