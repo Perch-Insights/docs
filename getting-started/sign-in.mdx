@@ -5,17 +5,75 @@ description: "Sign in to Perch, land in your first workspace, and switch to anot
 
 After this page you will be able to sign in with your email and password, land on the analyses list of your first workspace, and open the **Workspaces** panel to switch to another workspace you are a member of.
 
-{/* TODO fill */}
+## Sign in
+
+<Steps>
+  <Step title="Open the login page">
+    Open Perch in your browser. If you are not signed in, you see a page with the heading **Login**.
+  </Step>
+  <Step title="Enter your credentials">
+    Type your email address in the **Email** field and your password in the **Password** field.
+  </Step>
+  <Step title="Click Login">
+    Click **Login**. Perch opens the analyses list of your first workspace.
+  </Step>
+</Steps>
+
+Your first workspace is the one whose name comes first alphabetically among the workspaces you are a member of. The analyses list has an **Analyses** section that shows every saved analysis in that workspace. If the workspace has any playbooks, a **Playbooks** section appears above it.
+
+If you are already signed in and open the login page again, Perch sends you straight to your workspace.
+
+<Note>
+If you are not a member of any workspace yet, Perch shows a page that says **Nothing to see here**. You need to be added to a workspace before you can start an analysis.
+</Note>
+
+<Note>
+If your workspace is not set up for the Guide, the analyses list is replaced by the message **This Workspace does not have AI permissions**.
+</Note>
+
+## Switch to another workspace
+
+The left sidebar shows a workspace button directly under the Perch logo. It shows the name of the workspace you are in. Hover over it to see the full name.
+
+<Steps>
+  <Step title="Open the Workspaces panel">
+    Click the workspace button in the left sidebar. A panel titled **Workspaces** opens next to it and lists every workspace you are a member of, in alphabetical order. The workspace you are in is highlighted.
+  </Step>
+  <Step title="Pick a workspace">
+    Click a workspace name. The panel closes and Perch opens that workspace's analyses list.
+  </Step>
+</Steps>
+
+Analyses and playbooks belong to one workspace. When you switch workspaces, the list changes to show only what is saved in the workspace you picked.
+
+## Sign out
+
+<Steps>
+  <Step title="Open your account page">
+    Click **Account** at the bottom of the left sidebar.
+  </Step>
+  <Step title="Click Log out">
+    In the **Personal** section of the account panel, click **Log out**. Perch confirms with the message **Logged out successfully**.
+  </Step>
+</Steps>
 
 {/* provenance
 - perch-frontend-app: apps/www/pages/login/index.tsx (route /login renders SignInPage)
 - perch-frontend-app: apps/www/components/pages/SignInPage/SignInPage.tsx (heading "Login"; authenticated users are redirected to /w)
-- perch-frontend-app: apps/www/components/auth/LoginForm/LoginForm.tsx (Email and Password fields, "Login" button; "Forgot your password?" only under UI_AUTH_FORGOT_PASSWORD; "Login with SSO" only under UI_AUTH_SIGN_IN_WITH_SSO)
+- perch-frontend-app: apps/www/components/auth/LoginForm/LoginForm.tsx (Email and Password fields, "Login" button; on success redirects home; "Forgot your password?" only under UI_AUTH_FORGOT_PASSWORD; "Login with SSO" only under UI_AUTH_SIGN_IN_WITH_SSO)
 - perch-frontend-app: apps/www/pages/index.tsx and apps/www/pages/w/index.tsx (both render IndexPage)
+- perch-frontend-app: apps/www/components/pages/IndexPage/IndexPage.tsx (IndexPage only runs useWorkspaceAutoRedirect)
 - perch-frontend-app: apps/www/hooks/useWorkspaceAutoRedirect/useWorkspaceAutoRedirect.tsx (redirects to the first workspace's analyses list when CHAT_AI is on; to /workspaces when the member has no workspace)
+- perch-frontend-app: apps/www/hooks/useAllWorkspaces/useAllWorkspaces.tsx (loads the full workspace list via workspace.findMany)
+- perch-frontend-app: apps/bff/router/workspace.findMany.ts (workspace list contract; sorted by name ascending)
 - perch-frontend-app: apps/www/pages/workspaces.tsx (empty state "Nothing to see here")
-- perch-frontend-app: apps/www/components/v2/WorkspaceSwitcher/WorkspaceSwitcher.tsx (popover labelled "Workspaces Navigation Panel")
-- perch-frontend-app: apps/www/components/v2/WorkspaceSidebar/WorkspaceSidebar.tsx (panel title "Workspaces"; selecting a workspace opens its analyses list)
-- perch-frontend-app: apps/www/lib/href.ts (routes /login, /w, /w/[workspace]/analyses)
-- perch-frontend-app: apps/bff/router/workspace.findMany.ts (workspace list contract)
+- perch-frontend-app: apps/www/pages/w/[workspace]/analyses/index.tsx (route /w/[workspace]/analyses renders AiHomePage)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("Analyses" and "Playbooks" section headers; Playbooks section only when playbooks exist; "This Workspace does not have AI permissions" empty state)
+- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx (logo, WorkspaceSwitcher under it, "Account" button at the bottom linking to /user/details)
+- perch-frontend-app: apps/www/components/v2/CurrentWorkspace/CurrentWorkspace.tsx (workspace button shows the current workspace name; tooltip with the full name)
+- perch-frontend-app: apps/www/components/v2/WorkspaceSwitcher/WorkspaceSwitcher.tsx (popover labelled "Workspaces Navigation Panel"; closes on select)
+- perch-frontend-app: apps/www/components/v2/WorkspaceSidebar/WorkspaceSidebar.tsx (panel title "Workspaces"; current workspace selected; selecting a workspace opens its analyses list)
+- perch-frontend-app: apps/www/components/pages/CurrentUserDetailsPage/CurrentUserDetailsPage.tsx (account page titled "Account", uses CurrentUserSettingsLayout)
+- perch-frontend-app: apps/www/components/v2/CurrentUserSettingsSidebar/CurrentUserSettingsSidebar.tsx ("Personal" section, "Log out" item, toast "Logged out successfully")
+- perch-frontend-app: apps/www/lib/href.ts (routes /login, /w, /workspaces, /w/[workspace]/analyses, /user/details)
 */}
