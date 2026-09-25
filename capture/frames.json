@@ -1,0 +1,350 @@
+[
+  {
+    "id": "sign-in/enter-your-credentials",
+    "page": "getting-started/sign-in",
+    "section": "Sign in",
+    "step": "Enter your credentials",
+    "labels": [
+      "Email",
+      "Password"
+    ],
+    "file": "images/sign-in/enter-your-credentials.png",
+    "flow": "sign-in"
+  },
+  {
+    "id": "sign-in/open-the-workspaces-panel",
+    "page": "getting-started/sign-in",
+    "section": "Switch to another workspace",
+    "step": "Open the Workspaces panel",
+    "labels": [
+      "Workspaces"
+    ],
+    "file": "images/sign-in/open-the-workspaces-panel.png",
+    "flow": "TODO",
+    "blocked": "The Workspaces panel lists every workspace the session is a member of, including other clients' workspaces. AGENTS.md forbids screenshots of the workspace switcher panel listing other workspaces, and a flow must never switch workspaces."
+  },
+  {
+    "id": "sign-in/click-log-out",
+    "page": "getting-started/sign-in",
+    "section": "Sign out",
+    "step": "Click Log out",
+    "labels": [
+      "Log out",
+      "Logged out successfully",
+      "Personal"
+    ],
+    "file": "images/sign-in/click-log-out.png",
+    "flow": "TODO",
+    "blocked": "Clicking Log out signs the saved session (PERCH_DOCS_STATE) out on the server, and a flow may not sign in again. The account page also shows the member's email address, which AGENTS.md forbids in screenshots."
+  },
+  {
+    "id": "start-an-analysis/click-new-analysis",
+    "page": "analyses/start-an-analysis",
+    "section": "Start a new analysis",
+    "step": "Click New Analysis",
+    "labels": [
+      "Analyses",
+      "New Analysis"
+    ],
+    "file": "images/start-an-analysis/click-new-analysis.png",
+    "flow": "analyses-list"
+  },
+  {
+    "id": "start-an-analysis/save",
+    "page": "analyses/start-an-analysis",
+    "section": "Rename an analysis",
+    "step": "Save",
+    "labels": [],
+    "file": "images/start-an-analysis/save.png",
+    "flow": "analysis-rename"
+  },
+  {
+    "id": "start-an-analysis/click-the-star",
+    "page": "analyses/start-an-analysis",
+    "section": "Mark an analysis as a favorite",
+    "step": "Click the star",
+    "labels": [
+      "Add to Favorites"
+    ],
+    "file": "images/start-an-analysis/click-the-star.png",
+    "flow": "analysis-favorite"
+  },
+  {
+    "id": "start-an-analysis/filter-by-favorite-status",
+    "page": "analyses/start-an-analysis",
+    "section": "Find an existing analysis",
+    "step": "Filter by favorite status",
+    "labels": [
+      "All",
+      "Favorites",
+      "No Favorites"
+    ],
+    "file": "images/start-an-analysis/filter-by-favorite-status.png",
+    "flow": "analyses-favorite-filter"
+  },
+  {
+    "id": "start-an-analysis/click-delete",
+    "page": "analyses/start-an-analysis",
+    "section": "Delete an analysis",
+    "step": "Click Delete",
+    "labels": [
+      "Cancel",
+      "Delete",
+      "Delete Analysis"
+    ],
+    "file": "images/start-an-analysis/click-delete.png",
+    "flow": "analysis-delete-dialog"
+  },
+  {
+    "id": "ask-questions/send-it",
+    "page": "analyses/ask-questions",
+    "section": "Ask a question",
+    "step": "Send it",
+    "labels": [
+      "Send"
+    ],
+    "file": "images/ask-questions/send-it.png",
+    "flow": "ask-question-send"
+  },
+  {
+    "id": "ask-questions/accept-edit-and-send",
+    "page": "analyses/ask-questions",
+    "section": "Dictate a question",
+    "step": "Accept, edit, and send",
+    "labels": [
+      "Accept recording",
+      "Cancel recording"
+    ],
+    "file": "images/ask-questions/accept-edit-and-send.png",
+    "flow": "ask-question-dictate"
+  },
+  {
+    "id": "ask-questions/move-through-the-questions",
+    "page": "analyses/ask-questions",
+    "section": "Answer a Guide Question",
+    "step": "Move through the questions",
+    "labels": [
+      "1 of 3",
+      "Next",
+      "Required"
+    ],
+    "file": "images/ask-questions/move-through-the-questions.png",
+    "flow": "ask-question-guide-question"
+  },
+  {
+    "id": "ask-questions/choose-where-it-goes",
+    "page": "analyses/ask-questions",
+    "section": "Accept or reject a Query Suggestion",
+    "step": "Choose where it goes",
+    "labels": [
+      "Add as New Step",
+      "Reject",
+      "Update step 1"
+    ],
+    "file": "images/ask-questions/choose-where-it-goes.png",
+    "flow": "ask-question-query-suggestion"
+  },
+  {
+    "id": "reports-and-insights/find-the-card",
+    "page": "analyses/reports-and-insights",
+    "section": "Read a report",
+    "step": "Find the card",
+    "labels": [
+      "Insight report"
+    ],
+    "file": "images/reports-and-insights/find-the-card.png",
+    "flow": "report-card"
+  },
+  {
+    "id": "reports-and-insights/pick-a-format",
+    "page": "analyses/reports-and-insights",
+    "section": "Download a report",
+    "step": "Pick a format",
+    "labels": [
+      "Markdown",
+      "PDF Document",
+      "Plain Text",
+      "Word Document"
+    ],
+    "file": "images/reports-and-insights/pick-a-format.png",
+    "flow": "report-download-menu"
+  },
+  {
+    "id": "reports-and-insights/click-reports",
+    "page": "analyses/reports-and-insights",
+    "section": "See only the reports in an analysis",
+    "step": "Click Reports",
+    "labels": [
+      "Reports",
+      "Reports in this conversation"
+    ],
+    "file": "images/reports-and-insights/click-reports.png",
+    "flow": "report-filter"
+  },
+  {
+    "id": "save-a-playbook/open-the-analyses-list",
+    "page": "playbooks/save-a-playbook",
+    "section": "Find your playbooks",
+    "step": "Open the analyses list",
+    "labels": [
+      "Analyses",
+      "Playbooks"
+    ],
+    "file": "images/save-a-playbook/open-the-analyses-list.png",
+    "flow": "playbooks-section"
+  },
+  {
+    "id": "save-a-playbook/click-the-name",
+    "page": "playbooks/save-a-playbook",
+    "section": "Rename a playbook",
+    "step": "Click the name",
+    "labels": [],
+    "file": "images/save-a-playbook/click-the-name.png",
+    "flow": "playbook-rename"
+  },
+  {
+    "id": "save-a-playbook/click-the-visibility-button",
+    "page": "playbooks/save-a-playbook",
+    "section": "Make a playbook public or private",
+    "step": "Click the visibility button",
+    "labels": [
+      "Private",
+      "Plan",
+      "Edit",
+      "Run"
+    ],
+    "file": "images/save-a-playbook/click-the-visibility-button.png",
+    "flow": "playbook-visibility"
+  },
+  {
+    "id": "save-a-playbook/click-edit",
+    "page": "playbooks/save-a-playbook",
+    "section": "Change a playbook with the Guide",
+    "step": "Click Edit",
+    "labels": [
+      "Playbook Edit",
+      "Created at",
+      "Docs: Inbound call volume playbook"
+    ],
+    "file": "images/save-a-playbook/click-edit.png",
+    "flow": "playbook-edit"
+  },
+  {
+    "id": "run-a-playbook/follow-the-run",
+    "page": "playbooks/run-a-playbook",
+    "section": "Run a playbook",
+    "step": "Follow the run",
+    "labels": [
+      "Guide",
+      "Insight report",
+      "Docs: Inbound call volume playbook"
+    ],
+    "file": "images/run-a-playbook/follow-the-run.png",
+    "flow": "playbook-run",
+    "note": "Framed on the finished fixture run. The canvas message \"The AI Guide is working on your first step\" is not reachable: a run analysis already holds its first step when it opens, and starting a real run for the frame leaves a run analysis in Docs that cannot be deleted without breaking the playbook's Last run link."
+  },
+  {
+    "id": "run-a-playbook/open-the-playbook-page",
+    "page": "playbooks/run-a-playbook",
+    "section": "Read the latest run report",
+    "step": "Open the playbook page",
+    "labels": [
+      "Description",
+      "Latest run report"
+    ],
+    "file": "images/run-a-playbook/open-the-playbook-page.png",
+    "flow": "playbook-page"
+  },
+  {
+    "id": "run-a-playbook/filter-and-sort-the-list",
+    "page": "playbooks/run-a-playbook",
+    "section": "Find past runs",
+    "step": "Filter and sort the list",
+    "labels": [
+      "All",
+      "All owners",
+      "Search..."
+    ],
+    "file": "images/run-a-playbook/filter-and-sort-the-list.png",
+    "flow": "playbook-past-runs-filters"
+  },
+  {
+    "id": "pin-insights/open-a-finished-report",
+    "page": "sharing/pin-insights",
+    "section": "Pin an insight",
+    "step": "Open a finished report",
+    "labels": [
+      "Guide",
+      "Insight report",
+      "Reports",
+      "Pinned"
+    ],
+    "file": "images/pin-insights/open-a-finished-report.png",
+    "flow": "pin-insights-finished-report",
+    "note": "Framed on the fixture analysis's finished report. The \"Writing\u2026\" label was dropped: it shows in the card header only while the report is still being written, and the step is about the finished card, whose header no longer carries it."
+  },
+  {
+    "id": "pin-insights/click-pinned",
+    "page": "sharing/pin-insights",
+    "section": "See only your pinned insights",
+    "step": "Click Pinned",
+    "labels": [
+      "Guide",
+      "Pinned",
+      "Pinned insights"
+    ],
+    "file": "images/pin-insights/click-pinned.png",
+    "flow": "pin-insights-pinned-filter"
+  },
+  {
+    "id": "pin-insights/check-the-insight-is-unpinned",
+    "page": "sharing/pin-insights",
+    "section": "Unpin an insight",
+    "step": "Check the insight is unpinned",
+    "labels": [
+      "Pinned"
+    ],
+    "file": "images/pin-insights/check-the-insight-is-unpinned.png",
+    "flow": "pin-insights-unpinned"
+  },
+  {
+    "id": "share-an-analysis/click-confirm",
+    "page": "sharing/share-an-analysis",
+    "section": "Make an analysis public or private",
+    "step": "Click Confirm",
+    "labels": [
+      "Cancel",
+      "Confirm",
+      "Public"
+    ],
+    "file": "images/share-an-analysis/click-confirm.png",
+    "flow": "analysis-visibility-dialog"
+  },
+  {
+    "id": "share-an-analysis/click-clone-analysis",
+    "page": "sharing/share-an-analysis",
+    "section": "Clone an analysis",
+    "step": "Click Clone Analysis",
+    "labels": [
+      "New Analysis",
+      "Clone Analysis",
+      "Delete Analysis"
+    ],
+    "file": "images/share-an-analysis/click-clone-analysis.png",
+    "flow": "analysis-clone-menu",
+    "note": "Framed on the header menu of the fixture analysis, which is the step's first variant. The \"Viewer Mode\" box and its \"Clone\" button render only for a member who does not own the analysis; the saved session owns every Docs analysis, so that variant is not reachable and those labels were replaced with the menu entries in the crop."
+  },
+  {
+    "id": "save-a-playbook/ask-the-guide-to-save-the-analysis",
+    "page": "playbooks/save-a-playbook",
+    "section": "Save a playbook from an analysis",
+    "step": "Ask the Guide to save the analysis",
+    "labels": [
+      "Playbook proposal",
+      "Pending"
+    ],
+    "file": "images/save-a-playbook/ask-the-guide-to-save-the-analysis.png",
+    "flow": "playbook-proposal",
+    "note": "Framed on the pending Playbook proposal card in the standing \"Docs: Playbook Proposal\" analysis (1276): header, proposed name, Pending badge and the opening of the description. The \"Save this as a playbook\" request sits far above the card, behind the report the Guide wrote first, so it was replaced as a label by the Pending badge inside the crop. The flow only frames a proposal for a new playbook; when the Guide proposes an update to the existing fixture playbook instead, it asks once for a standalone proposal and waits, so run the capture in the foreground."
+  }
+]
