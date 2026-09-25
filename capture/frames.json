@@ -182,19 +182,6 @@
     "flow": "report-filter"
   },
   {
-    "id": "save-a-playbook/ask-the-guide-to-save-the-analysis",
-    "page": "playbooks/save-a-playbook",
-    "section": "Save a playbook from an analysis",
-    "step": "Ask the Guide to save the analysis",
-    "labels": [
-      "Playbook proposal",
-      "Save this as a playbook"
-    ],
-    "file": "images/save-a-playbook/ask-the-guide-to-save-the-analysis.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
-  },
-  {
     "id": "save-a-playbook/open-the-analyses-list",
     "page": "playbooks/save-a-playbook",
     "section": "Find your playbooks",
@@ -352,5 +339,19 @@
     "file": "images/share-an-analysis/click-clone-analysis.png",
     "flow": "TODO",
     "todo": "write capture/flows/<name>.mjs and set flow"
+  },
+  {
+    "id": "save-a-playbook/ask-the-guide-to-save-the-analysis",
+    "page": "playbooks/save-a-playbook",
+    "section": "Save a playbook from an analysis",
+    "step": "Ask the Guide to save the analysis",
+    "labels": [
+      "Playbook proposal",
+      "Save this as a playbook"
+    ],
+    "file": "images/save-a-playbook/ask-the-guide-to-save-the-analysis.png",
+    "flow": "TODO",
+    "todo": "write capture/flows/<name>.mjs and set flow",
+    "note": "Deferred to the end: needs the pending Playbook proposal card on the standing \"Docs: Playbook Proposal\" analysis (1276), which already has the save request sent. Run the capture in the foreground and wait; do not end the iteration while it runs."
   }
 ]
