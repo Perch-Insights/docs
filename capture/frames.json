@@ -142,8 +142,7 @@
       "Update step 1"
     ],
     "file": "images/ask-questions/choose-where-it-goes.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "ask-question-query-suggestion"
   },
   {
     "id": "reports-and-insights/find-the-card",
