@@ -21,7 +21,7 @@
     ],
     "file": "images/sign-in/open-the-workspaces-panel.png",
     "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "blocked": "The Workspaces panel lists every workspace the session is a member of, including other clients' workspaces. AGENTS.md forbids screenshots of the workspace switcher panel listing other workspaces, and a flow must never switch workspaces."
   },
   {
     "id": "sign-in/click-log-out",
@@ -35,7 +35,7 @@
     ],
     "file": "images/sign-in/click-log-out.png",
     "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "blocked": "Clicking Log out signs the saved session (PERCH_DOCS_STATE) out on the server, and a flow may not sign in again. The account page also shows the member's email address, which AGENTS.md forbids in screenshots."
   },
   {
     "id": "start-an-analysis/click-new-analysis",
@@ -54,12 +54,9 @@
     "page": "analyses/start-an-analysis",
     "section": "Rename an analysis",
     "step": "Save",
-    "labels": [
-      "Enter"
-    ],
+    "labels": [],
     "file": "images/start-an-analysis/save.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "analysis-rename"
   },
   {
     "id": "start-an-analysis/click-the-star",

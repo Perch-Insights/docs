@@ -52,7 +52,8 @@ for (const frame of selected) {
     let target = await flow({ page, BASE, WORKSPACE, frame });
     // A flow may return { page, target } to frame a page it opened in another browser context, for states the
     // signed-in session cannot show (the login page redirects signed-in members). That context is closed after the shot.
-    if (target && typeof target === 'object' && 'page' in target) { shot = target.page; target = target.target ?? null; }
+    // (a Locator has a page() method, so check for a real Page object, not just the key)
+    if (target && typeof target === 'object' && target.page && typeof target.page.screenshot === 'function') { shot = target.page; target = target.target ?? null; }
     for (const label of frame.labels) {
       // on-screen text, or a field placeholder (the login fields have no label other than their placeholder)
       const loc = shot.getByText(label, { exact: false }).or(shot.getByPlaceholder(label, { exact: false })).first();
