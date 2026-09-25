@@ -167,8 +167,7 @@
       "Word Document"
     ],
     "file": "images/reports-and-insights/pick-a-format.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "report-download-menu"
   },
   {
     "id": "reports-and-insights/click-reports",
