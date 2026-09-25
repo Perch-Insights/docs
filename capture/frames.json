@@ -326,13 +326,13 @@
     "section": "Clone an analysis",
     "step": "Click Clone Analysis",
     "labels": [
-      "Clone",
+      "New Analysis",
       "Clone Analysis",
-      "Viewer Mode"
+      "Delete Analysis"
     ],
     "file": "images/share-an-analysis/click-clone-analysis.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "analysis-clone-menu",
+    "note": "Framed on the header menu of the fixture analysis, which is the step's first variant. The \"Viewer Mode\" box and its \"Clone\" button render only for a member who does not own the analysis; the saved session owns every Docs analysis, so that variant is not reachable and those labels were replaced with the menu entries in the crop."
   },
   {
     "id": "save-a-playbook/ask-the-guide-to-save-the-analysis",
