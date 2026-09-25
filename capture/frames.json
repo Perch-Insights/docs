@@ -266,8 +266,7 @@
       "Search..."
     ],
     "file": "images/run-a-playbook/filter-and-sort-the-list.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "playbook-past-runs-filters"
   },
   {
     "id": "pin-insights/open-a-finished-report",
