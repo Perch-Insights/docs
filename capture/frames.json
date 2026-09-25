@@ -222,13 +222,12 @@
     "section": "Change a playbook with the Guide",
     "step": "Click Edit",
     "labels": [
-      "Analysis plan",
-      "Edit",
-      "Playbook Edit"
+      "Playbook Edit",
+      "Created at",
+      "Docs: Inbound call volume playbook"
     ],
     "file": "images/save-a-playbook/click-edit.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "playbook-edit"
   },
   {
     "id": "run-a-playbook/follow-the-run",
