@@ -179,8 +179,7 @@
       "Reports in this conversation"
     ],
     "file": "images/reports-and-insights/click-reports.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "report-filter"
   },
   {
     "id": "save-a-playbook/ask-the-guide-to-save-the-analysis",
