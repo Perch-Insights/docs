@@ -125,8 +125,9 @@ is the shot list, `capture/flows/*.mjs` drive a signed-in browser to the documen
   a loading spinner, an empty panel, or a truncated label is a failure, not a success.
 - Fixtures: create what a frame needs (an analysis with a question answered, a finished report, a
   saved playbook with one run, a pinned insight) once, with a recognisable name prefixed `Docs:`,
-  and reuse it across frames. Record fixture names and ids in key_learnings so later iterations reuse
-  rather than recreate them. Guide answers take minutes; wait for the finished state, do not screenshot
+  and reuse it across frames. `npm run capture -- --flow _fixtures` does this and records ids and URLs in
+  `capture/fixtures.json`; frame flows read them with `loadFixtures()` from `capture/flows/_fixtures.mjs`.
+  Guide answers take minutes; wait for the finished state, do not screenshot
   the writing state unless the step is about it.
 - Data in frames is PNC demo data and is fine to show. Never include the account menu, email
   addresses, or the workspace switcher panel listing other workspaces.

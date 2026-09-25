@@ -1,2 +1,4 @@
 node_modules/
 .gnhf/
+capture/_probe*.png
+capture/_fixtures.log

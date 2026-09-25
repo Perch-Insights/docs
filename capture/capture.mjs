@@ -14,7 +14,30 @@ const state = process.env.PERCH_DOCS_STATE;
 if (!state || !fs.existsSync(state)) { console.error('PERCH_DOCS_STATE must point at the saved session file'); process.exit(2); }
 
 const frames = JSON.parse(fs.readFileSync(path.join(here, 'frames.json'), 'utf8'));
-const wanted = process.argv.slice(2);
+const args = process.argv.slice(2);
+
+// `--flow <name> [args...]` runs one flow module on its own, without a frame or a PNG, and prints what
+// it returns. Used for `_fixtures` (creates the Docs: fixtures the frames rely on) and for debugging a flow.
+const flowIdx = args.indexOf('--flow');
+if (flowIdx !== -1) {
+  const name = args[flowIdx + 1];
+  if (!name) { console.error('--flow needs a flow name'); process.exit(2); }
+  const browser = await pw.chromium.launch();
+  const ctx = await browser.newContext({ storageState: state, viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
+  const page = await ctx.newPage();
+  let code = 0;
+  try {
+    const { default: flow } = await import(path.join(here, 'flows', name + '.mjs'));
+    const result = await flow({ page, BASE, WORKSPACE, frame: { id: name, args: args.slice(flowIdx + 2) } });
+    if (result !== undefined && result !== null) console.log(JSON.stringify(result, null, 2));
+    console.log(`ok   --flow ${name}`);
+  } catch (e) {
+    code = 1; console.log(`FAIL --flow ${name}: ${e.message.split('\n')[0]}`);
+  } finally { await page.close(); await browser.close(); }
+  process.exit(code);
+}
+
+const wanted = args;
 const selected = wanted.length ? frames.filter(f => wanted.includes(f.id)) : frames;
 if (!selected.length) { console.error('no frames selected'); process.exit(2); }
 
