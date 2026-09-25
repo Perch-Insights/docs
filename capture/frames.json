@@ -1,0 +1,11 @@
+[
+  {
+    "id": "start-an-analysis/click-new-analysis",
+    "page": "analyses/start-an-analysis",
+    "section": "Start a new analysis",
+    "step": "Click New Analysis",
+    "labels": ["Analyses", "New Analysis"],
+    "file": "images/start-an-analysis/click-new-analysis.png",
+    "flow": "analyses-list"
+  }
+]
