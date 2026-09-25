@@ -209,11 +209,12 @@
     "step": "Click the visibility button",
     "labels": [
       "Private",
-      "Public"
+      "Plan",
+      "Edit",
+      "Run"
     ],
     "file": "images/save-a-playbook/click-the-visibility-button.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "playbook-visibility"
   },
   {
     "id": "save-a-playbook/click-edit",
