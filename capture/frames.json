@@ -294,8 +294,7 @@
       "Pinned insights"
     ],
     "file": "images/pin-insights/click-pinned.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "pin-insights-pinned-filter"
   },
   {
     "id": "pin-insights/check-the-insight-is-unpinned",
