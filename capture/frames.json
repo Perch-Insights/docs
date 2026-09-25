@@ -80,8 +80,7 @@
       "No Favorites"
     ],
     "file": "images/start-an-analysis/filter-by-favorite-status.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "analyses-favorite-filter"
   },
   {
     "id": "start-an-analysis/click-delete",
