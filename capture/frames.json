@@ -237,11 +237,11 @@
     "labels": [
       "Guide",
       "Insight report",
-      "The AI Guide is working on your first step"
+      "Docs: Inbound call volume playbook"
     ],
     "file": "images/run-a-playbook/follow-the-run.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "playbook-run",
+    "note": "Framed on the finished fixture run. The canvas message \"The AI Guide is working on your first step\" is not reachable: a run analysis already holds its first step when it opens, and starting a real run for the frame leaves a run analysis in Docs that cannot be deleted without breaking the playbook's Last run link."
   },
   {
     "id": "run-a-playbook/open-the-playbook-page",
