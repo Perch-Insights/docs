@@ -93,8 +93,7 @@
       "Delete Analysis"
     ],
     "file": "images/start-an-analysis/click-delete.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "analysis-delete-dialog"
   },
   {
     "id": "ask-questions/send-it",
