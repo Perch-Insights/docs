@@ -1,157 +1,114 @@
 ---
 title: "Ask the Guide a question"
-description: "Type a question in the Guide panel, answer its follow-ups, and turn its query suggestions into steps."
+description: "Type or dictate a question in the Guide panel, answer its follow-ups, and turn its query suggestions into steps."
 ---
 
-After this page you will be able to type or dictate a question in the **Guide** panel, stop the Guide while it works, answer a **Guide Question** when it needs more detail, and accept, reject, or undo a **Query Suggestion** so it becomes a step on the canvas.
+After this page you can type or dictate a question in the **Guide** panel, stop the Guide, answer a **Guide Question**, and accept, reject, or undo a **Query Suggestion** so it becomes a step on the canvas.
 
 ## Ask a question
 
-The **Guide** panel is on the right of every analysis. Before you ask anything, the conversation reads **Let's start analyzing your data.** and the cursor is already in the field at the bottom, which reads **Ask about your data...**.
+The **Guide** panel is on the right of every analysis. The field at the bottom reads **Ask about your data...**.
 
 <Steps>
   <Step title="Type your question">
-    Type in the field at the bottom of the panel. Press **Shift+Enter** to add a line break.
+    Type in the field. Press **Shift+Enter** for a line break.
   </Step>
   <Step title="Send it">
-    Press **Enter** or click the **Send** button at the right end of the field. The button stays disabled until the field contains some text. Your question appears on the right side of the conversation and the field clears.
+    Press **Enter** or click **Send**. Your question appears on the right of the conversation and the Guide's answer on the left.
   </Step>
   <Step title="Wait for the answer">
-    While the Guide works, a card with three moving dots and a short status such as **Pulling the numbers...** appears at the bottom of the conversation. Above it, a grey pill names what the Guide is doing right now. The Guide's answer appears on the left side of the conversation.
+    While the Guide works, the field is disabled and a pill names what the Guide is doing. When it finishes, click the sparkle button on the reply to open the **Thinking** dialog, which lists what the Guide did and found.
   </Step>
 </Steps>
 
-The Guide takes the step you currently have open on the canvas as the context for your question. Select a different step before you send if you want to ask about that one instead.
-
-You cannot send another message while the Guide is working. The field is disabled until the answer is complete.
-
-Long questions are cut off after a few lines. Click **Show more** under the message to read the whole thing, and **Show less** to fold it again.
-
-Once the Guide finishes, the pill turns into a small sparkle button on the card that follows it. Hover over it to see **Show thinking**, and click it to open a **Thinking** dialog that lists each thing the Guide did and what it found.
+The Guide uses the step you have open on the canvas as context. Select a different step before you send to ask about that one.
 
 ### Work with a reply
 
-Hover over a reply from the Guide to show three buttons in its bottom right corner:
+Hover over a reply to show three buttons in its bottom right corner: **Copy message**, **Give positive feedback**, and **Give negative feedback**. If the Guide attached a short feedback form to that reply, thumbs down opens it.
 
-- **Copy message** copies the reply as text. Perch confirms with **Message copied to clipboard**.
-- **Give positive feedback** and **Give negative feedback** mark the reply with a green thumbs up or a red thumbs down. If the Guide attached a short feedback form to that reply, clicking thumbs down opens it. Fill it in and click **Send**, or click **Cancel** to skip it.
-
-When the Guide names a playbook in a reply, the name is a link. Clicking it opens that playbook in a new browser tab.
-
-The **Reports** and **Pinned** buttons in the panel header narrow the conversation to the Guide's reports or to your pinned insights. See [Read reports and insights](/analyses/reports-and-insights).
+When the Guide names a playbook in a reply, the name is a link that opens the playbook in a new browser tab.
 
 ## Stop the Guide
 
-While the Guide is working, the **Send** button is replaced by a red **Stop** button.
-
-<Steps>
-  <Step title="Click Stop">
-    Click the red **Stop** button at the right end of the field.
-  </Step>
-  <Step title="Check the conversation">
-    A card reading **This message was interrupted** and **The response was stopped before it could complete.** marks the place where the Guide stopped. The field is enabled again and you can ask something else.
-  </Step>
-</Steps>
+While the Guide is working, **Send** becomes a red **Stop** button. Click it to stop the Guide. A card reading **This message was interrupted** marks where it stopped, and the field is enabled again.
 
 ## Dictate a question
 
-Instead of typing, you can speak your question and let Perch turn it into text.
-
 <Steps>
   <Step title="Start recording">
-    Click the microphone button to the left of **Send**. Hovering over it shows **Dictate your message**. Your browser asks for permission to use the microphone.
+    Click the microphone button to the left of **Send**. Your browser asks for permission to use the microphone.
   </Step>
   <Step title="Speak">
-    The field is replaced by a red recording dot, a waveform of your voice, and a timer that counts up to **2:00**. While Perch is getting ready, the bar reads **Starting speech recognition...**.
+    A red recording dot, a waveform, and a timer replace the field. Recording stops on its own at **2:00**.
   </Step>
-  <Step title="Accept or cancel">
-    Click the **Accept** button with the check mark to finish. The bar reads **Stopping transcription...** and then the text of what you said is added to the end of the field. Click the **Cancel** button with the cross to discard the recording instead.
-  </Step>
-  <Step title="Edit and send">
-    Dictation only fills the field. Read the text, fix anything that was misheard, and press **Enter** to send it.
+  <Step title="Accept, edit, and send">
+    Click **Accept** to add what you said to the end of the field, fix anything misheard, and press **Enter**. Click **Cancel** to discard the recording instead.
   </Step>
 </Steps>
 
-Recording stops on its own after two minutes and the text is added to the field as if you had clicked **Accept**.
-
-The microphone button is hidden while the Guide is working. If your browser blocks the microphone, Perch shows **Unable to access the microphone. Please check your settings & permissions, and try again.**
+The microphone button is hidden while the Guide is working.
 
 ## Answer a Guide Question
 
-Sometimes the Guide needs more detail before it can continue. When that happens, a question card takes the place of the field at the bottom of the panel. Its heading is either a title the Guide chose or **Guide Question**, and it carries a **Pending** badge. You cannot type a new message until you answer or cancel it.
+When the Guide needs more detail, a question card replaces the field, headed with a title the Guide chose or **Guide Question**. You cannot send a new message until you answer or cancel it.
 
 <Steps>
-  <Step title="Open the card">
-    If the card is collapsed, its heading also shows the first question. Click the heading to expand it.
-  </Step>
-  <Step title="Answer the question">
-    Each question is one of three kinds. Pick one option, tick one or more options, or type into a field that reads **Type your answer...**. Some choice questions end with **Other**, which opens a field reading **Please specify...** for your own answer.
+  <Step title="Answer each question">
+    Pick one option, tick one or more options, or type into the field that reads **Type your answer...**. Some choice questions end with **Other**, which opens a field reading **Please specify...**.
   </Step>
   <Step title="Move through the questions">
-    When there is more than one question, a counter under the answer reads **1 of 3** or similar, with arrows on either side. Below it, **Required** in red or **Optional** tells you whether you can leave the question blank. Click **Next** to go to the next question. **Next** stays disabled until you answer a required question. You can also press **Enter**.
+    With more than one question, a counter such as **1 of 3** appears under the answer, marked **Required** or **Optional**. Click **Next** or press **Enter**. **Next** stays disabled until you answer a required question.
   </Step>
   <Step title="Submit">
-    On the last question the button reads **Submit**. Click it to send your answers. The badge changes to **Answered**, the card moves up into the conversation, and the Guide carries on.
+    On the last question the button reads **Submit**. Click it to send your answers. The card moves up into the conversation and the Guide carries on.
   </Step>
 </Steps>
 
-To skip the whole card, click **Cancel**. The badge changes to **Cancelled** and the field returns. Click a card's heading at any time to collapse or expand it.
+To skip the whole card, click **Cancel**.
 
 ## Accept or reject a Query Suggestion
 
-When the Guide proposes a chart, it sends a **Query Suggestion** card with a title, a **Pending** badge, and a short description. The card lists what the query uses under **Metrics**, **Dimensions**, **Filters**, **Grain**, and **Dates**. Only the parts the query needs are shown.
+When the Guide proposes a chart, it sends a **Query Suggestion** card with a title, a short description, and what the query uses under **Metrics**, **Dimensions**, **Filters**, **Grain**, and **Dates**.
 
 <Steps>
-  <Step title="Read the suggestion">
-    Check the title, the description, and the pills under each heading. When a filter has more than two values, the pill shows the first two and **+ 3 more** or similar.
-  </Step>
   <Step title="Choose where it goes">
     Click one of the buttons at the bottom of the card:
 
-    - **Update step 1**, or whichever step number is shown, replaces that step's chart with the suggested query. The number is the step the Guide had in mind, or otherwise the step you have open. Perch confirms with **Proposal accepted and step updated**.
-    - **Add as New Step** adds the query as a new step at the end of the analysis and opens it. Perch confirms with **Proposal accepted and new step created**.
+    - **Update step 1**, or whichever step number is shown, replaces that step's chart with the suggested query.
+    - **Add as New Step** adds the query as a new step at the end of the analysis and opens it.
     - **Reject** turns the suggestion down.
   </Step>
   <Step title="Tell the Guide why, if you rejected it">
-    After **Reject**, a prompt reading **Why are you rejecting this query?** appears above the field. Type a reason in the field that reads **Add optional context...** and click **Send**, or click **Dismiss**. Sending any new message also closes the prompt.
+    A prompt reading **Why are you rejecting this query?** appears above the field. Type a reason and click **Send**, or click **Dismiss**.
   </Step>
 </Steps>
 
-After you decide, the badge changes to **Accepted** or **Rejected** and the card collapses. An accepted card also shows **Applied to Step 1** or the number of the step it changed. Click the card's heading to expand it again.
-
 ### Undo an update
 
-After you click **Update step**, an **Undo** button appears next to the badge. Click it to put the step's query and settings back the way they were.
+After **Update step**, an **Undo** button appears on the card for two minutes. Click it to put the step's query and settings back the way they were. The button disappears as soon as you or the Guide change that step again.
 
-<Note>
-**Undo** is available for two minutes after you accept, and only while the step still shows the suggested query. As soon as you or the Guide change that step again, the button disappears.
-</Note>
+## Good to know
 
-## What you can do in an analysis you do not own
-
-If you open an analysis that another member owns, the field at the bottom of the panel is disabled and a notice explains that the Guide is turned off in viewer mode. You can read the whole conversation, copy replies, and open the **Thinking** dialogs. You cannot send messages, stop the Guide, answer questions, or accept or reject suggestions.
-
-To ask your own questions about the same data, clone the analysis from the analyses list. The clone starts with an empty conversation.
+- Long questions are cut off after a few lines. Click **Show more** to read the whole thing.
+- In an analysis another member owns, the field is disabled and the panel shows **The AI analyst is disabled in viewer mode.** To ask your own questions, clone the analysis. See [What a viewer can do](/sharing/share-an-analysis#what-a-viewer-can-do).
 
 {/* provenance
-- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (panel header "Guide" under CHAT_AI_ACCESS; "Reports" and "Pinned" filter pills; empty state "Let's start analyzing your data."; trimmed message sent with the selected step id; input disabled while processing, while a question is open, and for non-owners; Stop calls thread.chat.stop and is owner-only; toasts "Proposal accepted and step updated" / "Proposal accepted and new step created"; new step is selected after creation; an open question set replaces the QuestionField; viewer-mode notice; RejectionFeedbackPrompt shown after a reject and dismissed on the next send; Undo wired only when a snapshot exists for the applied step)
-- perch-frontend-app: apps/www/components/ai/AIChat/useAIChatState.ts (forbidNewMessages while processing or while a question set is pending; processing indicator hidden while a question is open; the pending question set is pulled out of the conversation; guide_stopped event renders GuideStoppedCard; thread_item_created and thread_item_updated update the canvas)
-- perch-frontend-app: apps/www/components/ai/QuestionField/QuestionField.tsx (placeholder "Ask about your data..."; autofocus; Enter sends, Shift+Enter adds a line; "Send" disabled when empty; "Stop" replaces Send while processing; mic button with title "Dictate your message" hidden while processing; recording view with red dot, waveform, "Starting speech recognition...", "Waiting for audio input...", "Stopping transcription...", elapsed time against a 2:00 cap, "Cancel" and "Accept" buttons; transcript appended to the field)
-- perch-frontend-app: apps/www/hooks/useStt.ts (getUserMedia microphone prompt; toast "Unable to access the microphone. Please check your settings & permissions, and try again."; recording finalizes on its own past the time limit; cancel discards the transcript)
-- perch-frontend-app: apps/www/components/ai/UserMessage/UserMessage.tsx (user messages on the right; "Show more" / "Show less" for long messages)
-- perch-frontend-app: apps/www/components/ai/AIMessage/AIMessage.tsx (Guide replies on the left; hover buttons "Copy message", "Give positive feedback", "Give negative feedback"; toast "Message copied to clipboard"; feedback buttons owner-only; negative feedback opens AiMessageFeedbackModal when the reply carries a feedbackSchema)
-- perch-frontend-app: apps/www/components/ai/AIMessage/AiMessageFeedbackModal.tsx (feedback dialog with "Send" and "Cancel")
-- perch-frontend-app: apps/www/components/ai/AIChat/ProcessingIndicator.tsx (three dots with rotating status text such as "Pulling the numbers...")
-- perch-frontend-app: apps/www/components/ai/ToolMessage/ToolCallsGroup.tsx (running pill shows the current tool description; idle "Show thinking" sparkle button; "Thinking" dialog listing descriptions and results)
-- perch-frontend-app: apps/www/components/ai/AIChat/GuideStoppedCard.tsx ("This message was interrupted" / "The response was stopped before it could complete.")
-- perch-frontend-app: apps/www/components/ai/ChatMessageAnchor/ChatMessageAnchor.tsx (playbook resource links open the playbook in a new tab; other links render as plain text)
-- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Query Suggestion" header with title, description, and status badge Pending / Accepted / Rejected / Revised; "Applied to Step N"; sections Metrics, Dimensions, Filters, Grain, Dates; filter pills show two values then "+ N more"; buttons "Update step N", "Add as New Step", "Reject"; target step is the Guide's default or the selected step; card collapses on accept or reject; "Undo" shown only while the step's query still equals the proposal)
-- perch-frontend-app: apps/www/components/ai/AIChat/useStepUpdateUndoCache.ts (snapshot taken only for step updates; two-minute undo window; undo restores query, settings, columns, sorting, and compare options)
-- perch-frontend-app: apps/www/components/ai/RejectionFeedbackPrompt/RejectionFeedbackPrompt.tsx ("Why are you rejecting this query?"; placeholder "Add optional context..."; "Dismiss" and "Send")
-- perch-frontend-app: apps/www/components/ai/AIChat/UserQuestionCard.tsx (title or "Guide Question"; badges Pending / Answered / Skipped / Cancelled; collapsed header appends the first prompt; single select, multi select, and free text with placeholder "Type your answer..."; "1 of N" counter with arrows; "Required" in red or "Optional"; "Next" then "Submit"; Enter triggers the primary button; "Cancel"; disabled for non-owners)
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (panel header "Guide"; message sent with the selected step id; input disabled while processing, while a question is open, and for non-owners; Stop calls thread.chat.stop and is owner-only; new step is selected after creation; an open question set replaces the QuestionField; viewer-mode notice "The AI analyst is disabled in viewer mode. You may clone this thread to ask questions about the data..."; RejectionFeedbackPrompt shown after a reject; Undo wired only when a snapshot exists for the applied step)
+- perch-frontend-app: apps/www/components/ai/AIChat/useAIChatState.ts (forbidNewMessages while processing or while a question set is pending; the pending question set is pulled out of the conversation; guide_stopped event renders GuideStoppedCard; thread_item_created and thread_item_updated update the canvas)
+- perch-frontend-app: apps/www/components/ai/QuestionField/QuestionField.tsx (placeholder "Ask about your data..."; Enter sends, Shift+Enter adds a line; "Send" button; "Stop" replaces Send while processing; mic button hidden while processing; recording view with red dot, waveform, and elapsed time against a 2:00 cap; "Cancel" and "Accept" buttons; transcript appended to the field)
+- perch-frontend-app: apps/www/hooks/useStt.ts (getUserMedia microphone prompt; recording finalizes on its own past the time limit; cancel discards the transcript)
+- perch-frontend-app: apps/www/components/ai/UserMessage/UserMessage.tsx (user messages on the right; "Show more" for long messages)
+- perch-frontend-app: apps/www/components/ai/AIMessage/AIMessage.tsx (Guide replies on the left; hover buttons "Copy message", "Give positive feedback", "Give negative feedback"; negative feedback opens AiMessageFeedbackModal when the reply carries a feedbackSchema)
+- perch-frontend-app: apps/www/components/ai/ToolMessage/ToolCallsGroup.tsx (running pill shows the current tool description; idle sparkle button; "Thinking" dialog listing descriptions and results)
+- perch-frontend-app: apps/www/components/ai/AIChat/GuideStoppedCard.tsx ("This message was interrupted")
+- perch-frontend-app: apps/www/components/ai/ChatMessageAnchor/ChatMessageAnchor.tsx (playbook resource links open the playbook in a new tab)
+- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Query Suggestion" header with title and description; sections Metrics, Dimensions, Filters, Grain, Dates; buttons "Update step N", "Add as New Step", "Reject"; "Undo" shown only while the step's query still equals the proposal)
+- perch-frontend-app: apps/www/components/ai/AIChat/useStepUpdateUndoCache.ts (snapshot taken only for step updates; two-minute undo window; undo restores query and settings)
+- perch-frontend-app: apps/www/components/ai/RejectionFeedbackPrompt/RejectionFeedbackPrompt.tsx ("Why are you rejecting this query?"; "Dismiss" and "Send")
+- perch-frontend-app: apps/www/components/ai/AIChat/UserQuestionCard.tsx (title or "Guide Question"; single select, multi select, and free text with placeholder "Type your answer..."; "1 of N" counter; "Required" or "Optional"; "Next" then "Submit"; Enter triggers the primary button; "Cancel"; disabled for non-owners)
 - perch-frontend-app: packages/kit/components/RadioGroup/RadioGroup.tsx and packages/kit/components/CheckboxGroup/CheckboxGroup.tsx ("Other" option with placeholder "Please specify..." when the question allows a custom answer)
 - perch-frontend-app: apps/www/components/pages/ChatThreadPage/ChatThreadPage.tsx (Guide panel on the right of the canvas; the selected step is passed to the Guide panel)
-- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadListTable.tsx and apps/www/components/ai/ThreadHeader/ThreadHeaderMenu.tsx ("Clone Analysis" button on every row and in the analysis header menu)
 - perch-frontend-app: apps/bff/router/thread.chat.sendMessage.ts (owner-only; the selected step becomes the Guide's context focus)
 - perch-frontend-app: apps/bff/router/thread.chat.stop.ts (owner-only stop)
 - perch-frontend-app: apps/bff/router/thread.chat.respondToProposal.ts (accept with a step to replace, or accept as a new step, or reject with an optional reason)
