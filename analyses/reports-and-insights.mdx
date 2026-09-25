@@ -3,16 +3,119 @@ title: "Read reports and insights"
 description: "Read an insight report the Guide writes, review each insight, give feedback, and download the report."
 ---
 
-After this page you will be able to recognize an **Insight report** card in an analysis, expand it to read the summary and each insight, tell monitoring, tracking, and investigation insights apart, copy or vote on an insight or the whole report, and download the report as Markdown, plain text, a Word document, or a PDF.
+After this page you will be able to recognize an **Insight report** card in an analysis, expand it to read the summary and each insight, tell **Monitoring**, **Tracking**, and **Investigation** insights apart, copy or vote on an insight or the whole report, download the report as a Markdown, plain text, Word, or PDF file, and narrow the conversation to just its reports.
 
-{/* TODO fill */}
+## Read a report
+
+When the Guide runs an analysis for you, it writes the result up as an insight report. The report appears as a card in the **Guide** panel, in the place in the conversation where the Guide produced it.
+
+<Steps>
+  <Step title="Find the card">
+    Look for a card with a document icon whose header reads **Insight report** above the report's title. The header is grey and the card is open by default, so the body is already visible below it.
+  </Step>
+  <Step title="Wait for the Guide to finish">
+    While the Guide is still writing, the header reads **Writing…** next to a spinner and the bottom of the card reads **Writing the report...**. Insights appear one at a time as the Guide finishes each one. The summary and the buttons at the bottom of the card appear once the report is complete.
+  </Step>
+  <Step title="Read the summary and the insights">
+    The body starts with a one-sentence summary of the whole report. Below it, each insight is its own card with a title, a type badge, and the insight text. An insight you have pinned also carries a **Pinned** badge and a colored bar down its left edge.
+  </Step>
+  <Step title="Collapse it when you are done">
+    Click the card's header to collapse it to the title line. Click the header again to expand it.
+  </Step>
+</Steps>
+
+A finished report does not change. If you ask the Guide to change a report, the Guide writes a new report as a new card, and the earlier one stays in the conversation as it was.
+
+## Tell the insight types apart
+
+Each insight carries one of three badges that tells you what kind of finding it is:
+
+- **Monitoring** insights, with an eye icon, report the recurring health of a metric or how a rate is moving.
+- **Tracking** insights, with a dashboard icon, follow items over time against a target.
+- **Investigation** insights, with a document icon, dig into the root cause of something that changed.
+
+## Copy or vote on an insight
+
+Every insight card has a row of buttons along its bottom edge. Hover over a button to see its name.
+
+- **Copy insight** copies the insight's title and text. Perch confirms with **Insight copied to clipboard**.
+- **Give positive feedback** and **Give negative feedback** mark the insight with a green thumbs up or a red thumbs down. Clicking the other thumb replaces your vote.
+- **Pin insight** at the right end of the row keeps the insight in front of the Guide for the rest of the analysis. It appears only on a finished report in an analysis you own. See [Pin insights](/sharing/pin-insights).
+
+## Copy, vote on, or download a whole report
+
+Once the report is complete, a row of buttons appears at the bottom right of the report card, below the last insight. Hover over a button to see its name.
+
+- **Copy report** copies the whole report as text, including the title and every insight. Perch confirms with **Message copied to clipboard**.
+- **Give positive feedback** and **Give negative feedback** mark the report with a green thumbs up or a red thumbs down. These two buttons appear only in an analysis you own. Voting on the report does not vote on any of its insights, and the other way round.
+- **Download report** opens a menu of file formats.
+
+### Download a report
+
+<Steps>
+  <Step title="Open the download menu">
+    Click **Download report** at the right end of the button row. The button stays disabled until the first file is ready.
+  </Step>
+  <Step title="Pick a format">
+    The menu lists **Markdown**, **Plain Text**, **Word Document**, and **PDF Document**. Perch prepares each file separately after the report is finished, so a format that is not ready yet is greyed out until its file is finished.
+  </Step>
+  <Step title="Save the file">
+    Click a format. The file downloads through a new browser tab with the name `insight-report` and the extension for that format, such as `insight-report.pdf`.
+  </Step>
+</Steps>
+
+## See only the reports in an analysis
+
+The **Reports** button in the **Guide** panel header shows how many reports the conversation contains. Use it to skip past the questions and replies.
+
+<Steps>
+  <Step title="Click Reports">
+    Click **Reports** in the panel header. Hovering over it first shows **Filter to reports**. The button turns solid and the heading **Reports in this conversation** appears above the list.
+  </Step>
+  <Step title="Open the report you want">
+    In this view every report card starts collapsed, so you see one title line per report. Click a header to expand that report.
+  </Step>
+  <Step title="Go back to the full conversation">
+    Click **Show full conversation** next to the heading, or click **Reports** again.
+  </Step>
+</Steps>
+
+If the conversation has no reports yet, the list reads **No reports yet. Run an analysis and it will show up here.** While the Guide is working, it reads **Working on it — new reports will appear here.** instead.
+
+<Note>
+Sending a new message, or answering or cancelling a **Guide Question**, returns the panel to the full conversation.
+</Note>
+
+The **Pinned** button next to **Reports** works the same way for pinned insights. See [Pin insights](/sharing/pin-insights).
+
+The **Reports** column in the analyses list shows the same count for each analysis. See [Start an analysis](/analyses/start-an-analysis).
+
+## What you can do in an analysis you do not own
+
+In an analysis another member owns, you can read, expand, and collapse every report, copy a report or an insight, and download the report in any format. The thumbs up and thumbs down buttons on the report are hidden, and there is no **Pin insight** button.
+
+<Warning>
+The thumbs up and thumbs down buttons on each insight still appear in an analysis you do not own, but Perch saves votes only from the owner. A vote you give there is not kept.
+</Warning>
 
 {/* provenance
-- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report" card; "Writing…" while streaming; summary; "Copy report"; thumbs up and down for the owner; "Download report" menu built from the available formats)
-- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx (one card per insight with a Monitoring, Tracking, or Investigation badge; "Copy insight"; "Give positive feedback" and "Give negative feedback")
-- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx ("Reports" filter pill narrows the chat to reports)
-- perch-frontend-app: apps/www/components/ai/AIChat/FilteredReportList.tsx ("Reports in this conversation"; "No reports yet. Run an analysis and it will show up here.")
-- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadListTable.tsx ("Reports" column counts reports per thread)
-- perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md (report model: title, description, sections with type monitoring | tracking | investigation, summary, suggested actions; reports stream section by section; download formats Markdown, Plain Text, Word Document, PDF Document; reports are immutable once finalized)
-- perch-backend-stack: apps/guide-web/docs/integration/insight-feedback-fe-integration.md (thumbs up or down, copied, and downloaded signals at report and section grain)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report" header with document icon, title, and "N pinned" line; "Writing…" spinner in the header and "Writing the report..." in the body until isFinal; header click toggles expanded; summary paragraph then one SectionSubcard per insight; when final, "Copy report" copies the report markdown with toast "Message copied to clipboard", owner-only "Give positive feedback" / "Give negative feedback" coloured green or red, and "Download report" menu disabled until at least one presentation is ready; one MenuItem per format label, disabled while that format has no presentation or no URL yet; download opens in a new tab as `insight-report.<format>`; pinning enabled only when the report is final and the member owns the analysis)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx (one card per insight with title, Monitoring / Tracking / Investigation badge with eye, dashboard, or document icon, "Pinned" badge and left border when pinned, insight text; buttons "Copy insight" copying "## title" plus content with toast "Insight copied to clipboard", "Give positive feedback" and "Give negative feedback" coloured green or red; "Pin insight" / "Unpin insight" shown only when canPin)
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (panel header "Guide" with "Reports" and "Pinned" filter pills and their counts; filter heading "Reports in this conversation" / "Pinned insights" with a "Show full conversation" button; the filter resets to the full conversation on send, on answering a question, and on cancelling a question; InsightReportCard rendered in place in the conversation)
+- perch-frontend-app: apps/www/components/ai/AIChat/ChatFilterPill.tsx (pill with label, count, solid style when active, and tooltips "Filter to reports" / "Show full conversation")
+- perch-frontend-app: apps/www/components/ai/AIChat/FilteredReportList.tsx (reports listed collapsed in the Reports filter; empty states "No reports yet. Run an analysis and it will show up here.", "Loading reports…", and "Working on it — new reports will appear here.")
+- perch-frontend-app: apps/www/components/ai/AIChat/useAIChatState.ts (report snapshots replace the card with the same artifact id; a different artifact id becomes a new card; ready download formats are appended per report; report and insight votes and pin state are folded into the card)
+- perch-frontend-app: apps/www/components/ai/AIChat/types.ts (insight report message carries title, summary, report text, sections with a type, isFinal, presentations, and the last vote per report and per section)
+- perch-frontend-app: packages/schemas/ThreadChat.ts (insight report event fields; a section has only sectionId, order, title, content, and type)
+- perch-frontend-app: apps/bff/lib/guide/chat-client.ts (isFinal is true once the report has a non-zero insight count; sections sorted by order; only ready presentations are forwarded to the UI)
+- perch-frontend-app: apps/www/hooks/useGuidePresentationFormats.ts and apps/bff/router/guide.getPresentationFormats.ts (download menu labels come from the Guide's format list)
+- perch-frontend-app: apps/bff/router/guide.downloadPresentation.ts (download URL available to the owner or to any member when the analysis is not private)
+- perch-frontend-app: apps/www/pages/api/insight-report-download/index.ts (file served as an attachment with the `insight-report.<format>` file name)
+- perch-frontend-app: packages/kit/components/Menu/Menu.tsx (menu items with hrefTargetBlank open in a new tab)
+- perch-frontend-app: packages/kit/components/IconButton/IconButton.tsx (button names are native title tooltips shown on hover)
+- perch-frontend-app: apps/bff/router/thread.chat.sendArtifactFeedback.ts and apps/bff/router/thread.chat.sendSectionFeedback.ts (report and insight votes and copy signals are accepted only from the owner of the analysis)
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadListTable.tsx ("Reports" column counts reports per analysis)
+- perch-backend-stack: libs/presentations/src/presentations/renderers.py and libs/chat/src/chat/events/presentations.py (format labels Markdown, Plain Text, Word Document, PDF Document; PowerPoint is a hidden format and never listed)
+- perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md (reports stream section by section and are complete once the summary and insight count are set; meaning of the monitoring, tracking, and investigation types; one downloadable file per format prepared after the report is created, each becoming ready independently; reports are immutable once finalized and a requested modification produces a new report)
+- perch-backend-stack: apps/guide-web/docs/integration/insight-feedback-fe-integration.md (a new rating replaces the previous one; report-level and section-level feedback are independent)
 */}
