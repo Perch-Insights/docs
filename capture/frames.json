@@ -153,8 +153,7 @@
       "Insight report"
     ],
     "file": "images/reports-and-insights/find-the-card.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "report-card"
   },
   {
     "id": "reports-and-insights/pick-a-format",
