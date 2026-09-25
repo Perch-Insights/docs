@@ -101,12 +101,10 @@
     "section": "Ask a question",
     "step": "Send it",
     "labels": [
-      "Enter",
       "Send"
     ],
     "file": "images/ask-questions/send-it.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "ask-question-send"
   },
   {
     "id": "ask-questions/accept-edit-and-send",

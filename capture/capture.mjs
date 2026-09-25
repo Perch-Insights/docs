@@ -55,8 +55,10 @@ for (const frame of selected) {
     // (a Locator has a page() method, so check for a real Page object, not just the key)
     if (target && typeof target === 'object' && target.page && typeof target.page.screenshot === 'function') { shot = target.page; target = target.target ?? null; }
     for (const label of frame.labels) {
-      // on-screen text, or a field placeholder (the login fields have no label other than their placeholder)
-      const loc = shot.getByText(label, { exact: false }).or(shot.getByPlaceholder(label, { exact: false })).first();
+      // on-screen text, a field placeholder (the login fields have no label other than their placeholder), or an
+      // accessible name (icon-only buttons such as the composer's Send carry their label as aria-label)
+      const loc = shot.getByText(label, { exact: false }).or(shot.getByPlaceholder(label, { exact: false }))
+        .or(shot.getByLabel(label, { exact: true })).first();
       if (!(await loc.isVisible().catch(() => false))) throw new Error(`required label not visible: "${label}"`);
     }
     const out = path.join(repo, frame.file);
