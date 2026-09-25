@@ -21,7 +21,7 @@ Each page ends with a provenance block, an MDX comment listing the sources it wa
 
 ```
 {/* provenance
-- perch-frontend-app: apps/www/components/ai/ThreadHeader.tsx (defaultMessage "New thread")
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx ("New Analysis" button)
 - perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md
 */}
 ```
@@ -32,8 +32,8 @@ A page with no provenance block is not finished.
 
 1. **Typed contracts** (authoritative, cannot drift from code):
    `~/workspace/perchinsights/perch-frontend-app` on `develop`: `apps/www` is the UI
-   (`pages/` and `components/` are the screens; the English UI strings are the react-intl
-   `defaultMessage` values inline in `components/**`, and `lang/pt-BR.json` is the translation); `apps/bff` is the
+   (`pages/` are the routes and `components/` the screens; English UI strings are plain JSX string
+   literals in the component `.tsx` files, so cite the component file for any on-screen label); `apps/bff` is the
    tRPC layer (`router/<domain>.<action>.ts`) with Prisma at `apps/bff/prisma/schema.prisma`.
    `~/workspace/perchinsights/perch-backend-stack` on `develop`: `apps/guide-web` is the Guide
    HTTP service.
@@ -50,7 +50,9 @@ Read-only. Never modify these repositories.
 Use the product's words. Do not invent synonyms.
 
 - **Guide**: Perch's AI analyst. Users chat with it. Never "the AI", "the bot", "the assistant".
-- **Thread**: a conversation with the Guide. A thread can pin and run a playbook.
+- **Thread**: a conversation with the Guide. A thread can pin and run a playbook. The UI labels
+  threads **Analyses** ("New Analysis", "All Analyses"). Bold the on-screen label exactly as shown,
+  and call the object a thread in prose.
 - **Playbook**: a reusable, parameterized analysis the Guide can run again.
 - **Run**: one execution of a playbook. "Last run report" is the latest run by creation date.
 - **Analysis**: a unit of analytical output. It can become the first run of a playbook.
@@ -99,6 +101,14 @@ Do not document, in this cut:
 - Relative links between pages, never absolute URLs to the docs site.
 - Screenshots go under `images/` with a descriptive file name. Only add screenshots that already
   exist in this repo; never generate placeholder images.
+
+## Working notes from earlier runs
+
+- `perch-backend-stack` may be checked out on a feature branch. Read its integration docs from
+  `develop` with `git -C <repo> show develop:apps/guide-web/docs/integration/<file>`.
+- Backend-only features with no UI affordance are not documented: file uploads, pinning a report to a
+  playbook page. Flag-gated features (share link, SSO login, Guide demo tab) are out of the first cut.
+- Run one shell command per call. Compound commands joined with `&&` or `;` are refused in the run.
 
 ## Verification before claiming success
 
