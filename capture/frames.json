@@ -276,11 +276,12 @@
     "labels": [
       "Guide",
       "Insight report",
-      "Writing\u2026"
+      "Reports",
+      "Pinned"
     ],
     "file": "images/pin-insights/open-a-finished-report.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "pin-insights-finished-report",
+    "note": "Framed on the fixture analysis's finished report. The \"Writing\u2026\" label was dropped: it shows in the card header only while the report is still being written, and the step is about the finished card, whose header no longer carries it."
   },
   {
     "id": "pin-insights/click-pinned",
