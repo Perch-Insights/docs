@@ -5,19 +5,134 @@ description: "Make an analysis public to your workspace, understand what viewers
 
 After this page you will be able to switch an analysis between **Private** and **Public**, know what a viewer sees when they open your analysis, clone an analysis with **Clone Analysis** to make your own copy, and make a playbook public or private from its page.
 
-{/* TODO fill */}
+## Who can see an analysis
+
+Every analysis you start is private. A private analysis appears only on your own analyses list, and only you can open it. A member who follows a link to it sees **Sorry, you do not have access to this analysis. Please contact the owner to grant you access.** with a **Return to Home** button.
+
+A public analysis appears on the analyses list of every member of the workspace. Any member can open it, but only as a viewer. You stay the owner, and your name stays in the **Owner** column.
+
+## Make an analysis public or private
+
+Only the owner of an analysis can change this setting. Other members do not see the button.
+
+<Steps>
+  <Step title="Open an analysis you own">
+    In the header at the top of the analysis, next to the favorite star, find the button that reads **Private** with a lock icon. Hovering over it shows **Make analysis public**.
+  </Step>
+  <Step title="Click Private">
+    A dialog titled **Make Analysis public** opens and reads **All users with access to this workspace will be able to view this analysis**.
+  </Step>
+  <Step title="Click Confirm">
+    Click **Confirm**, or **Cancel** to leave the analysis private. After you confirm, the message **Analysis status updated** appears and the button turns green and reads **Public** with an open lock icon.
+  </Step>
+</Steps>
+
+To make the analysis private again, click **Public**. Hovering over it shows **Make analysis private**. There is no confirmation dialog this time. The button reads **Private** again and the message **Analysis status updated** appears.
+
+<Note>
+Making an analysis private takes effect at once. It disappears from other members' analyses lists, and a member who opens a link to it sees the access message above.
+</Note>
+
+## What a viewer can do
+
+When you open an analysis that another member made public, you are a viewer. The header shows a **Viewer** badge with an info icon. Hovering over it explains that you can make changes during this session but they will not be saved, and that you can create a clone from the menu at the top right of the page to keep your own changes.
+
+A **Viewer Mode** box also appears in the middle of the canvas with the same explanation and two buttons. **Clone** opens the clone dialog described below. **Dismiss** closes the box for this visit. It appears again the next time you open the analysis.
+
+As a viewer you can:
+
+- Read every step, and change the query and chart settings on a step to explore. Nothing you change is saved, and the owner and other viewers do not see your changes.
+- Read the whole conversation with the Guide, including its reports and insights.
+- Add the analysis to your favorites with the star in the header. Favorites are your own and do not affect the owner.
+- Clone the analysis with **Clone Analysis** to get a copy you own.
+
+As a viewer you cannot:
+
+- Rename the analysis, rename a step, duplicate a step, add a step, mark a step as a draft, or delete a step. Those controls are not shown.
+- Send a message to the Guide, stop it, answer a Guide Question, or accept a Query Suggestion. The Guide panel shows a notice that the Guide is disabled in viewer mode, and the message field is disabled. See [What you can do in an analysis you do not own](/analyses/ask-questions#what-you-can-do-in-an-analysis-you-do-not-own).
+- Change the **Private** or **Public** setting, or delete the analysis. Those controls are not shown.
+
+## Clone an analysis
+
+Cloning creates a new analysis that you own, with the same steps as the original. You can clone any analysis you can open, whether or not you own it.
+
+<Steps>
+  <Step title="Click Clone Analysis">
+    Do one of the following:
+
+    - In an open analysis, click the menu button at the top right of the header and choose **Clone Analysis**.
+    - On the analyses list, click the **Clone Analysis** button at the right end of the analysis's row.
+    - As a viewer, click **Clone** in the **Viewer Mode** box.
+  </Step>
+  <Step title="Name the copy">
+    A dialog titled **Create a Copy of this Analysis** opens. The **Analysis Name** field is filled in with **Copy of** followed by the original name, and the text is selected so you can type over it. The name can be up to 255 characters, cannot be only spaces, and must differ from the original name.
+
+    If you do not own the original, the dialog also reminds you that any changes you made as a viewer will not carry over. The copy reflects the last version the owner saved.
+  </Step>
+  <Step title="Click Clone">
+    The message **Analysis cloned successfully** appears and the copy opens. From the analyses list it opens in the current tab. From an open analysis it opens in a new browser tab, on the same step you were viewing.
+  </Step>
+</Steps>
+
+If another analysis in the workspace already has the name you chose, the message **Title must be unique** appears and nothing is created. Names are compared without regard to case. Any other problem shows **An unexpected error occurred**.
+
+The copy:
+
+- Belongs to you. The analyses list shows **You** as its owner.
+- Is private until you make it public.
+- Has the same steps in the same order, with their titles, queries, chart settings, and draft marks.
+- Starts with a fresh conversation. The original's conversation with the Guide does not carry over.
+
+## Delete an analysis
+
+Only the owner can delete an analysis.
+
+<Steps>
+  <Step title="Click Delete Analysis">
+    In an open analysis, click the menu button at the top right of the header and choose **Delete Analysis**. On the analyses list, click the trash button at the right end of the analysis's row instead. Hovering over it shows **Delete Analysis**.
+  </Step>
+  <Step title="Confirm">
+    A dialog titled **Delete Analysis** reads **This analysis will be permanently deleted**. Click **Delete**, or **Cancel** to keep it.
+  </Step>
+</Steps>
+
+The message **Analysis deleted** appears. If you were inside the analysis, Perch returns you to the analyses list. If the deletion fails, the message **Failed to delete analysis** appears and the analysis stays.
+
+<Warning>
+Deleting cannot be undone. Clone the analysis first if you want to keep a copy.
+</Warning>
+
+## Make a playbook public or private
+
+A playbook page has the same **Private** and **Public** button, shown only to the playbook's owner. A private playbook is visible only to you. A public playbook is visible to every member of the workspace. See [Make a playbook public or private](/playbooks/save-a-playbook#make-a-playbook-public-or-private).
 
 {/* provenance
+- perch-frontend-app: apps/bff/prisma/models/Thread.prisma (isPrivate defaults to true, so every new analysis starts private)
+- perch-frontend-app: apps/bff/router/thread.createBlank.ts (a new analysis is created without overriding the private default)
+- perch-frontend-app: apps/bff/router/thread.findMany.ts (the analyses list returns public analyses plus the member's own private ones)
+- perch-frontend-app: apps/www/components/ai/ThreadPageWrapper/ThreadPageWrapper.tsx (a non-owner opening a private analysis sees "Sorry, you do not have access to this analysis. Please contact the owner to grant you access." with "Return to Home")
 - perch-frontend-app: apps/www/components/ai/ThreadHeader/PrivateButton.tsx (owner only Private / Public toggle; "Analysis status updated")
-- perch-frontend-app: apps/www/components/ai/VisibilityToggleButton/VisibilityToggleButton.tsx ("Make analysis public" confirmation: "All users with access to this workspace will be able to view this analysis")
+- perch-frontend-app: apps/www/components/ai/VisibilityToggleButton/VisibilityToggleButton.tsx (Private with lock icon and Public with unlock icon in green; tooltips "Make analysis public" / "Make analysis private"; "Make Analysis public" confirmation with "All users with access to this workspace will be able to view this analysis" and Confirm; no confirmation when making private)
+- perch-frontend-app: packages/kit/components/Dialog/Dialog.tsx (ConfirmationDialog Cancel button)
 - perch-frontend-app: apps/bff/router/thread.togglePrivate.ts (only the author can change privacy)
-- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx ("Viewer" badge for non owners: changes are not saved; clone to keep your own changes)
-- perch-frontend-app: apps/www/components/ai/ThreadCanvas/ViewOnlyPopup.tsx ("Viewer Mode")
-- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (viewer notice: the Guide is disabled in viewer mode; clone the thread to ask questions)
-- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeaderMenu.tsx (menu items "New Analysis", "Clone Analysis", "Delete Analysis"; "Copy Share Link" only under CHAT_AI_SHARE_BUTTON)
-- perch-frontend-app: apps/www/components/ai/CloneThreadForm/CloneThreadForm.tsx ("Create a Copy of this Analysis"; default name "Copy of <title>"; title must be unique)
-- perch-frontend-app: apps/bff/router/thread.createCopy.ts (a clone starts private and belongs to the member who cloned it)
-- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadListTable.tsx ("Clone Analysis" and "Delete Analysis" actions on each row)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx ("Viewer" badge with info icon and tooltip for non-owners; rename only for the owner; favorite star and header menu for everyone; PrivateButton only for the owner)
+- perch-frontend-app: apps/bff/router/thread.toggleFavorite.ts (favorite stored per member, so a viewer's favorite does not affect the owner)
+- perch-frontend-app: apps/www/components/ai/ThreadCanvas/ViewOnlyPopup.tsx ("Viewer Mode" box: edits are not saved, clone to keep your own copy; Clone and Dismiss buttons)
+- perch-frontend-app: apps/www/components/pages/ChatThreadPage/ChatThreadPage.tsx (Viewer Mode dismissal is page state, so the box returns on the next visit)
+- perch-frontend-app: apps/www/components/ai/ThreadCanvas/ThreadCanvas.tsx (step rename, Duplicate Analysis Step, and the More Options menu with Add a step, Mark as draft, and Delete are owner only; Viewer Mode box shown to non-owners)
+- perch-frontend-app: apps/www/components/ai/ThreadCanvas/useQueryBuilder.tsx (viewer query changes are applied locally and only saved when the member is the owner)
+- perch-frontend-app: apps/bff/router/thread.item.update.ts (step updates are saved only for the analysis author)
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (viewer notice: the Guide is disabled in viewer mode; message field and Stop disabled for non-owners)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeaderMenu.tsx (menu items "New Analysis", "Clone Analysis", and owner-only "Delete Analysis"; "Copy Share Link" only under CHAT_AI_SHARE_BUTTON and not documented)
+- perch-frontend-app: apps/www/components/ai/CloneThreadForm/CloneThreadForm.tsx ("Create a Copy of this Analysis"; "Analysis Name" field prefilled with "Copy of <title>", auto-selected, 255 characters; "Should not contain only spaces." and "Title must be different from the original." validation; non-owner note that viewer changes do not carry over; Clone button; "Analysis cloned successfully"; opens in the current tab from the list and a new tab from an analysis, keeping the step; "Title must be unique"; "An unexpected error occurred")
+- perch-frontend-app: packages/kit/components/Form/Form.tsx (form Cancel button)
+- perch-frontend-app: apps/bff/router/thread.createCopy.ts (workspace-wide case-insensitive title uniqueness; the clone is private and belongs to the member who cloned it; the Guide conversation is not copied)
+- perch-frontend-app: apps/bff/data/cloneHelpers.ts (steps are copied in order with title, query, chart settings, and draft state)
+- perch-frontend-app: apps/bff/lib/guide/internal/client-http.ts (cloneThread call with includeConversation false)
+- perch-backend-stack: apps/guide-web/src/guide_web/routers/threads.py (clone endpoint: conversation is opt-in and not included by the clone)
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadListTable.tsx ("Clone Analysis" button on every row and owner-only "Delete Analysis" trash button)
+- perch-frontend-app: apps/www/components/ai/DeleteThreadModal/DeleteThreadModal.tsx ("Delete Analysis" dialog with "This analysis will be permanently deleted", Delete button, "Analysis deleted", return to the analyses list, "Failed to delete analysis")
+- perch-frontend-app: apps/bff/router/thread.delete.ts (only the author can delete)
 - perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookVisibilityButton.tsx (owner only Private / Public toggle on a playbook; "Playbook visibility updated")
 - perch-backend-stack: apps/guide-web/docs/integration/user-ownership.md (private playbooks are visible only to their owner; public playbooks are visible to the whole workspace)
 */}
