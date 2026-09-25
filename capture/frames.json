@@ -305,8 +305,7 @@
       "Pinned"
     ],
     "file": "images/pin-insights/check-the-insight-is-unpinned.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "pin-insights-unpinned"
   },
   {
     "id": "share-an-analysis/click-confirm",
