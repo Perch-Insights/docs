@@ -58,6 +58,14 @@ export async function openAnalysis(page, BASE, WORKSPACE, id) {
   // the composer holds Send, or Stop while the Guide works, or a Guide Question card with Submit/Next
   await page.getByRole('button', { name: /^(Send|Stop|Submit|Next)$/ }).first().waitFor({ timeout: MIN });
   await page.waitForTimeout(3000); // history replay
+  // Every fixture analysis has a conversation. The panel's empty state after the replay window means the history
+  // never arrived, which is the Guide service on demo failing (its BFF routes answer 500), not a flow bug.
+  const empty = page.getByText("Let's start analyzing your data.", { exact: true });
+  if (await empty.isVisible().catch(() => false)) {
+    await empty.waitFor({ state: 'hidden', timeout: 30_000 }).catch(() => {
+      throw new Error(`analysis ${id} shows no conversation: the Guide history did not load (is the demo Guide service down? try --flow _probe thread <url>)`);
+    });
+  }
 }
 
 async function createAnalysis(page, BASE, WORKSPACE, title) {

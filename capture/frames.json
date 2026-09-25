@@ -112,13 +112,11 @@
     "section": "Dictate a question",
     "step": "Accept, edit, and send",
     "labels": [
-      "Accept",
-      "Cancel",
-      "Enter"
+      "Accept recording",
+      "Cancel recording"
     ],
     "file": "images/ask-questions/accept-edit-and-send.png",
-    "flow": "TODO",
-    "todo": "write capture/flows/<name>.mjs and set flow"
+    "flow": "ask-question-dictate"
   },
   {
     "id": "ask-questions/move-through-the-questions",

@@ -1,7 +1,8 @@
 // Debugging aid, not a frame: `npm run capture -- --flow _probe <what> [arg] [png-suffix]`.
 //   analyses            print the Docs analyses list text
 //   catalog <term>      print the Metrics Catalog search for a term
-//   thread|page <url>   print the page text and save capture/_probe<suffix>.png (page = full page)
+//   thread|page <url> [suffix] [wait-ms]   print the page text and save capture/_probe<suffix>.png (page = full page)
+//                       after wait-ms (default 8000)
 //   delete <id>         delete one analysis whose title starts with "Docs:"
 export default async function ({ page, BASE, WORKSPACE, frame }) {
   const [what = 'analyses', arg] = frame.args ?? [];
@@ -18,8 +19,14 @@ export default async function ({ page, BASE, WORKSPACE, frame }) {
     return (await page.locator('body').innerText()).slice(0, 2500);
   }
   if (what === 'thread' || what === 'page') {
+    // log console errors and failed requests to stderr: the Guide panel loads its history over a live connection,
+    // and an empty panel is usually that connection failing
+    page.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') console.error('console', m.type(), m.text().slice(0, 300)); });
+    page.on('requestfailed', r => console.error('requestfailed', r.url().slice(0, 200), r.failure()?.errorText));
+    page.on('response', r => { if (r.status() >= 400) console.error('response', r.status(), r.url().slice(0, 200)); });
+    page.on('websocket', ws => { console.error('websocket', ws.url().slice(0, 200)); ws.on('socketerror', e => console.error('socketerror', e)); ws.on('close', () => console.error('websocket closed', ws.url().slice(0, 120))); });
     await page.goto(arg, { waitUntil: 'load' });
-    await page.waitForTimeout(8000);
+    await page.waitForTimeout(Number(frame.args[3] ?? 8000));
     await page.screenshot({ path: `capture/_probe${frame.args[2] ?? ''}.png`, fullPage: what === 'page' });
     return (await page.locator('body').innerText()).slice(0, 6000);
   }

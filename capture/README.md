@@ -4,7 +4,7 @@ Every image under `images/` is produced by a script here, never by hand, so it c
 
 - `frames.json`: the shot list. One entry per frame: page, section, step, the on-screen labels the frame must show, the output file, and the `flow` that produces it.
 - `flows/*.mjs`: one module per flow. A flow drives a signed-in browser to the state the frame documents and returns the element to frame (or the whole viewport).
-- `capture.mjs`: runs the flows, asserts every required label is visible (as text, as a field placeholder, or as an icon-only button's aria-label), saves the PNG. Fails loudly instead of saving a wrong frame. A flow may return `{ page, target }` to frame a page it opened in a fresh, signed-out browser context (the login page redirects signed-in members); that context is closed after the shot.
+- `capture.mjs`: runs the flows, asserts every required label is visible (as text, as a field placeholder, or as an icon-only button's aria-label), saves the PNG. Fails loudly instead of saving a wrong frame. A flow may return `{ page, target }` to frame a page it opened in a fresh, signed-out browser context (the login page redirects signed-in members); that context is closed after the shot. A flow may also return an `after` function, run once the PNG is saved, to leave the state it reached (the dictation flow cancels its recording). A flow module may export `launch` (extra Chromium launch options) and `context` (extra browser context options) when the state needs them; such a flow runs in its own browser. The dictation flow uses this for Chromium's fake microphone and the microphone permission.
 
 Run: `npm install && npx playwright install chromium`, then `PERCH_DOCS_STATE=~/.config/perch-docs/demo-state.json npm run capture -- [frame-id...]`
 

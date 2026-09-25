@@ -15,6 +15,17 @@ if (!state || !fs.existsSync(state)) { console.error('PERCH_DOCS_STATE must poin
 
 const frames = JSON.parse(fs.readFileSync(path.join(here, 'frames.json'), 'utf8'));
 const args = process.argv.slice(2);
+const CONTEXT = { storageState: state, viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 };
+
+// A flow module may export `launch` (extra Chromium launch options) and `context` (extra browser context options)
+// when the state it documents needs them: the dictation frame needs a fake microphone, which is a launch flag plus
+// a microphone permission. Such a flow runs in its own browser, launched and closed around that one flow.
+async function openPage(mod, shared) {
+  if (!mod.launch && !mod.context) return { page: await shared.newPage(), close: async (page) => page.close() };
+  const own = await pw.chromium.launch(mod.launch ?? {});
+  const ctx = await own.newContext({ ...CONTEXT, ...(mod.context ?? {}) });
+  return { page: await ctx.newPage(), close: async () => own.close() };
+}
 
 // `--flow <name> [args...]` runs one flow module on its own, without a frame or a PNG, and prints what
 // it returns. Used for `_fixtures` (creates the Docs: fixtures the frames rely on) and for debugging a flow.
@@ -23,17 +34,18 @@ if (flowIdx !== -1) {
   const name = args[flowIdx + 1];
   if (!name) { console.error('--flow needs a flow name'); process.exit(2); }
   const browser = await pw.chromium.launch();
-  const ctx = await browser.newContext({ storageState: state, viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
-  const page = await ctx.newPage();
-  let code = 0;
+  const ctx = await browser.newContext(CONTEXT);
+  let code = 0, opened = null;
   try {
-    const { default: flow } = await import(path.join(here, 'flows', name + '.mjs'));
-    const result = await flow({ page, BASE, WORKSPACE, frame: { id: name, args: args.slice(flowIdx + 2) } });
+    const mod = await import(path.join(here, 'flows', name + '.mjs'));
+    opened = await openPage(mod, ctx);
+    const result = await mod.default({ page: opened.page, BASE, WORKSPACE, frame: { id: name, args: args.slice(flowIdx + 2) } });
     if (result !== undefined && result !== null) console.log(JSON.stringify(result, null, 2));
+    if (result && typeof result.after === 'function') await result.after();
     console.log(`ok   --flow ${name}`);
   } catch (e) {
     code = 1; console.log(`FAIL --flow ${name}: ${e.message.split('\n')[0]}`);
-  } finally { await page.close(); await browser.close(); }
+  } finally { if (opened) await opened.close(opened.page).catch(() => {}); await browser.close(); }
   process.exit(code);
 }
 
@@ -42,14 +54,18 @@ const selected = wanted.length ? frames.filter(f => wanted.includes(f.id)) : fra
 if (!selected.length) { console.error('no frames selected'); process.exit(2); }
 
 const browser = await pw.chromium.launch();
-const ctx = await browser.newContext({ storageState: state, viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
+const ctx = await browser.newContext(CONTEXT);
 let failed = 0;
 for (const frame of selected) {
-  const page = await ctx.newPage();
-  let shot = page; // the page the frame is taken from; a flow may hand back another one (see below)
+  let opened = null, page = null;
+  let shot = null; // the page the frame is taken from; a flow may hand back another one (see below)
+  let after = null; // a flow may return `after`, run once the PNG is saved, to leave the state it reached (end a recording)
   try {
-    const { default: flow } = await import(path.join(here, 'flows', frame.flow + '.mjs'));
-    let target = await flow({ page, BASE, WORKSPACE, frame });
+    const mod = await import(path.join(here, 'flows', frame.flow + '.mjs'));
+    opened = await openPage(mod, ctx);
+    page = shot = opened.page;
+    let target = await mod.default({ page, BASE, WORKSPACE, frame });
+    if (target && typeof target === 'object' && typeof target.after === 'function') after = target.after;
     // A flow may return { page, target } to frame a page it opened in another browser context, for states the
     // signed-in session cannot show (the login page redirects signed-in members). That context is closed after the shot.
     // (a Locator has a page() method, so check for a real Page object, not just the key)
@@ -82,8 +98,9 @@ for (const frame of selected) {
   } catch (e) {
     failed++; console.log(`FAIL ${frame.id}: ${e.message.split('\n')[0]}`);
   } finally {
-    if (shot !== page) await shot.context().close().catch(() => {});
-    await page.close();
+    if (after) await after().catch(e => console.log(`warn ${frame.id}: after hook failed: ${e.message.split('\n')[0]}`));
+    if (shot && shot !== page) await shot.context().close().catch(() => {});
+    if (opened) await opened.close(page).catch(() => {});
   }
 }
 await browser.close();
