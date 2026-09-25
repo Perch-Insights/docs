@@ -3,18 +3,40 @@
   "theme": "mint",
   "name": "Perch",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#5716E7",
+    "light": "#895CEE",
+    "dark": "#4610E0"
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "pages": [
+    "groups": [
       {
         "group": "Getting started",
         "pages": [
           "index",
-          "quickstart"
+          "getting-started/sign-in"
+        ]
+      },
+      {
+        "group": "Threads",
+        "pages": [
+          "threads/start-a-thread",
+          "threads/ask-questions",
+          "threads/reports-and-insights"
+        ]
+      },
+      {
+        "group": "Playbooks",
+        "pages": [
+          "playbooks/save-a-playbook",
+          "playbooks/run-a-playbook"
+        ]
+      },
+      {
+        "group": "Sharing and pinning",
+        "pages": [
+          "sharing/pin-insights",
+          "sharing/share-a-thread"
         ]
       }
     ]

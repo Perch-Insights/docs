@@ -1,0 +1,23 @@
+---
+title: "Save a playbook"
+description: "Turn a thread's analysis into a playbook you can find on the analyses list and run again."
+---
+
+After this page you will be able to reply to a **Playbook proposal** in the chat to save it, open the playbook from the **Playbooks** section of the analyses list, read its description and **Plan**, rename it, and start an edit thread with the Guide to change it.
+
+{/* TODO fill */}
+
+{/* provenance
+- perch-frontend-app: apps/www/components/ai/PlaybookProposalCard/PlaybookProposalCard.tsx ("Playbook proposal" card; owner replies "save this playbook", "update <name>", "save as a new playbook", or "discard this"; statuses Pending, Accepted, Rejected)
+- perch-frontend-app: apps/www/components/ai/PlaybookDetailsCard/PlaybookDetailsCard.tsx ("Playbook" card in chat linking to the playbook page)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx and apps/www/components/pages/AiHomePage/PlaybooksCarousel.tsx ("Playbooks" section, "Reusable analyses you can re-run."; each card shows name, description, owner, and "Last run")
+- perch-frontend-app: apps/www/pages/w/[workspace]/playbooks/[playbookId]/index.tsx (playbook page route)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookDetailsPage.tsx ("Description"; "Playbook not found"; access denied message)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageHeader.tsx (owner can rename; "Created at" and owner; "Plan" opens the "Analysis plan" dialog; "Edit" starts an edit thread for the owner)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx (thread header shows a badge linking to the parent playbook)
+- perch-frontend-app: apps/bff/router/playbook.getDetails.ts (playbook detail contract: plan, owner, schedule, last run report)
+- perch-frontend-app: apps/bff/data/createThreadTitle.ts (edit threads are titled "{date} • Playbook Edit")
+- perch-backend-stack: apps/guide-web/docs/integration/workspace-playbooks.md (workspace playbook model; proposals are accepted as new or as an update; playbook name and summary)
+- perch-backend-stack: apps/guide-web/docs/integration/user-ownership.md (playbook owner; rename endpoint; edit versus fork rule)
+- perch-backend-stack: apps/guide-web/docs/integration/resource-links.md (the Guide links to a saved playbook inside a message)
+*/}

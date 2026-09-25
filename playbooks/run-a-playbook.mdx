@@ -1,0 +1,23 @@
+---
+title: "Run a playbook"
+description: "Run a playbook, follow the run in its thread, and find the latest and past run reports."
+---
+
+After this page you will be able to click **Run** on a playbook, watch the run thread while the Guide works, read the **Latest run report** on the playbook page, and open any earlier run from the **Past Runs** list.
+
+{/* TODO fill */}
+
+{/* provenance
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageHeader.tsx ("Run" button; "Playbook run started"; opens the new run thread)
+- perch-frontend-app: apps/bff/router/playbook.execute.ts (a run creates a thread from the playbook with auto run on)
+- perch-frontend-app: apps/bff/data/createThreadTitle.ts (run threads are titled "{date} • Run {N}")
+- perch-frontend-app: apps/www/components/pages/ChatThreadPage/ChatThreadPage.tsx ("The AI Guide is working on your first step" while a run executes)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx (run thread header shows "in <playbook name>" linking back to the playbook)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookLastRunReportCard.tsx ("Latest run report" with "Open run"; "No report yet — run this playbook to generate the first report.")
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookDetailsPage.tsx ("Past Runs" list with "Latest report" badge; "No runs found")
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadExecutionStateBadge.tsx ("Executing..." badge on a running thread)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/PlaybooksCarousel.tsx ("Last run · <time ago>" link on each playbook card)
+- perch-frontend-app: apps/bff/router/playbook.getDetails.ts (last run report comes from the latest report bearing run)
+- perch-backend-stack: apps/guide-web/docs/integration/run-number-fe-integration.md (run numbers are assigned per playbook; gaps are normal)
+- perch-backend-stack: apps/guide-web/docs/integration/execution-lifecycle.md (a run starts and completes with a success or error status)
+*/}

@@ -1,0 +1,21 @@
+---
+title: "Sign in and choose a workspace"
+description: "Sign in to Perch, land in your first workspace, and switch to another one."
+---
+
+After this page you will be able to sign in with your email and password, land on the analyses list of your first workspace, and open the **Workspaces** panel to switch to another workspace you are a member of.
+
+{/* TODO fill */}
+
+{/* provenance
+- perch-frontend-app: apps/www/pages/login/index.tsx (route /login renders SignInPage)
+- perch-frontend-app: apps/www/components/pages/SignInPage/SignInPage.tsx (heading "Login"; authenticated users are redirected to /w)
+- perch-frontend-app: apps/www/components/auth/LoginForm/LoginForm.tsx (Email and Password fields, "Login" button; "Forgot your password?" only under UI_AUTH_FORGOT_PASSWORD; "Login with SSO" only under UI_AUTH_SIGN_IN_WITH_SSO)
+- perch-frontend-app: apps/www/pages/index.tsx and apps/www/pages/w/index.tsx (both render IndexPage)
+- perch-frontend-app: apps/www/hooks/useWorkspaceAutoRedirect/useWorkspaceAutoRedirect.tsx (redirects to the first workspace's analyses list when CHAT_AI is on; to /workspaces when the member has no workspace)
+- perch-frontend-app: apps/www/pages/workspaces.tsx (empty state "Nothing to see here")
+- perch-frontend-app: apps/www/components/v2/WorkspaceSwitcher/WorkspaceSwitcher.tsx (popover labelled "Workspaces Navigation Panel")
+- perch-frontend-app: apps/www/components/v2/WorkspaceSidebar/WorkspaceSidebar.tsx (panel title "Workspaces"; selecting a workspace opens its analyses list)
+- perch-frontend-app: apps/www/lib/href.ts (routes /login, /w, /w/[workspace]/analyses)
+- perch-frontend-app: apps/bff/router/workspace.findMany.ts (workspace list contract)
+*/}

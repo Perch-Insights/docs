@@ -1,20 +1,32 @@
 ---
 title: "Introduction"
-description: "Welcome to your project"
+description: "What Perch is and how the Guide helps you get answers from your data."
 ---
 
-Write a short description of your product here. What it does, who it's for, and what they can accomplish with it.
+Perch is where you go to get answers from your organization's data. You sign in, open a workspace, and see every saved analysis in that workspace in one list, next to the playbooks you can run again.
 
-<Tip>
-  Ready to make this your own? Start by editing this page. Update your `docs.json` file to customize your site. Then fill out the [Quickstart](/quickstart) page.
-</Tip>
+The Guide is Perch's AI analyst. Open a thread, type a question about your data, and the Guide suggests queries, builds steps on the canvas, and writes insight reports you can copy, download, pin, and share. When a line of analysis is worth repeating, the Guide can save it as a playbook so you can run it again for a fresh report.
 
-<Card title="Quickstart" icon="rocket" href="/quickstart">
-  This card links to the quickstart page in your project.
-</Card>
-<Card title="Components" icon="puzzle-piece" href="https://mintlify.com/docs/components">
-  Add cards, callouts, steps, tabs, and more to design and structure your pages.
-</Card>
-<Card title="Settings" icon="gear" href="https://mintlify.com/docs/organize/settings">
-  Set your site name, branding, and navigation in the `docs.json` file.
-</Card>
+<CardGroup cols={3}>
+  <Card title="Sign in and choose a workspace" href="/getting-started/sign-in">
+    Sign in, land in your workspace, and switch between workspaces.
+  </Card>
+  <Card title="Start a thread" href="/threads/start-a-thread">
+    Open a new analysis and find your saved threads.
+  </Card>
+  <Card title="Ask the Guide a question" href="/threads/ask-questions">
+    Type a question and accept the Guide's query suggestions.
+  </Card>
+</CardGroup>
+
+{/* provenance
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("All saved analyses in this workspace.", "Reusable analyses you can re-run.")
+- perch-frontend-app: apps/www/components/v2/WorkspaceSidebar/WorkspaceSidebar.tsx (SidebarHeader title "Workspaces")
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (chat panel header "Guide")
+- perch-frontend-app: apps/www/components/ai/QuestionField/QuestionField.tsx (placeholder "Ask about your data...")
+- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Query Suggestion", "Add as New Step")
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report", "Copy report", "Download report")
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx ("Pin insight")
+- perch-frontend-app: apps/www/components/ai/PlaybookProposalCard/PlaybookProposalCard.tsx ("save this playbook")
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageHeader.tsx (Run button)
+*/}

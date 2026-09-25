@@ -1,0 +1,23 @@
+---
+title: "Start a thread"
+description: "Open a new thread from the analyses list and find the ones you already have."
+---
+
+After this page you will be able to open the **Analyses** list for your workspace, click **New Analysis** to start a thread with the Guide, rename the thread, mark it as a favorite, and find an existing thread by name, owner, or favorite status.
+
+{/* TODO fill */}
+
+{/* provenance
+- perch-frontend-app: apps/www/pages/w/[workspace]/analyses/index.tsx (route renders AiHomePage)
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx (sidebar tab "Analyses")
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx (sections "Playbooks" and "Analyses"; "All saved analyses in this workspace."; empty state when the workspace has no AI permission)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/NewExplorationButton.tsx ("New Analysis" button creates a blank thread and opens it)
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadListTable.tsx (columns Name, Owner, Reports, Created At, Last Modified, Playbook; "No analyses found")
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/NameCell.tsx (row name links to the thread)
+- perch-frontend-app: apps/www/components/ai/ThreadListTableFilters/ThreadListTableFilters.tsx (filters All / Favorites / No Favorites, "Filter by owner", name search)
+- perch-frontend-app: apps/bff/router/thread.createBlank.ts (new thread titled "Untitled" with one step "Initial Analysis")
+- perch-frontend-app: apps/bff/data/createThreadTitle.ts (duplicate titles get the date and a counter)
+- perch-frontend-app: apps/www/pages/w/[workspace]/analyses/[threadId]/[title]/index.tsx and apps/www/components/pages/RootThreadPage/RootThreadPage.tsx (thread root redirects to the explore view)
+- perch-frontend-app: apps/www/components/pages/ChatThreadPage/ChatThreadPage.tsx (thread layout: header, canvas, Guide panel; empty state "Build your first step")
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx (owner can click the title to rename; favorite button; "All Analyses" home link; "New Analysis" opens a fresh thread)
+*/}

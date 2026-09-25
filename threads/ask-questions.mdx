@@ -1,0 +1,19 @@
+---
+title: "Ask the Guide a question"
+description: "Type a question in the Guide panel, answer its follow-ups, and turn its query suggestions into steps."
+---
+
+After this page you will be able to type or dictate a question in the **Guide** panel, stop the Guide while it works, answer a **Guide Question** when it needs more detail, and accept, reject, or undo a **Query Suggestion** so it becomes a step on the canvas.
+
+{/* TODO fill */}
+
+{/* provenance
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (panel header "Guide"; empty state "Let's start analyzing your data."; send and stop; renders user messages, Guide messages, query suggestions, Guide questions, tool call groups)
+- perch-frontend-app: apps/www/components/ai/QuestionField/QuestionField.tsx (placeholder "Ask about your data..."; Enter sends, Shift+Enter adds a line; "Dictate your message" with a two minute cap; "Send" and "Stop" buttons)
+- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Query Suggestion" card with Metrics, Dimensions, Filters, Grain, Dates; buttons "Update step N", "Add as New Step", "Reject", "Undo"; statuses Pending, Accepted, Rejected, Revised)
+- perch-frontend-app: apps/www/components/ai/AIChat/UserQuestionCard.tsx ("Guide Question" card; single select, multi select, and free text answers; "Next", "Submit", "Cancel"; Required / Optional)
+- perch-frontend-app: apps/www/components/pages/ChatThreadPage/ChatThreadPage.tsx ("Ask the AI Guide on the right to start analyzing your data."; accepted suggestions appear as steps on the canvas)
+- perch-frontend-app: apps/www/components/ai/AIEmptyState/AIEmptyState.tsx ("Ask about your data" empty canvas)
+- perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md (turn lifecycle: turn_start, tool_call, message, question, turn_end)
+- perch-backend-stack: apps/guide-web/docs/integration/resource-links.md (the Guide can link to a playbook inside a message)
+*/}
