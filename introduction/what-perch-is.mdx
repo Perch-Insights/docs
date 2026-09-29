@@ -3,11 +3,53 @@ title: "What Perch is"
 description: "What Perch is, what it is for, and what a managed platform means for you."
 ---
 
-After this page you will know what Perch is for, how it differs from a BI tool, and what the Perch team looks after for you.
+Perch helps you find out why performance changed, not only what happened. This page explains what Perch is, how it differs from a BI tool, and what the Perch team looks after for you.
 
-{/* TODO fill */}
+## Perch in one paragraph
+
+Perch is an analytics product with an AI analyst, the Guide, on top of a data platform that the Perch team manages for you. It is built for contact-center sales and service programs. Perch brings five things together:
+
+- A data platform that the Perch team runs and keeps accurate.
+- A semantic layer: one shared set of metrics and dimensions, each with a clear definition.
+- Analyses: conversations with the Guide where you work out why a number moved.
+- Dashboards and alerts for monitoring.
+- Managed services from the Perch team that keep all of this accurate as your program changes.
+
+## What you do in Perch
+
+You work in a workspace. When you open it, you see every saved analysis in that workspace in one list, next to the playbooks you can run again.
+
+In an analysis, you ask the Guide a question about your data. The Guide suggests queries. Each query you accept becomes a step in the analysis. The Guide then writes an insight report of what it found. You can copy or download the report, pin its insights, and share the analysis with other members. When a line of analysis is worth repeating, the Guide can save it as a playbook. You then run the playbook again on fresh data.
+
+## Why Perch is not a BI tool
+
+Unlike a BI tool, Perch does not expect you to:
+
+- Build and maintain your own data model.
+- Rebuild the same analysis logic each time you need it.
+- Work out the root cause by hand every time performance shifts.
+
+Every metric and dimension is defined once, in the semantic layer. Every analysis, dashboard, and answer from the Guide uses those same definitions. Dashboards show you the state of your key numbers. Analyses are where you find out why they moved.
+
+## What a managed platform means for you
+
+The Perch team runs the data platform for you. They maintain data quality, evolve the semantic layer, and add or change dashboards and the logic behind them. They set up your dashboards and alerts during onboarding. They also help when you need deeper analysis.
+
+Some changes are not self-service, on purpose. Only the Perch team changes metric definitions, so they stay consistent, accurate, and comparable across time and teams. The Guide does not change metric definitions or dashboards either. [Self-service and managed services](/reference/self-service-and-managed-services) lists what you can change yourself and what the Perch team changes for you.
+
+Next, read [How Perch organizes analysis](/introduction/how-perch-organizes-analysis).
 
 {/* provenance
-- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§1 What Perch Is; §2 The Core Perch Mental Model)
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§1 What Perch Is; §2.1 Data Platform First; §3.1 Dashboards "not the primary place for deep root-cause analysis"; §4 the Guide does not modify metric definitions or change dashboards; §5 Managed Services and Boundaries)
+- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/terminology_canon.md (Section A: "Each accepted query becomes a step in the analysis.")
 - perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("All saved analyses in this workspace.", "Reusable analyses you can re-run.")
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (chat panel header "Guide")
+- perch-frontend-app: apps/www/components/ai/QuestionField/QuestionField.tsx (placeholder "Ask about your data...")
+- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Query Suggestion", "Add as New Step")
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report", "Copy report", "Download report")
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx ("Pin insight")
+- perch-frontend-app: apps/www/components/ai/PlaybookProposalCard/PlaybookProposalCard.tsx ("save this playbook")
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageHeader.tsx (Run button)
+- docs (moved here from the former index.mdx introduction text): sharing/share-an-analysis.mdx (sharing an analysis with other members)
+- AGENTS.md "Content boundaries": dashboards and alerts are configured by the Perch team during onboarding
 */}
