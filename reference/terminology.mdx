@@ -5,11 +5,70 @@ description: "The words Perch and the Guide use, one line each."
 
 Use this page to look up a word you see in Perch or in a Guide answer.
 
-{/* TODO fill */}
+## Analyses and the Guide
+
+- **Guide**: Perch's AI analyst. You ask it questions about your data in an analysis.
+- **Analysis**: a conversation with the Guide about your data. The screen lists them under **Analyses**, and you start one with **New Analysis**.
+- **Query**: a request for data that the Guide suggests in a **Query Suggestion** card. You decide whether to accept it.
+- **Step**: an accepted query. Each accepted query becomes a step in the analysis.
+- **Step number**: the order in which you built the analysis, such as **Step 1**. A sub-step sits one level below its step, such as step 4.2, and never deeper.
+- **Computed metric**: a result the Guide calculates from your data. It is also called a derived metric.
+- **Guide Question**: a card in which the Guide asks you to choose before it continues. You answer it or cancel it.
+
+## Reports and playbooks
+
+- **Insight report**: the finished write-up of an analysis, shown as an **Insight report** card. Also called a report.
+- **Insight**: one section of a report, shown as its own card. You can copy it, vote on it, and pin it.
+- **Finding**: a specific business observation from the data, written into an insight.
+- **Pinned insight**: an insight you pinned. The Guide reads every pinned insight with each later question.
+- **Playbook**: a saved set of repeatable analyses you can run again with fresh data.
+- **Run**: one execution of a playbook. Each run is its own analysis with its own report.
+- **Latest run report**: the report from a playbook's most recent run, shown on the playbook page.
+
+## How Perch measures
+
+- **Semantic layer**: the one shared set of metrics and dimensions that every analysis, dashboard, and Guide answer uses.
+- **Metric**: a number Perch measures, such as contact rate. Each metric has one definition in the semantic layer.
+- **Dimension**: a way to break a metric down, such as contact rate by region.
+- **Journey**: a path from a start event to an outcome. Perch has four: lead, opportunity, interaction, and operational.
+- **Operational lens**: a short-cycle comparison of now against prior comparable periods, focused on levers you can act on right away.
+- **Cohort lens**: a longer-cycle comparison of groups of leads that share a start, measured at the same age.
+- **Focus period**: the time window you are asking about right now.
+- **Comparison period**: a time window the Guide measures the focus period against. An analysis can have more than one.
+- **Baseline**: the program average that the Guide compares a segment against within the same period. It is not a comparison period.
+
+## Monitoring
+
+- **Dashboard**: a shared view of where your key numbers stand. The Perch team configures dashboards during onboarding.
+- **Alert**: a notice that a metric crossed a threshold. It tells you where to look, not why.
+- **Metrics catalog**: the list of metrics and dimensions in your workspace, with each one's description and type.
+
+## Workspaces and people
+
+- **Workspace**: the environment you work in, with its own dashboards, alerts, and analyses.
+- **Member**: a person with access to a workspace.
+- **Group**: a set of members. A group decides which dashboards its members can see.
 
 {/* provenance
-- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/terminology_canon.md (Section A user-facing terms; Section B focus period and comparison period; baseline)
-- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§2.2 journeys; §2.3 operational lens and cohort lens)
+- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/terminology_canon.md (Section A user-facing terms only: step, "Each accepted query becomes a step in the analysis.", query, report and insight report, finding "a specific structured business observation within a report section", analysis, playbook, computed metric or derived metric; Step numbers: example "step 4.2: Contact Rate by Region", top-level integers, sub-steps exactly one decimal level, no deeper nesting, chronological order; Section B focus period and comparison period(s), baseline as the program-average benchmark for within-period segment comparison and distinct from a comparison period; Section D one-line explanations "a specific business observation extracted from the data" and "a saved set of repeatable analyses you can re-run with fresh data". Internal names, wire contracts and the thread-mirror entry in Sections A and C are left out.)
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§2.1 all metrics and dimensions come from the semantic layer; §2.2 journeys with start and end events; §2.3 operational lens and cohort lens; §3.1 dashboards as a shared snapshot of key KPIs; §3.3 alerts trigger on defined thresholds, "Alerts are signals, not answers.")
+- perch-backend-stack: libs/chat/src/chat/context/docs/semantic_layer/journey_reference.md (Lead, Opportunity, Interaction, and Operational journeys)
 - perch-frontend-app: apps/www/components/pages/AiHomePage/NewExplorationButton.tsx ("New Analysis")
 - perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx ("All Analyses")
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx (per-workspace sidebar tabs "Analyses", "Dashboards", "Alerts")
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("All saved analyses in this workspace.")
+- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Query Suggestion" card, "Add as New Step")
+- perch-frontend-app: apps/www/components/ai/ThreadStepManagementPanel/ThreadItemListItem.tsx ("Step {displayNumber}")
+- perch-frontend-app: apps/www/components/ai/AIChat/UserQuestionCard.tsx (default title "Guide Question"; "Submit" and "Cancel")
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report")
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx (one card per insight; "Copy insight", feedback buttons, "Pin insight")
+- perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md (pinned sections are read by the Guide on later turns; verified against sharing/pin-insights.mdx provenance)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookLastRunReportCard.tsx ("Latest run report")
+- perch-frontend-app: apps/bff/router/playbook.getDetails.ts (last run report is the report of the last run analysis)
+- perch-frontend-app: apps/bff/router/playbook.execute.ts (each run creates its own analysis)
+- perch-frontend-app: apps/www/components/pages/MetricsCatalogPage/MetricsCatalogPage.tsx ("Metrics Catalog")
+- perch-frontend-app: apps/www/components/cube/CubeFieldsTable/CubeFieldsTable.tsx (columns "Name", "Description", "Type"; measure or dimension)
+- perch-frontend-app: apps/www/components/v2/OrganizationSettingsSidebar/OrganizationSettingsSidebar.tsx ("Groups")
+- perch-frontend-app: apps/bff/router/dashboard.findMany.ts (a dashboard's groups are the groups with view or update permission over it)
+- AGENTS.md "Terminology" (Guide, Analysis, Playbook, Run, Report, Insight, Workspace, Member; Cube is not shown on screen and appears nowhere in the public corpus, so this page says "semantic layer"; Terra is out of scope) and "Content boundaries" (dashboards and alerts are configured by the Perch team during onboarding)
 */}
