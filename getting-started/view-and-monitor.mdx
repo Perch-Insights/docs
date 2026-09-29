@@ -9,7 +9,7 @@ Dashboards show you where your key numbers stand. Alerts tell you when one of th
 
 1. **Sign in and choose a workspace.** Your dashboards and alerts belong to a workspace. Switch to the right one before you look. See [Sign in and choose a workspace](/getting-started/sign-in).
 2. **Open a dashboard.** Click **Dashboards** in the sidebar. The panel lists your **Favorites** first, then every dashboard grouped by program, with a search to find one by name. Mark the dashboards you use most as favorites. See [Dashboards](/dashboards/overview).
-3. **Check how fresh the data is.** Every dashboard shows **Data Refreshed as of:** under its name. Look at it before you act on a number. See [Dashboards](/dashboards/overview).
+3. **Check how fresh the data is.** When your workspace tracks data freshness, a dashboard shows **Data Refreshed as of:** under its name. Look at it before you act on a number. See [Dashboards](/dashboards/overview).
 4. **Read your alerts.** Click **Alerts** in the sidebar to see your alert notifications. Narrow the list by **Triggers**, **Date**, or text, and click **Read More** on a notification to open its details. See [Alerts](/alerts/overview).
 5. **Look up what a metric means.** If a number is unclear, the **Metrics Catalog** gives each metric and dimension its name, description, and type. It is not turned on in every workspace. See [Metrics catalog](/metrics-catalog/overview).
 6. **Find out why in an analysis.** An alert is a signal, not an answer. When a dashboard or an alert shows a change you need to explain, start an analysis and ask the Guide. See [Start an analysis](/analyses/start-an-analysis) and [Ask the Guide a question](/analyses/ask-questions).
@@ -23,6 +23,7 @@ If a dashboard or an alert needs to change, the Perch team changes it for you. [
 - perch-frontend-app: apps/www/pages/w/[workspace]/index.tsx (route renders DashboardsPage)
 - perch-frontend-app: apps/www/components/pages/DashboardsPage/DashboardsPage.tsx (header "Dashboards"; ProgramFilterButton and dashboardName FilterTextField, re-checked on develop)
 - perch-frontend-app: apps/www/components/pages/DashboardPage/DashboardPage.tsx ("Data Refreshed as of:" subtitle; DashboardFavoriteButton, re-checked on develop)
+- perch-frontend-app: apps/www/hooks/useLastDataRefreshDate.tsx (refresh date shown only when the workspace has a data health source)
 - perch-frontend-app: apps/www/pages/w/[workspace]/alerts/index.tsx (route renders AlertsPage)
 - perch-frontend-app: apps/www/components/pages/AlertsPage/AlertsPage.tsx (header "Alerts", "alert notifications"; TriggerFilterButton, DateFilterButton, textFilter FilterTextField; "Notification Details" panel; "Manage" only with ManageAlerts permission and not documented; re-checked on develop)
 - perch-frontend-app: apps/www/components/v2/TriggerFilterButton/TriggerFilterButton.tsx (label "Triggers", re-checked on develop)
