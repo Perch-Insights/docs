@@ -358,6 +358,7 @@
     ],
     "file": "images/open-a-dashboard/find-the-dashboard.png",
     "flow": "TODO",
+    "blocked": "The saved session's member has no dashboards in Pnc Ins: the Dashboards panel shows only an empty Favorites group and the Dashboards screen shows \"Nothing to see here\". Granting access would change a setting in the read-only workspace, and an empty panel does not show the step.",
     "workspace": "readonly",
     "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
   },
