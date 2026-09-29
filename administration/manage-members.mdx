@@ -3,13 +3,102 @@ title: "Manage members"
 description: "Open the organization settings and review the members who can use Perch."
 ---
 
-After this page you will be able to open the organization settings and find the members, groups, and workspaces you are allowed to manage.
+After this page you will be able to add and remove members, organize them into groups, and choose which dashboards each group sees.
 
-{/* TODO fill */}
+<Note>
+You need to be allowed to manage members. If you do not see **Settings** in the sidebar, or a settings screen shows **NOT AUTHORIZED**, ask one of your administrators. See [Administration](/administration/overview).
+</Note>
+
+## Review your members
+
+<Steps>
+  <Step title="Open the organization settings">
+    Click **Settings** in the sidebar. The **Users** screen opens in the **Organization** panel, with **Showing N users** under the header.
+  </Step>
+  <Step title="Read the list">
+    Each row shows the member's **Name** and email, and their **Groups**. Click a group name to open that group in a new tab.
+  </Step>
+  <Step title="Narrow the list">
+    Click **Groups** and check one or more groups to show only their members. Type in **Search...** to find a member. The list shows 20 members per page.
+  </Step>
+</Steps>
+
+## Add or change a member
+
+<Steps>
+  <Step title="Add a member">
+    Click **Add user**. In the **New user** form, enter **Email**, **First name**, and **Last name**. Choose groups in **Groups (optional)**, then click **Create**.
+  </Step>
+  <Step title="Update a member">
+    Open the row's actions menu and click **Update**. You can change the name and groups, but not the email. Click **Update** to save.
+  </Step>
+  <Step title="Resend an invite">
+    If a member has not confirmed their account yet, their actions menu also has **Resend Invite**. Click it and you see **Invite has been sent**.
+  </Step>
+  <Step title="Remove a member">
+    Click **Delete** in the row's actions menu. Type the member's first and last name to confirm.
+  </Step>
+</Steps>
+
+## Organize members into groups
+
+<Steps>
+  <Step title="Open the groups list">
+    Click **Groups** in the **Organization** panel. Each group shows its **Name** and how many **Users** it has.
+  </Step>
+  <Step title="Create a group">
+    Click **Add Group**. Enter a **Name** in the **New Group** form and click **Create**. To rename or remove a group later, use **Update group** or **Delete group** in its actions menu. Deleting asks you to type the group's name.
+  </Step>
+  <Step title="Add members to a group">
+    Click a group's name. Its **Members** tab opens. Click **Add member**, then **Select users**. Start typing names, pick the members, and click **Add members**. To invite someone new straight into the group, choose **Add new user** instead.
+  </Step>
+  <Step title="Remove a member from a group">
+    Click **Remove** on the member's row and type their name to confirm. The member stays in your organization. They only leave this group.
+  </Step>
+</Steps>
+
+## Choose the dashboards a group sees
+
+<Steps>
+  <Step title="Open the group's dashboards">
+    On the group's screen, click the **Dashboards** tab. The header shows how many dashboards are selected out of the total.
+  </Step>
+  <Step title="Turn dashboards on or off">
+    Turn the switch next to a dashboard's **Name** to add it to the group. Turn it off to remove it. You see **Dashboard added to the group** or **Dashboard removed from the group**.
+  </Step>
+</Steps>
+
+When you are done, click the cross at the top right to go back to where you were.
+
+## Good to know
+
+- The organization settings cover your whole organization, not one workspace.
+- Every member of a group sees the group's dashboards in their **Dashboards** panel. Two members of the same workspace can see different dashboards.
+- The Perch team builds dashboards and alerts during onboarding. You choose which groups see a dashboard, not what it shows. To ask for a change, click **Support** in the sidebar.
+- If you do not see **Remove** on a group's members, you are not allowed to remove members from groups.
 
 {/* provenance
-- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx ("Settings" tooltip; links to the organization users page)
-- perch-frontend-app: apps/www/components/v2/OrganizationSettingsSidebar/OrganizationSettingsSidebar.tsx ("Users", "Groups", and "Workspaces" items)
+- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx ("Settings" shown only with UpdateAllWorkspaces or ManageTenantUsers permission, links to the organization users page; "Support" opens the ticket form)
+- perch-frontend-app: apps/www/components/v2/OrganizationSettingsSidebar/OrganizationSettingsSidebar.tsx ("Organization" panel with "Users" and "Groups")
 - perch-frontend-app: apps/www/pages/organization/users/index.tsx (route renders OrganizationSettingsUsersPage)
-- perch-frontend-app: apps/www/pages/organization/groups/index.ts (route renders OrganizationSettingsGroupsPage)
+- perch-frontend-app: apps/www/pages/organization/groups/index.ts, groups/[group]/index.ts, groups/[group]/dashboards.ts (group routes)
+- perch-frontend-app: apps/www/components/pages/OrganizationSettingsUsersPage/OrganizationSettingsUsersPage.tsx (header "Users", "Showing N users"; GroupFilterButton and FilterTextField; page size 20; ManageTenantUsers or PermissionOff; "Add user"; row actions "Update", "Delete" with first and last name typed to confirm, "Resend Invite" for unconfirmed users with toast "Invite has been sent")
+- perch-frontend-app: apps/www/components/v2/UsersTable/UsersTable.tsx (columns "Name" and "Groups"; group badges link to the group in a new tab)
+- perch-frontend-app: apps/www/components/user/UsersTableRow/UsersTableRow.tsx (name and email in the Name cell)
+- perch-frontend-app: apps/www/components/v2/GroupFilterButton/GroupFilterButton.tsx ("Groups" filter with a checkbox per group)
+- perch-frontend-app: apps/www/components/v2/FilterTextField/FilterTextField.tsx and packages/kit/components/SearchTextField/SearchTextField.tsx (placeholder "Search...")
+- perch-frontend-app: packages/kit/components/PermissionOff/PermissionOff.tsx ("NOT AUTHORIZED", "Contact your administrator for more information.")
+- perch-frontend-app: apps/www/components/user/UserCreateOrUpdateForm/UserCreateOrUpdateForm.tsx ("New user" / "Update user"; "Email" only when creating; "First name", "Last name", "Groups (optional)"; submit "Create" or "Update")
+- perch-frontend-app: apps/www/components/pages/OrganizationSettingsGroupsPage/OrganizationSettingsGroupsPage.tsx (header "Groups"; "Add Group"; ManageTenantUsers or PermissionOff)
+- perch-frontend-app: apps/www/components/v2/GroupsTable/GroupsTable.tsx (columns "Name" linking to the group and "Users"; actions "Update group" and "Delete group" with the group name typed to confirm)
+- perch-frontend-app: apps/www/components/group/CreateOrUpdateForm/GroupCreateOrUpdateForm.tsx ("New Group" form with "Name"; submit "Create")
+- perch-frontend-app: apps/www/components/v2/GroupSettingsLayout/GroupSettingsLayout.tsx ("Add member" menu with "Select users" and "Add new user"; tabs "Members (N)" and "Dashboards (N)"; new user form keeps the group preselected)
+- perch-frontend-app: apps/www/components/group/AddUsersToGroupForm/AddUsersToGroupForm.tsx ("Select users", placeholder "Start typing their name...", submit "Add members"; existing members are not offered)
+- perch-frontend-app: apps/www/components/pages/GroupSettingsUsersPage/GroupSettingsUsersPage.tsx ("Remove" shown only with AssignRolesAndPermissions; "Enter user name to confirm removal"; removes group membership only)
+- perch-frontend-app: apps/www/components/pages/GroupSettingsDashboardsPage/GroupSettingsDashboardsPage.tsx (header "Dashboards", "N out of M dashboards selected")
+- perch-frontend-app: apps/www/components/v2/GroupDashboardsTable/GroupDashboardsTable.tsx (switch per dashboard in the "Name" column, "Program" column; toasts "Dashboard added to the group" and "Dashboard removed from the group")
+- perch-frontend-app: apps/bff/router/dashboard.findMany.ts (a dashboard's groups are the groups with view or update permission over it)
+- perch-frontend-app: apps/www/components/v2/CloseSettingsButton/CloseSettingsButton.tsx (close cross returns to the saved route or the workspace)
+- docs: administration/overview.mdx, dashboards/overview.mdx
+- AGENTS.md "Content boundaries": dashboards and alerts are configured by the Perch team during onboarding, against Perch standards
 */}
