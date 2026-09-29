@@ -480,7 +480,7 @@
       "Users"
     ],
     "file": "images/manage-members/open-the-organization-settings.png",
-    "flow": "TODO",
+    "flow": "org-settings-nav",
     "note": "Frame the settings navigation only. The users table lists real members with emails; it must not be in the frame."
   },
   {
