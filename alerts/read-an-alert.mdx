@@ -5,10 +5,80 @@ description: "Find an alert notification, filter the list, and open its details.
 
 After this page you will be able to open the alert notifications for your workspace, narrow the list by trigger, date, or text, and read the details of one notification.
 
-{/* TODO fill */}
+The Perch team sets up your alerts during onboarding. There is no button for you to create one. If an alert you need is missing, see [Self-service and managed services](/reference/self-service-and-managed-services).
+
+## Open your alert notifications
+
+<Steps>
+  <Step title="Open the Alerts screen">
+    Click the alerts icon in the sidebar. Its tooltip reads **Alerts**. The screen's header reads **Alerts**, with a count such as **Showing 20 of 57 alert notifications** under it.
+  </Step>
+  <Step title="Scan the list">
+    Each notification is a card. It shows a bold title, a short preview, and when it fired, such as **5 minutes ago (09/29/2026 06:00)**. A coloured badge at the end of the card names its trigger.
+  </Step>
+  <Step title="Move between pages">
+    The list shows 20 notifications per page. Use the arrows next to **Page 1 of 3** to go to the next or previous page.
+  </Step>
+</Steps>
+
+## Narrow the list
+
+<Steps>
+  <Step title="Filter by trigger">
+    Click **Triggers**. Tick the badge of each trigger you want to see. The button then shows the names of the triggers you picked. Clear the filter with the cross on the button.
+  </Step>
+  <Step title="Filter by date">
+    Click **Date** and pick **Today**, **Yesterday**, **Last week**, or **Last month**. Click the selected option again to clear it. Without a date filter, the list covers the last year.
+  </Step>
+  <Step title="Filter by text">
+    Type in the **Search...** field to find notifications by their text.
+  </Step>
+</Steps>
+
+If no notification matches, the screen shows **Nothing to see** and **You currently have no alert notifications available.** Clear a filter to widen the list again.
+
+## Read one notification
+
+<Steps>
+  <Step title="Open the details">
+    Click **Read More** on a card, or click its title. A **Notification Details** panel opens on the right. The card you opened is highlighted in the list.
+  </Step>
+  <Step title="Read the notification">
+    The panel shows the trigger badge, the title, the full text of the notification, and when it fired.
+  </Step>
+  <Step title="Close the details">
+    Click the cross at the top right of the panel, or press `Escape`. Your filters stay as they were.
+  </Step>
+</Steps>
+
+## Open the related dashboard
+
+When an alert is tied to a dashboard, its card has a **View dashboard** button. Click it to open that dashboard in a new browser tab. The **Alerts** screen stays open in the first tab. See [Open a dashboard](/dashboards/open-a-dashboard).
+
+## Good to know
+
+- The list shows only the notifications sent to you, in the workspace you are in. A colleague may see a different list.
+- Filters change only your view. They do not change or remove any notification.
+- An alert tells you where to look, not why the number moved. To find out why, [start an analysis](/analyses/start-an-analysis) and ask the Guide about the change.
 
 {/* provenance
-- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Alerts" tooltip; button labelled "View Notifications")
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Alerts" tooltip; button labelled "View Notifications"; links to the current workspace's alerts)
 - perch-frontend-app: apps/www/pages/w/[workspace]/alerts/index.tsx and apps/www/pages/w/[workspace]/alerts/[alert].tsx (both render AlertsPage)
-- perch-frontend-app: apps/www/components/pages/AlertsPage/AlertsPage.tsx (TriggerFilterButton, DateFilterButton, text filter; details panel labelled "Notification Details" with "Close Details"; Escape closes the panel; empty state for "alert notifications")
+- perch-frontend-app: apps/www/components/pages/AlertsPage/AlertsPage.tsx (header "Alerts", subtitle "Showing N of M alert notifications"; filters TriggerFilterButton, DateFilterButton, FilterTextField; empty state NothingToShow with resourceLabel "alert notifications"; "Notification Details" panel on the right with "Close Details" link; Escape closes the panel; closing keeps query params; "Manage" link only with ManageAlerts permission and not documented)
+- perch-frontend-app: apps/www/hooks/useAlertsEvents/useAlertsEvents.tsx (default page size 20; triggers, date range, and text filter passed to the list query)
+- perch-frontend-app: packages/kit/components/PaginationSwitch/PaginationSwitch.tsx ("Previous Page" and "Next Page" arrows around "Page N of M")
+- perch-frontend-app: apps/www/components/alert/AlertsList/AlertsList.tsx (one card per notification; the selected card is marked)
+- perch-frontend-app: apps/www/components/v2/alert/AlertCard/AlertCard.tsx (bold title linking to the details; preview; "Read More"; "View dashboard" per linked dashboard, opens in a new tab; created time; trigger badge; selected card highlighted)
+- perch-frontend-app: apps/www/components/v2/alert/common/AlertCreatedAt.tsx (relative time "… ago" plus exact "MM/dd/yyyy HH:mm")
+- perch-frontend-app: apps/www/components/alert/AlertBadge/AlertBadge.tsx (coloured badge with the trigger short name)
+- perch-frontend-app: apps/www/components/v2/alert/AlertDetails/AlertDetails.tsx (badge, title, full body falling back to description, created time)
+- perch-frontend-app: apps/www/components/v2/TriggerFilterButton/TriggerFilterButton.tsx (label "Triggers"; one checkbox per trigger labelled with its badge; selected trigger names shown on the button)
+- perch-frontend-app: apps/www/components/v2/DateFilterButton/DateFilterButton.tsx (label "Date"; options "Today", "Yesterday", "Last week", "Last month"; clicking the selected option clears it)
+- perch-frontend-app: apps/www/hooks/useDateFilter/useDateFilter.tsx (no date filter means the last 365 days)
+- perch-frontend-app: apps/www/components/v2/FilterTextField/FilterTextField.tsx and packages/kit/components/SearchTextField/SearchTextField.tsx (text filter, placeholder "Search...")
+- perch-frontend-app: packages/kit/components/FilterButton/FilterButton.tsx (selected value shown on the button with a clear cross)
+- perch-frontend-app: packages/kit/components/NothingToShow/NothingToShow.tsx ("Nothing to see", "You currently have no alert notifications available.")
+- perch-frontend-app: apps/bff/router/alert.event.findMany.ts (notifications are the current member's own, scoped to one workspace; filtered by trigger, date, and text)
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.3 "Alerts are signals, not answers."; prompt investigation in dashboards or threads)
+- AGENTS.md "Content boundaries": dashboards and alerts are configured by the Perch team during onboarding, against Perch standards
 */}
