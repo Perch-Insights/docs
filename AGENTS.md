@@ -76,16 +76,53 @@ naming the UI element. In running prose they are common nouns: "open an analysis
 - Do not explain architecture, repositories, APIs, or internal service names. The reader never sees them.
 - Do not use marketing language. No "powerful", "seamless", "effortless".
 
+## Information architecture (product-first)
+
+The site explains the product first, then documents flows by product area. Navigation, in order:
+
+1. **Introduction**: what Perch is, how Perch organizes analysis (journeys, the two lenses), the
+   product at a glance (every surface in one paragraph each, who uses it), and a get-up-and-running
+   page with three path cards.
+2. **Get started**: one page per path, a short narrative whose steps link into the areas:
+   *Analyze with the Guide*, *View and monitor*, *Administer a workspace*.
+3. **Areas**, each with a concept page first and how-to pages after: Analyses and the Guide ·
+   Playbooks · Reports and sharing · Dashboards · Alerts · Metrics catalog · Administration.
+4. **Reference**: Terminology · Self-service and managed services.
+
+Two page types with different rules:
+
+- **Concept pages** (introduction, path, area-concept, reference) explain. They are written from the
+  Guide's own product corpus (below) and from the product source, in second person, no procedures.
+  Their provenance block cites the corpus documents and source files used.
+- **How-to pages** are procedural: outcome sentence, `<Steps>` with exact on-screen labels, one short
+  good-to-know section, frames under their steps, provenance block. Unchanged from the first cut.
+
+## The Guide's product corpus as a source
+
+`~/workspace/perchinsights/perch-backend-stack/libs/chat/src/chat/context/docs` is the corpus the
+Guide reads. Read-only. Use it only for concept pages, and only the public tier:
+
+- **Public (use freely):** `foundations/perch_overview.md`, `semantic_layer/journey_reference.md`
+  (concepts, not field lists), `methodology/terminology_canon.md` (the user-facing vocabulary),
+  `methodology/perch_standard_way.md` (what the method is, as the product's way of analyzing).
+- **Internal (never quote, never paraphrase into the docs):** everything under `examples/`,
+  `guides/support_playbook.md`, `methodology/ai_guardrails.md`, `query_building_rules.md`,
+  `suggestion_workflow.md`, `focus_comparison_resolution.md`, `recurring_analysis_rerun.md`,
+  `root_cause_ontology.md`, `analytical_rules.md`, `semantic_layer/business_semantic_layer.md`,
+  `semantic_layer/query_api_reference.md`, `index.md`.
+
+Rewrite for a person, not for the model: drop every "the AI Guide should" instruction, keep the
+product facts and the mental model. Where the corpus and the UI disagree, the UI wins.
+
 ## Content boundaries
 
-First cut is **the Guide, in the order a new user meets it**: sign in and workspaces,
-starting an analysis, asking questions, reading reports and insights, playbooks and runs,
-sharing and pinning. Stop there.
+Dashboards and alerts are configured by the Perch team during onboarding, against Perch standards.
+The docs describe how to view, filter, read, and act on them, and say plainly that setup is part of
+onboarding, not self-service.
 
-Do not document, in this cut:
+Do not document:
 
 - Terra and semantic-layer editing.
-- Admin, member management, groups, or permissions beyond what a new user needs to get in.
 - Internal tooling, MCPs, environments, release process, or anything from the vault.
 - Features that exist only in the concept prototype or in an open pull request.
 - Client names, client data, or screenshots containing either.
