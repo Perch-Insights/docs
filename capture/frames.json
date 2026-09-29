@@ -386,6 +386,7 @@
     ],
     "file": "images/open-a-dashboard/check-how-fresh-the-data-is.png",
     "flow": "TODO",
+    "blocked": "The line sits in the header of an open dashboard, and the saved session's member reaches no dashboard in Pnc Ins (the Dashboards screen reads \"Showing 0 dashboards\"), so there is no dashboard to open. Granting access would change a setting in the read-only workspace.",
     "workspace": "readonly",
     "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
   },
