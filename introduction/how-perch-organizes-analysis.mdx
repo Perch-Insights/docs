@@ -1,15 +1,48 @@
 ---
 title: "How Perch organizes analysis"
-description: "How journeys and the two analysis lenses shape the way you work in Perch."
+description: "How journeys, the two analysis lenses, and step-based analyses shape the way you work in Perch."
 ---
 
-After this page you will know what a journey is, when to use the operational lens or the cohort lens, and why Perch organizes your work as analyses rather than reports.
+Perch organizes your data around business journeys and compares results through two lenses. This page explains both, and why your work lives in analyses rather than in reports.
 
-{/* TODO fill */}
+## Journeys, not reports
+
+A journey follows your customers from a start event to an outcome. Each journey has clear start and end events, success and failure outcomes, and expected patterns over time. Perch has four journeys:
+
+- **Lead journey**: what eventually happened to a group of leads, from outreach to contact, opportunity, and sale. It shows where conversion is lost and how long it takes.
+- **Opportunity journey**: what happens after an opportunity is created. It shows whether opportunities are followed up, advanced, and closed.
+- **Interaction journey**: each call, text, chat, or email on its own. It shows how execution happens on the ground.
+- **Operational journey**: what the business produced during a period, by the date it happened. It covers volumes, productivity, and staffing against load.
+
+The journeys work together. Lead and opportunity journeys explain long-term outcomes. The other two explain execution and capacity.
+
+## The two lenses
+
+Every comparison in Perch uses one of two lenses. A good answer says which lens applies and why.
+
+- **Operational lens**: short-cycle, such as yesterday, today, or the last few days. It compares now with prior comparable periods and focuses on levers you can act on right away.
+- **Cohort lens**: longer-cycle. It groups leads by a shared start and compares recent cohorts with prior cohorts at the same age. It shows maturation, payoff, and diminishing returns, and separates structural change from noise.
+
+The operational lens tells you what happened today. The cohort lens tells you what that activity will eventually produce. The Guide calls the window you are asking about the focus period, and the windows it measures against the comparison periods.
+
+## Why you work in analyses
+
+A report tells you what happened. An analysis is where you find out why. It is built for root-cause analysis, and it grows as your thinking does.
+
+Each accepted query becomes a step in the analysis. The **Analysis Steps** panel numbers the steps in order. A step can add metrics and dimensions, apply filters and comparisons, change the time period, or highlight drivers and outliers.
+
+The Guide follows the Perch Standard Way. It starts from one KPI, a timeframe, and a comparison. It then checks demand, the funnel stages, contact, the pipeline, and agent performance, in that order. Finally it ranks the drivers and suggests actions. It finds why performance changed before recommending anything.
+
+An analysis takes you from "something changed" to "here is why it changed and what to do next."
+
+Next, read [The product at a glance](/introduction/product-at-a-glance).
 
 {/* provenance
-- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§2.2 Journeys, Not Reports; §2.3 Two Analysis Lenses; §3.2 Analysis Threads)
-- perch-backend-stack: libs/chat/src/chat/context/docs/semantic_layer/journey_reference.md (Lead, Opportunity, Interaction, and Operational journeys; how the journeys work together)
-- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/perch_standard_way.md (purpose and scope; operational and cohort comparison discipline)
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§2.2 Journeys, Not Reports: start and end events, success and failure outcomes, expected patterns over time; §2.3 Two Analysis Lenses: operational and cohort, "which lens applies and why"; §3.2 Analysis Threads: guided step-based workspaces for root-cause analysis, what each step can do, "Something changed" to "Here is why it changed and what to do next")
+- perch-backend-stack: libs/chat/src/chat/context/docs/semantic_layer/journey_reference.md (Lead, Opportunity, Interaction, and Operational journeys; How These Journeys Work Together; "what happened today" vs "what that activity will eventually produce")
+- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/perch_standard_way.md (Purpose & Scope: default framework for the Guide, diagnostic not prescriptive; §1 primary KPI, timeframe, comparison; §2–§6 order of diagnosis; §9–§10 synthesize drivers, actions; comparison discipline per lens)
+- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/terminology_canon.md (Section A "Each accepted query becomes a step in the analysis."; Section B focus period and comparison periods)
 - perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx (sidebar tab tooltip "Analyses")
+- perch-frontend-app: apps/www/components/ai/ThreadStepManagementPanel/ThreadStepManagementPanel.tsx (panel heading "Analysis Steps")
+- perch-frontend-app: apps/www/components/ai/ThreadStepManagementPanel/ThreadItemListItem.tsx (numbered "Step {displayNumber}" items)
 */}
