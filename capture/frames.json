@@ -432,6 +432,7 @@
     ],
     "file": "images/read-an-alert/open-the-details.png",
     "flow": "TODO",
+    "blocked": "The details open from a notification in the Alerts list, and the saved session's member has none in Pnc Ins (the Alerts screen reads \"Showing 0 of 0 alert notifications\"), so there is nothing to open. Producing notifications for this member would change the alert setup, a write in the read-only workspace.",
     "workspace": "readonly",
     "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
   },
