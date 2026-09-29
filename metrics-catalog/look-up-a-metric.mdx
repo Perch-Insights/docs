@@ -5,11 +5,71 @@ description: "Search the metrics catalog and open a metric or dimension to read 
 
 After this page you will be able to search the metrics catalog by name or type and open a field to read its details.
 
-{/* TODO fill */}
+The catalog is read-only. You can look up any metric or dimension, but you cannot change one. To learn what the catalog is for, see [Metrics catalog](/metrics-catalog/overview).
+
+## Find a field
+
+<Steps>
+  <Step title="Open the Metrics Catalog">
+    Click the metrics catalog icon in the sidebar. Its tooltip reads **Metric Catalog**. The screen's header reads **Metrics Catalog**, with a count such as **Showing 240 fields** under it.
+  </Step>
+  <Step title="Scan the list">
+    Each row shows the field's **Name**, its **Description**, and its **Type**. The name is in bold, with the technical name underneath. The type is **Measure** for a metric and **Dimension** for a dimension. Without a search, the list is in alphabetical order by name.
+  </Step>
+  <Step title="Filter by type">
+    Click **Types** and tick **Measure**, **Dimension**, or both. The button then shows the types you picked. Clear the filter with the cross on the button.
+  </Step>
+  <Step title="Search by name">
+    Type in the **Search...** field. The search matches names loosely, so a near spelling still finds the field. The closest matches come first.
+  </Step>
+  <Step title="Move between pages">
+    The list shows 19 fields per page. Use the arrows next to **Page 1 of 13** to go to the next or previous page.
+  </Step>
+</Steps>
+
+## Read a field
+
+<Steps>
+  <Step title="Open the field">
+    Click a field's name in the list. Its page opens. The header shows **Metrics Catalog**, an arrow, and the field's name.
+  </Step>
+  <Step title="Read the description and formula">
+    **Description** tells you what the field means. If the field is calculated, a **Formula** box shows how. Any **Filters** the calculation applies are listed under it. A field named inside the formula is shown as a grey chip. Click the chip to open that field's page.
+  </Step>
+  <Step title="Follow related fields">
+    Below the formula, a metric can list **Related Metrics** and **Dimensions**. Each entry is a card marked **Measure** or **Dimension**. Click a card to open that field. When you open a dimension from a metric's list, the header shows the metric between **Metrics Catalog** and the dimension, so you can click back to it.
+  </Step>
+  <Step title="Go back to the list">
+    Click **Metrics Catalog** in the header, or click the cross at the top right of the page.
+  </Step>
+</Steps>
+
+The right side of a field page lists the field's technical properties. You do not need them to read the definition.
+
+## Good to know
+
+- Filters and searches change only your view. They do not change the catalog.
+- The Guide answers from the same metrics and dimensions you see here. When a number in an answer, a dashboard, or an alert looks surprising, look up the metric to see exactly what it measures.
+- If a definition looks wrong, or a metric you need is missing, ask the Perch team. See [Self-service and managed services](/reference/self-service-and-managed-services).
+- The metrics catalog is not turned on in every workspace. If your sidebar has no **Metric Catalog** icon, it is not available to you yet.
 
 {/* provenance
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Metric Catalog" tooltip and aria-label; links to the workspace metrics catalog; shown only under UI_METRICS_CATALOG)
 - perch-frontend-app: apps/www/pages/w/[workspace]/metrics-catalog/index.tsx (route renders MetricsCatalogPage)
-- perch-frontend-app: apps/www/components/pages/MetricsCatalogPage/MetricsCatalogPage.tsx (CubeFieldTypeFilterButton and name filter; CubeFieldsTable; shown only under UI_METRICS_CATALOG)
+- perch-frontend-app: apps/www/components/pages/MetricsCatalogPage/MetricsCatalogPage.tsx (header "Metrics Catalog", subtitle "Showing N fields"; CubeFieldTypeFilterButton and FilterTextField id metricName; defaultPageSize 19; PermissionOff when UI_METRICS_CATALOG is off)
+- perch-frontend-app: apps/www/components/cube/CubeFieldsTable/CubeFieldsTable.tsx (columns "Name" with bold label and technical name underneath, "Description", "Type" showing measure or dimension capitalized; the name links to the field page)
+- perch-frontend-app: apps/www/components/cube/CubeFieldTypeFilterButton/CubeFieldTypeFilterButton.tsx (label "Types"; checkboxes "Measure" and "Dimension")
+- perch-frontend-app: packages/kit/components/FilterButton/FilterButton.tsx (selected value shown on the button with a clear cross)
+- perch-frontend-app: apps/www/components/v2/FilterTextField/FilterTextField.tsx and packages/kit/components/SearchTextField/SearchTextField.tsx (text filter, placeholder "Search...")
+- perch-frontend-app: apps/www/hooks/useWorkspaceCubesFields/useWorkspaceCubesFields.tsx (fuzzy search on label with Fuse.js threshold 0.4, results ranked by match; alphabetical by label when no search; type filter applied client-side)
+- perch-frontend-app: packages/kit/components/FiltersBar/FiltersBar.tsx and packages/kit/components/PaginationSwitch/PaginationSwitch.tsx ("Previous Page" and "Next Page" arrows around "Page N of M")
 - perch-frontend-app: apps/www/pages/w/[workspace]/metrics-catalog/[...fieldNames].tsx (route renders MetricsCatalogFieldPage)
-- perch-frontend-app: apps/www/components/pages/MetricsCatalogFieldPage/MetricsCatalogFieldPage.tsx (field details and properties; "Business Area" and "Tags" only under QUERY_BUILDER_TAGS)
+- perch-frontend-app: apps/www/components/pages/MetricsCatalogFieldPage/MetricsCatalogFieldPage.tsx (field details on the left, property list on the right; no edit actions; "Business Area" and "Tags" only under QUERY_BUILDER_TAGS and not documented)
+- perch-frontend-app: apps/www/components/cube/MetricsCatalogHeader/MetricsCatalogHeader.tsx (breadcrumb "Metrics Catalog" link, optional parent field link, then the field label)
+- perch-frontend-app: apps/www/components/cube/MetricsCatalogHeaderActions/MetricsCatalogHeaderActions.tsx (close button, aria-label "Back to Metrics Catalog", links to the list)
+- perch-frontend-app: apps/www/components/cube/CubeFieldDetails/CubeFieldDetails.tsx ("Description", formula when present, related fields)
+- perch-frontend-app: apps/www/components/cube/CubeFieldFormula/CubeFieldFormula.tsx ("Formula" box; "Filters" listed when present; referenced fields shown as grey chips linking to their pages)
+- perch-frontend-app: apps/www/components/cube/CubeFieldDrillMembers/CubeFieldDrillMembers.tsx ("Related Metrics" cards labelled "Measure", "Dimensions" cards labelled "Dimension"; a dimension opened from a metric carries the metric as its parent in the URL)
+- perch-frontend-app: apps/bff/router/workspace.cube.field.findMany.ts (read-only query of the workspace semantic layer)
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§2.1 all metrics and dimensions come from the semantic layer; §5 managed services evolve the semantic layer)
 */}
