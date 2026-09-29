@@ -11,15 +11,27 @@
   "navigation": {
     "groups": [
       {
-        "group": "Getting started",
+        "group": "Introduction",
         "pages": [
-          "index",
-          "getting-started/sign-in"
+          "introduction/what-perch-is",
+          "introduction/how-perch-organizes-analysis",
+          "introduction/product-at-a-glance",
+          "index"
         ]
       },
       {
-        "group": "Analyses",
+        "group": "Get started",
         "pages": [
+          "getting-started/sign-in",
+          "getting-started/analyze-with-the-guide",
+          "getting-started/view-and-monitor",
+          "getting-started/administer-a-workspace"
+        ]
+      },
+      {
+        "group": "Analyses and the Guide",
+        "pages": [
+          "analyses/overview",
           "analyses/start-an-analysis",
           "analyses/ask-questions",
           "analyses/reports-and-insights"
@@ -28,15 +40,52 @@
       {
         "group": "Playbooks",
         "pages": [
+          "playbooks/overview",
           "playbooks/save-a-playbook",
           "playbooks/run-a-playbook"
         ]
       },
       {
-        "group": "Sharing and pinning",
+        "group": "Reports and sharing",
         "pages": [
+          "sharing/overview",
           "sharing/pin-insights",
           "sharing/share-an-analysis"
+        ]
+      },
+      {
+        "group": "Dashboards",
+        "pages": [
+          "dashboards/overview",
+          "dashboards/open-a-dashboard"
+        ]
+      },
+      {
+        "group": "Alerts",
+        "pages": [
+          "alerts/overview",
+          "alerts/read-an-alert"
+        ]
+      },
+      {
+        "group": "Metrics catalog",
+        "pages": [
+          "metrics-catalog/overview",
+          "metrics-catalog/look-up-a-metric"
+        ]
+      },
+      {
+        "group": "Administration",
+        "pages": [
+          "administration/overview",
+          "administration/manage-members"
+        ]
+      },
+      {
+        "group": "Reference",
+        "pages": [
+          "reference/terminology",
+          "reference/self-service-and-managed-services"
         ]
       }
     ]
