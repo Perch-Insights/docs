@@ -5,11 +5,55 @@ description: "What alerts tell you and what to do when one arrives."
 
 After this page you will know what an alert notification means, why it is a signal rather than an answer, and that the Perch team sets up alerts for you during onboarding.
 
-{/* TODO fill */}
+## What an alert is
+
+An alert tells you that an important change happened. It fires when a metric crosses a threshold that was defined for your workspace. Each time it fires, you get an alert notification.
+
+The **Alerts** screen in the sidebar lists your alert notifications. Each notification shows:
+
+- A title and a short preview of what changed.
+- When it fired, as a relative time and an exact date and time.
+- A coloured badge with the name of its trigger. A trigger is the rule that produced the notification, so every notification from the same rule carries the same badge.
+- A **View dashboard** button when the alert is tied to a dashboard.
+
+**Read More** opens the full notification in a **Notification Details** panel.
+
+## Alerts are signals, not answers
+
+An alert tells you where to look. It does not tell you why the number moved. When a notification arrives, look closer in one of two places:
+
+- **A dashboard**, to see where the metric stands now and what sits around it.
+- **An analysis**, when you need to know why. Ask the Guide about the change the alert describes.
+
+Alerts, dashboards, and the Guide use the same metric definitions, so the number in a notification means the same thing everywhere.
+
+## Who sees which alerts
+
+Alerts are sent to groups of members. The **Alerts** screen shows only the notifications sent to you, so two members of one workspace can see different lists. Your notifications also belong to the workspace you are in. Switch workspace to see another workspace's alerts.
+
+## What you can and cannot change
+
+The Perch team configures your alerts during onboarding, against Perch standards. That includes which metrics they watch, the thresholds they fire on, and which groups they notify. You do not create or edit an alert, and neither does the Guide. If an alert should change, or you should be receiving one you are not, ask the Perch team. See [Self-service and managed services](/reference/self-service-and-managed-services).
+
+What is yours to change is what you are looking at. Filter the list by **Triggers**, by **Date**, or by text. Filters change only your view, not the notifications.
+
+## Next
+
+- [Read an alert](/alerts/read-an-alert)
 
 {/* provenance
-- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.3 Alerts: surface important changes, trigger on defined thresholds, prompt investigation in dashboards or threads; "Alerts are signals, not answers.")
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.3 Alerts: surface important changes, trigger on defined thresholds, prompt investigation in dashboards or threads; "Alerts are signals, not answers."; §3.2 analysis threads are the surface for root-cause analysis; §2.1 all metrics and dimensions come from the semantic layer; §4 the Guide does not perform unmanaged configuration changes; §5 some changes are intentionally not self-service)
 - perch-frontend-app: apps/www/pages/w/[workspace]/alerts/index.tsx and apps/www/pages/w/[workspace]/alerts/[alert].tsx (both render AlertsPage)
-- perch-frontend-app: apps/www/components/pages/AlertsPage/AlertsPage.tsx (header "Alerts", "Showing N of M alert notifications"; "Manage" link only with ManageAlerts permission and not documented)
-- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Alerts" tooltip)
+- perch-frontend-app: apps/www/components/pages/AlertsPage/AlertsPage.tsx (header "Alerts", "Showing N of M alert notifications"; TriggerFilterButton, DateFilterButton, text filter; "Notification Details" panel; "Manage" link only with ManageAlerts permission and not documented)
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Alerts" tooltip; per-workspace alerts link)
+- perch-frontend-app: apps/www/components/alert/AlertsList/AlertsList.tsx (list of notification cards)
+- perch-frontend-app: apps/www/components/v2/alert/AlertCard/AlertCard.tsx (title, preview, "Read More", "View dashboard" per linked dashboard, created time, trigger badge)
+- perch-frontend-app: apps/www/components/v2/alert/common/AlertCreatedAt.tsx (relative time "… ago" plus exact "MM/dd/yyyy HH:mm")
+- perch-frontend-app: apps/www/components/alert/AlertBadge/AlertBadge.tsx (coloured square with the trigger short name)
+- perch-frontend-app: apps/www/components/v2/alert/AlertDetails/AlertDetails.tsx (badge, title, full body, created time)
+- perch-frontend-app: apps/www/components/v2/TriggerFilterButton/TriggerFilterButton.tsx (filter labelled "Triggers")
+- perch-frontend-app: apps/bff/router/alert.event.findMany.ts (notifications are the current member's own, scoped to one workspace; each resolves to its trigger)
+- perch-frontend-app: apps/bff/data/formatTrigger.ts (trigger short name and colour derived from the trigger name)
+- perch-frontend-app: apps/www/components/alert/ManageTriggerForm/ManageTriggerForm.tsx and apps/bff/router/alert.group.setNotified.ts (alerts notify groups; admin-only and not documented)
+- AGENTS.md "Content boundaries": dashboards and alerts are configured by the Perch team during onboarding, against Perch standards
 */}
