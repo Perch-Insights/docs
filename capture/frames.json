@@ -346,5 +346,164 @@
     "file": "images/save-a-playbook/ask-the-guide-to-save-the-analysis.png",
     "flow": "playbook-proposal",
     "note": "Framed on the pending Playbook proposal card in the standing \"Docs: Playbook Proposal\" analysis (1276): header, proposed name, Pending badge and the opening of the description. The \"Save this as a playbook\" request sits far above the card, behind the report the Guide wrote first, so it was replaced as a label by the Pending badge inside the crop. The flow only frames a proposal for a new playbook; when the Guide proposes an update to the existing fixture playbook instead, it asks once for a standalone proposal and waits, so run the capture in the foreground."
+  },
+  {
+    "id": "open-a-dashboard/find-the-dashboard",
+    "page": "dashboards/open-a-dashboard",
+    "section": "Open a dashboard from the sidebar",
+    "step": "Find the dashboard",
+    "labels": [
+      "Favorites",
+      "Search..."
+    ],
+    "file": "images/open-a-dashboard/find-the-dashboard.png",
+    "flow": "TODO",
+    "workspace": "readonly",
+    "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
+  },
+  {
+    "id": "open-a-dashboard/open-the-dashboards-screen",
+    "page": "dashboards/open-a-dashboard",
+    "section": "Browse every dashboard",
+    "step": "Open the Dashboards screen",
+    "labels": [
+      "Dashboards"
+    ],
+    "file": "images/open-a-dashboard/open-the-dashboards-screen.png",
+    "flow": "TODO",
+    "workspace": "readonly",
+    "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
+  },
+  {
+    "id": "open-a-dashboard/check-how-fresh-the-data-is",
+    "page": "dashboards/open-a-dashboard",
+    "section": "Read the dashboard header",
+    "step": "Check how fresh the data is",
+    "labels": [
+      "Data Refreshed as of:"
+    ],
+    "file": "images/open-a-dashboard/check-how-fresh-the-data-is.png",
+    "flow": "TODO",
+    "workspace": "readonly",
+    "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
+  },
+  {
+    "id": "read-an-alert/open-the-alerts-screen",
+    "page": "alerts/read-an-alert",
+    "section": "Open your alert notifications",
+    "step": "Open the Alerts screen",
+    "labels": [
+      "Alerts"
+    ],
+    "file": "images/read-an-alert/open-the-alerts-screen.png",
+    "flow": "TODO",
+    "workspace": "readonly",
+    "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
+  },
+  {
+    "id": "read-an-alert/filter-by-date",
+    "page": "alerts/read-an-alert",
+    "section": "Narrow the list",
+    "step": "Filter by date",
+    "labels": [
+      "Date",
+      "Last month",
+      "Last week",
+      "Today",
+      "Yesterday"
+    ],
+    "file": "images/read-an-alert/filter-by-date.png",
+    "flow": "TODO",
+    "workspace": "readonly",
+    "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
+  },
+  {
+    "id": "read-an-alert/open-the-details",
+    "page": "alerts/read-an-alert",
+    "section": "Read one notification",
+    "step": "Open the details",
+    "labels": [
+      "Notification Details",
+      "Read More"
+    ],
+    "file": "images/read-an-alert/open-the-details.png",
+    "flow": "TODO",
+    "workspace": "readonly",
+    "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
+  },
+  {
+    "id": "look-up-a-metric/scan-the-list",
+    "page": "metrics-catalog/look-up-a-metric",
+    "section": "Find a field",
+    "step": "Scan the list",
+    "labels": [
+      "Description",
+      "Dimension",
+      "Measure",
+      "Name",
+      "Type"
+    ],
+    "file": "images/look-up-a-metric/scan-the-list.png",
+    "flow": "TODO",
+    "workspace": "readonly",
+    "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
+  },
+  {
+    "id": "look-up-a-metric/follow-related-fields",
+    "page": "metrics-catalog/look-up-a-metric",
+    "section": "Read a field",
+    "step": "Follow related fields",
+    "labels": [
+      "Dimension",
+      "Dimensions",
+      "Measure",
+      "Metrics Catalog",
+      "Related Metrics"
+    ],
+    "file": "images/look-up-a-metric/follow-related-fields.png",
+    "flow": "TODO",
+    "workspace": "readonly",
+    "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
+  },
+  {
+    "id": "manage-members/open-the-organization-settings",
+    "page": "administration/manage-members",
+    "section": "Review your members",
+    "step": "Open the organization settings",
+    "labels": [
+      "Organization",
+      "Users"
+    ],
+    "file": "images/manage-members/open-the-organization-settings.png",
+    "flow": "TODO",
+    "note": "Frame the settings navigation only. The users table lists real members with emails; it must not be in the frame."
+  },
+  {
+    "id": "manage-members/add-a-member",
+    "page": "administration/manage-members",
+    "section": "Add or change a member",
+    "step": "Add a member",
+    "labels": [
+      "Add user",
+      "Email",
+      "First name",
+      "Last name"
+    ],
+    "file": "images/manage-members/add-a-member.png",
+    "flow": "TODO",
+    "note": "Open the Add user dialog and frame it. Never click Create. Crop so no existing member row (names or emails) is in the frame."
+  },
+  {
+    "id": "manage-members/create-a-group",
+    "page": "administration/manage-members",
+    "section": "Organize members into groups",
+    "step": "Create a group",
+    "labels": [
+      "Add Group",
+      "Name"
+    ],
+    "file": "images/manage-members/create-a-group.png",
+    "flow": "TODO",
+    "note": "Open the New Group dialog and frame it. Never click Create or Delete. No member names or emails in the frame."
   }
 ]
