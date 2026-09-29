@@ -1,0 +1,134 @@
+---
+title: "Ask the Guide a question"
+description: "Type or dictate a question in the Guide panel, answer its follow-ups, and turn its query suggestions into steps."
+---
+
+After this page you can type or dictate a question in the **Guide** panel, stop the Guide, answer a **Guide Question**, and accept, reject, or undo a **Query Suggestion** so it becomes a step on the canvas.
+
+## Ask a question
+
+The **Guide** panel is on the right of every analysis. The field at the bottom reads **Ask about your data...**.
+
+<Steps>
+  <Step title="Type your question">
+    Type in the field. Press **Shift+Enter** for a line break.
+  </Step>
+  <Step title="Send it">
+    Press **Enter** or click **Send**. Your question appears on the right of the conversation and the Guide's answer on the left.
+
+    <Frame caption="A question typed into the Guide field, ready to send.">
+      <img src="/images/ask-questions/send-it.png" alt="The Guide panel with an earlier reply above a field containing the question Which day of the week has the most inbound calls, followed by an Analysis selector, a microphone button, and a Send button" />
+    </Frame>
+  </Step>
+  <Step title="Wait for the answer">
+    While the Guide works, the field is disabled and a pill names what the Guide is doing. When it finishes, click the sparkle button on the reply to open the **Thinking** dialog, which lists what the Guide did and found.
+  </Step>
+</Steps>
+
+The Guide uses the step you have open on the canvas as context. Select a different step before you send to ask about that one.
+
+### Work with a reply
+
+Hover over a reply to show three buttons in its bottom right corner: **Copy message**, **Give positive feedback**, and **Give negative feedback**. If the Guide attached a short feedback form to that reply, thumbs down opens it.
+
+When the Guide names a playbook in a reply, the name is a link that opens the playbook in a new browser tab.
+
+## Stop the Guide
+
+While the Guide is working, **Send** becomes a red **Stop** button. Click it to stop the Guide. A card reading **This message was interrupted** marks where it stopped, and the field is enabled again.
+
+## Dictate a question
+
+<Steps>
+  <Step title="Start recording">
+    Click the microphone button to the left of **Send**. Your browser asks for permission to use the microphone.
+  </Step>
+  <Step title="Speak">
+    A red recording dot, a waveform, and a timer replace the field. Recording stops on its own at **2:00**.
+  </Step>
+  <Step title="Accept, edit, and send">
+    Click **Accept** to add what you said to the end of the field, fix anything misheard, and press **Enter**. Click **Cancel** to discard the recording instead.
+
+    <Frame caption="The recording view with its Cancel and Accept buttons.">
+      <img src="/images/ask-questions/accept-edit-and-send.png" alt="The Guide field replaced by a red recording dot, a purple waveform, a timer reading 0:03 of 2:00, an X button to cancel, and a check mark button to accept" />
+    </Frame>
+  </Step>
+</Steps>
+
+The microphone button is hidden while the Guide is working.
+
+## Answer a Guide Question
+
+When the Guide needs more detail, a question card replaces the field, headed with a title the Guide chose or **Guide Question**. You cannot send a new message until you answer or cancel it.
+
+<Steps>
+  <Step title="Answer each question">
+    Pick one option, tick one or more options, or type into the field that reads **Type your answer...**. Some choice questions end with **Other**, which opens a field reading **Please specify...**.
+  </Step>
+  <Step title="Move through the questions">
+    With more than one question, a counter such as **1 of 3** appears under the answer, marked **Required** or **Optional**. Click **Next** or press **Enter**. **Next** stays disabled until you answer a required question.
+
+    <Frame caption="The first of three questions on a Guide question card.">
+      <img src="/images/ask-questions/move-through-the-questions.png" alt="Card titled Inbound Call Volume Setup with a Pending badge, the question Which metric would you like to focus on with radio options Total inbound calls selected, Calls answered, Calls abandoned, Abandonment rate, Average handle time, and Other, a counter reading 1 of 3 marked Required, and Cancel and Next buttons" />
+    </Frame>
+  </Step>
+  <Step title="Submit">
+    On the last question the button reads **Submit**. Click it to send your answers. The card moves up into the conversation and the Guide carries on.
+  </Step>
+</Steps>
+
+To skip the whole card, click **Cancel**.
+
+## Accept or reject a Query Suggestion
+
+When the Guide proposes a chart, it sends a **Query Suggestion** card with a title, a short description, and what the query uses under **Metrics**, **Dimensions**, **Filters**, **Grain**, and **Dates**.
+
+<Steps>
+  <Step title="Choose where it goes">
+    Click one of the buttons at the bottom of the card:
+
+    - **Update step 1**, or whichever step number is shown, replaces that step's chart with the suggested query.
+    - **Add as New Step** adds the query as a new step at the end of the analysis and opens it.
+    - **Reject** turns the suggestion down.
+
+    <Frame caption="The Query Suggestion card with its three actions.">
+      <img src="/images/ask-questions/choose-where-it-goes.png" alt="Card headed Query Suggestion and titled Inbound Call Volume Trend by Month with a Pending badge, a description, sections Metrics showing Total Inbound Calls, Grain showing Month, and Dates showing 05/01/26 to 07/31/26, and buttons Update step 1, Add as New Step, and Reject" />
+    </Frame>
+  </Step>
+  <Step title="Tell the Guide why, if you rejected it">
+    A prompt reading **Why are you rejecting this query?** appears above the field. Type a reason and click **Send**, or click **Dismiss**.
+  </Step>
+</Steps>
+
+### Undo an update
+
+After **Update step**, an **Undo** button appears on the card for two minutes. Click it to put the step's query and settings back the way they were. The button disappears as soon as you or the Guide change that step again.
+
+## Good to know
+
+- Long questions are cut off after a few lines. Click **Show more** to read the whole thing.
+- In an analysis another member owns, the field is disabled and the panel shows **The AI analyst is disabled in viewer mode.** To ask your own questions, clone the analysis. See [What a viewer can do](/sharing/share-an-analysis#what-a-viewer-can-do).
+
+{/* provenance
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (panel header "Guide"; message sent with the selected step id; input disabled while processing, while a question is open, and for non-owners; Stop calls thread.chat.stop and is owner-only; new step is selected after creation; an open question set replaces the QuestionField; viewer-mode notice "The AI analyst is disabled in viewer mode. You may clone this thread to ask questions about the data..."; RejectionFeedbackPrompt shown after a reject; Undo wired only when a snapshot exists for the applied step)
+- perch-frontend-app: apps/www/components/ai/AIChat/useAIChatState.ts (forbidNewMessages while processing or while a question set is pending; the pending question set is pulled out of the conversation; guide_stopped event renders GuideStoppedCard; thread_item_created and thread_item_updated update the canvas)
+- perch-frontend-app: apps/www/components/ai/QuestionField/QuestionField.tsx (placeholder "Ask about your data..."; Enter sends, Shift+Enter adds a line; "Send" button; "Stop" replaces Send while processing; mic button hidden while processing; recording view with red dot, waveform, and elapsed time against a 2:00 cap; "Cancel" and "Accept" buttons; transcript appended to the field)
+- perch-frontend-app: apps/www/hooks/useStt.ts (getUserMedia microphone prompt; recording finalizes on its own past the time limit; cancel discards the transcript)
+- perch-frontend-app: apps/www/components/ai/UserMessage/UserMessage.tsx (user messages on the right; "Show more" for long messages)
+- perch-frontend-app: apps/www/components/ai/AIMessage/AIMessage.tsx (Guide replies on the left; hover buttons "Copy message", "Give positive feedback", "Give negative feedback"; negative feedback opens AiMessageFeedbackModal when the reply carries a feedbackSchema)
+- perch-frontend-app: apps/www/components/ai/ToolMessage/ToolCallsGroup.tsx (running pill shows the current tool description; idle sparkle button; "Thinking" dialog listing descriptions and results)
+- perch-frontend-app: apps/www/components/ai/AIChat/GuideStoppedCard.tsx ("This message was interrupted")
+- perch-frontend-app: apps/www/components/ai/ChatMessageAnchor/ChatMessageAnchor.tsx (playbook resource links open the playbook in a new tab)
+- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Query Suggestion" header with title and description; sections Metrics, Dimensions, Filters, Grain, Dates; buttons "Update step N", "Add as New Step", "Reject"; "Undo" shown only while the step's query still equals the proposal)
+- perch-frontend-app: apps/www/components/ai/AIChat/useStepUpdateUndoCache.ts (snapshot taken only for step updates; two-minute undo window; undo restores query and settings)
+- perch-frontend-app: apps/www/components/ai/RejectionFeedbackPrompt/RejectionFeedbackPrompt.tsx ("Why are you rejecting this query?"; "Dismiss" and "Send")
+- perch-frontend-app: apps/www/components/ai/AIChat/UserQuestionCard.tsx (title or "Guide Question"; single select, multi select, and free text with placeholder "Type your answer..."; "1 of N" counter; "Required" or "Optional"; "Next" then "Submit"; Enter triggers the primary button; "Cancel"; disabled for non-owners)
+- perch-frontend-app: packages/kit/components/RadioGroup/RadioGroup.tsx and packages/kit/components/CheckboxGroup/CheckboxGroup.tsx ("Other" option with placeholder "Please specify..." when the question allows a custom answer)
+- perch-frontend-app: apps/www/components/pages/ChatThreadPage/ChatThreadPage.tsx (Guide panel on the right of the canvas; the selected step is passed to the Guide panel)
+- perch-frontend-app: apps/bff/router/thread.chat.sendMessage.ts (owner-only; the selected step becomes the Guide's context focus)
+- perch-frontend-app: apps/bff/router/thread.chat.stop.ts (owner-only stop)
+- perch-frontend-app: apps/bff/router/thread.chat.respondToProposal.ts (accept with a step to replace, or accept as a new step, or reject with an optional reason)
+- perch-frontend-app: apps/bff/router/thread.chat.revertProposal.ts (owner-only undo of an accepted proposal)
+- perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md (turn lifecycle: composer locked at turn_start, a question requires a response, composer unlocked at turn_end)
+- perch-backend-stack: apps/guide-web/docs/integration/resource-links.md (the Guide can link to a playbook inside a message)
+*/}

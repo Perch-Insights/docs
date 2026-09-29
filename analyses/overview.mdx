@@ -1,0 +1,67 @@
+---
+title: "Analyses and the Guide"
+description: "What an analysis is, what the Guide does in it, and how steps and reports fit together."
+---
+
+After this page you will know what an analysis is, how the Guide works with you inside it, and how each accepted query becomes a step.
+
+## What an analysis is
+
+An analysis is a conversation with the Guide and a set of charts, side by side. It takes you from "something changed" to "here is why it changed and what to do next." The **Analyses** screen lists all saved analyses in your workspace. Any member can start one with **New Analysis**.
+
+## What the Guide does
+
+The Guide is Perch's AI analyst. It works in the **Guide** panel on the right of every analysis. It interprets your data, explains patterns and drivers, and suggests the next step. It finds out why performance changed before it recommends anything.
+
+When the Guide needs more detail, it asks you a **Guide Question**. When it has a chart to propose, it sends a **Query Suggestion**. You decide what happens to each suggestion.
+
+## Steps
+
+Each accepted query becomes a step in the analysis. A step is one chart, built from metrics, dimensions, filters, a grain, and dates. The **Analysis Steps** panel lists the steps by number. A step can have sub-steps, numbered one level down, such as 4.1 and 4.2. Sub-steps never nest further.
+
+The Guide uses the step you have open as its context. Open a different step to ask about that one.
+
+## Reports
+
+When the Guide has an answer, it writes an **Insight report** into the conversation. Each section of the report is an insight, shown as its own card. Reports carry no step number. A finished report does not change. If you ask for changes, the Guide writes a new one.
+
+## How analyses relate to the rest of Perch
+
+- A playbook saves a line of analysis so you can run it again on fresh data. Each run is its own analysis. See [Playbooks](/playbooks/overview).
+- Every analysis you start is private. Make it public so other members can read and clone it. See [Reports and sharing](/sharing/overview).
+- Dashboards and alerts tell you where to look. An analysis is where you find out why.
+
+## What you can and cannot change
+
+In an analysis you own, you ask the Guide questions, accept or reject its suggestions, and rename or delete the analysis. In an analysis another member owns, you are a viewer. You can read it, but you cannot ask the Guide anything until you clone it.
+
+Neither you nor the Guide can change metric definitions, dashboards, or journeys from an analysis. The Perch team manages those. See [Self-service and managed services](/reference/self-service-and-managed-services).
+
+## Next
+
+- [Start an analysis](/analyses/start-an-analysis)
+- [Ask the Guide a question](/analyses/ask-questions)
+- [Read reports and insights](/analyses/reports-and-insights)
+
+{/* provenance
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.2 Analysis Threads: primary analytical surface, step-based, root-cause analysis, evolves as thinking evolves, "Something changed" to "Here is why it changed and what to do next"; §3.1 dashboards not the place for root-cause analysis; §3.3 alerts prompt investigation; §4 What the AI Guide Is (and Is Not): interpret data, explain patterns and drivers, suggest next analytical steps; does not modify metric definitions, change dashboards or semantic logic, or create new journeys; §5 managed services)
+- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/terminology_canon.md (Section A: "Each accepted query becomes a step in the analysis."; reports and findings carry no step numbers; sub-steps exactly one decimal level, no deeper nesting)
+- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/perch_standard_way.md (Purpose & Scope: diagnostic, not prescriptive, why before recommending)
+- perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md (reports immutable once finalized; a requested modification produces a new report)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("All saved analyses in this workspace.")
+- perch-frontend-app: apps/www/components/pages/AiHomePage/NewExplorationButton.tsx ("New Analysis")
+- perch-frontend-app: apps/www/components/pages/ChatThreadPage/ChatThreadPage.tsx (canvas with the Guide panel on the right; selected step passed to the Guide panel)
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (panel header "Guide"; message sent with the selected step; viewer-mode notice for non-owners)
+- perch-frontend-app: apps/bff/router/thread.chat.sendMessage.ts (owner-only; the selected step becomes the Guide's context focus)
+- perch-frontend-app: apps/www/components/ai/AIChat/UserQuestionCard.tsx ("Guide Question")
+- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Query Suggestion"; sections Metrics, Dimensions, Filters, Grain, Dates; "Update step N", "Add as New Step", "Reject")
+- perch-frontend-app: apps/www/components/ai/ThreadStepManagementPanel/ThreadStepManagementPanel.tsx (panel heading "Analysis Steps")
+- perch-frontend-app: apps/www/components/ai/ThreadStepManagementPanel/ThreadItemListItem.tsx (numbered steps, indented sub-steps)
+- perch-frontend-app: apps/www/hooks/useStepHierarchy.ts (top-level numbers 1, 2, 3; sub-steps numbered N.1, N.2)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report" card in the conversation)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx (one card per insight)
+- perch-frontend-app: apps/bff/router/playbook.getDetails.ts (each playbook run is an analysis)
+- perch-frontend-app: apps/bff/prisma/models/Thread.prisma (isPrivate defaults to true)
+- perch-frontend-app: apps/www/components/ai/VisibilityToggleButton/VisibilityToggleButton.tsx (public analyses are visible to all members of the workspace)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx and apps/www/components/ai/ThreadHeader/ThreadHeaderMenu.tsx (owner renames; "Clone Analysis"; owner-only "Delete Analysis")
+*/}

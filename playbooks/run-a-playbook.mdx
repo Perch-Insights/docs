@@ -1,0 +1,108 @@
+---
+title: "Run a playbook"
+description: "Run a playbook, follow the run in its analysis, and find the latest and past run reports."
+---
+
+After this page you will be able to click **Run** on a playbook, follow the run in its own analysis, read the **Latest run report** on the playbook page, and open any earlier run from the **Past Runs** list.
+
+## Run a playbook
+
+A run is one execution of a playbook. Each run gets its own analysis, and the Guide starts working in it as soon as it opens.
+
+<Steps>
+  <Step title="Open the playbook">
+    Click the playbook's card in the **Playbooks** section of the analyses list, or the playbook chip in the **Playbook** column of an analysis that belongs to it. See [Save a playbook](/playbooks/save-a-playbook) for where to find them.
+  </Step>
+  <Step title="Click Run">
+    Click **Run** at the right of the playbook header. Any member who can open the playbook can run it.
+  </Step>
+  <Step title="Follow the run">
+    Perch opens the new run analysis. Until the Guide creates its first step, the canvas reads **The AI Guide is working on your first step**. Steps appear as the Guide creates them. The report appears in the **Guide** panel as an **Insight report** card. See [Read reports and insights](/analyses/reports-and-insights) for how to read, copy, and download it.
+
+    <Frame caption="A finished run analysis, with its report in the Guide panel on the right.">
+      <img src="/images/run-a-playbook/follow-the-run.png" alt="Analysis titled September 25, 2026 Run 1 with a line under it reading in Docs: Inbound call volume playbook by You. The left side shows a step named Initial Analysis with a line chart. The right side is the Guide panel with an Insight report card titled Monthly Inbound Call Volume and Queue Time Trend Report." />
+    </Frame>
+  </Step>
+</Steps>
+
+The run analysis is named with today's date, then **Run** and the run number, such as **July 3, 2024 • Run 7**. The line under its title reads **in** followed by the playbook name. Click that name to return to the playbook. You own the run analysis, so the owner badge reads **You**, even when the playbook belongs to another member. The run analysis also appears in the **Analyses** section of the analyses list, with the playbook chip in the **Playbook** column.
+
+Run numbers count up separately for each playbook, starting at 1. Numbers can be skipped, so **Run 7** does not mean six earlier runs finished.
+
+## Read the latest run report
+
+<Steps>
+  <Step title="Open the playbook page">
+    The **Latest run report** card sits below the **Description**. Its header shows **Latest run report** and the name of the run analysis the report came from.
+
+    <Frame caption="The Latest run report card below the playbook description.">
+      <img src="/images/run-a-playbook/open-the-playbook-page.png" alt="Playbook page showing a Description paragraph, a Schedule and delivery section with a Set up schedule link, then a card headed Latest run report September 25, 2026 Run 2 with an Open run button at the right. The card body shows the report title Monthly Inbound Call Volume and Queue Time Trend Report and its Executive Summary." />
+    </Frame>
+  </Step>
+  <Step title="Read the report">
+    The report is shown in a box under the header. The box scrolls on its own when the report is long. Click the header to collapse or expand the card.
+  </Step>
+  <Step title="Open the run">
+    Click **Open run** at the right of the header to open the run analysis the report belongs to.
+  </Step>
+</Steps>
+
+Until a run has produced a report, the card reads **No report yet**.
+
+## Find past runs
+
+<Steps>
+  <Step title="Scroll to Past Runs">
+    Below the report card, the **Past Runs** heading shows a count such as **Showing 8 of 8 runs**.
+  </Step>
+  <Step title="Filter and sort the list">
+    The list has the same filters as the analyses list: a favorite filter that starts at **All**, an owner filter that starts at **All owners**, and a **Search...** field. Click a column header to sort.
+
+    <Frame caption="The Past Runs list with its filter bar and sortable column headers.">
+      <img src="/images/run-a-playbook/filter-and-sort-the-list.png" alt="Past Runs heading reading Showing 3 of 3 runs, a Filters row with an All favorite filter, an All owners filter, and a Search field, then a table with Name, Owner, Reports, Created at, and Last modified columns. The first row, September 25, 2026 Run 2, carries a green Latest report badge." />
+    </Frame>
+  </Step>
+  <Step title="Read the badges">
+    A green **Latest report** badge marks the analysis whose report is shown in the **Latest run report** card. A run that is still working shows an **Executing...** badge. Perch shows this badge only for analyses created in the last hour.
+  </Step>
+  <Step title="Open a run">
+    Click a row to open that analysis.
+  </Step>
+</Steps>
+
+If nothing has been run yet, the list reads **No runs found**.
+
+## Good to know
+
+- Once the run finishes, the run analysis works like any other analysis you own. You can rename it, mark it as a favorite, and ask the Guide follow-up questions in the **Guide** panel.
+- The playbook page refreshes the report about once a minute. Reload the page to see a run that has just finished right away.
+- The **Past Runs** list is not limited to runs. It also includes the analysis the playbook was saved from and any edit analyses started with **Edit**. Runs started by other members appear too, unless their owner made them private. Use the owner filter to see only your own.
+- Each card in the **Playbooks** section of the analyses list shows a **Last run** link with how long ago it ran. Click it to open that run analysis.
+
+{/* provenance
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageHeader.tsx ("Run" button shown to every member who can open the playbook; navigation to the run analysis once it starts)
+- perch-frontend-app: apps/bff/router/playbook.execute.ts (a run creates a Guide conversation pinned to the playbook with auto run on, owned by the member who clicked Run, titled with the run number, and creates the matching analysis)
+- perch-frontend-app: apps/bff/lib/guide/internal/client-http.ts (createNewGuideChatThreadBasedOnPlaybook passes pinned_playbook_ids and auto_run)
+- perch-frontend-app: apps/bff/data/createThreadTitle.ts (run analyses are titled "{date} • Run {N}"; the playbook name is shown in the header badge, not the title)
+- perch-frontend-app: apps/www/components/pages/ChatThreadPage/ChatThreadPage.tsx ("The AI Guide is working on your first step" while a playbook executes and no step exists)
+- perch-frontend-app: apps/www/components/ai/AIChat/useAIChatState.ts (isExecutingPlaybook is true between playbook_execution_started and playbook_execution_completed; thread_item_created appends the new step to the analysis)
+- perch-frontend-app: apps/bff/lib/guide/chat-client.ts (playbook_execution_started and playbook_execution_completed forwarded with the playbook id only)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx (line under the title reads "in" plus the parent playbook name linking to the playbook page; "by" owner badge)
+- perch-frontend-app: apps/www/components/ai/OwnerBadge/OwnerBadge.tsx (badge reads "You" for the signed-in member)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookLastRunReportCard.tsx ("Latest run report" header with " • <run analysis title>"; "Open run" button linking to the run analysis; report rendered in a scrolling box; "No report yet — run this playbook to generate the first report.")
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageSectionCard.tsx (section card expanded by default; clicking the header collapses or expands it)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookDetailsPage.tsx (card order Description then Latest run report then Past Runs; "Past Runs" heading with "Showing N of M runs"; filters bar; "Latest report" green badge on the row matching the last run analysis; "Executing..." badge only checked for analyses created within the last hour; empty state "No runs found"; playbook details refetched every minute)
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadExecutionStateBadge.tsx ("Executing..." primary badge while the analysis is executing a playbook)
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadListTable.tsx and apps/www/components/ai/ThreadListTable/PlaybookChip.tsx (badges rendered after the name in the Name column; sortable headers; "Playbook" column with the playbook chip)
+- perch-frontend-app: apps/www/components/ai/ThreadListTableFilters/ThreadListTableFilters.tsx (favorite filter starting at "All", owner filter labelled "All owners", "Search..." text field)
+- perch-frontend-app: apps/www/hooks/useThreads/useThreads.tsx (list query for the playbook page filtered by playbookId)
+- perch-frontend-app: apps/bff/router/thread.findMany.ts (with a playbookId, the list holds analyses whose relation to the playbook is pinned or created; shows other members' analyses unless they are private; not filtered by owner unless the owner filter is set)
+- perch-frontend-app: apps/bff/router/playbook.edit.ts (an edit analysis is created pinned to the playbook, so it appears in the Past Runs list)
+- perch-frontend-app: apps/bff/router/playbook.getDetails.ts (last run report is the default report of the last run analysis; last run analysis id and title returned for the card)
+- perch-frontend-app: packages/schemas/Playbook.ts (lastRunReport and lastRunThread are optional on the playbook details; lastRun with time and analysis on each list item)
+- perch-frontend-app: apps/bff/router/playbook.findMany.ts (lastRun resolved to the run analysis for each playbook card)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/PlaybooksCarousel.tsx ("Last run · <time ago>" link on each playbook card opens the latest run analysis)
+- perch-backend-stack: apps/guide-web/docs/integration/workspace-playbooks.md (a conversation created with pinned_playbook_ids copies the playbook's entries at creation; pinned relation recorded on the thread)
+- perch-backend-stack: apps/guide-web/docs/integration/run-number-fe-integration.md (run numbers are assigned per playbook starting at 1; gaps are normal)
+- perch-backend-stack: apps/guide-web/docs/integration/execution-lifecycle.md (a headless playbook run is bracketed by playbook_execution_started and playbook_execution_completed; the artifacts the run produces arrive between them)
+*/}

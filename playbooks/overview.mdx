@@ -1,0 +1,67 @@
+---
+title: "Playbooks"
+description: "What a playbook is, what a run is, and how the latest run report is chosen."
+---
+
+After this page you will know what a playbook is, what happens when you run one, and where each run and its report are kept.
+
+## What a playbook is
+
+A playbook is a saved set of repeatable analyses you can run again with fresh data. You build it once in an analysis. After that, the Guide can repeat the same line of analysis whenever you ask.
+
+Every playbook has a plan: the analysis steps the Guide follows on every run. Plan steps are not the numbered steps of an analysis. Numbered steps are the charts of one analysis. Plan steps describe what to do on any run.
+
+## Where playbooks come from
+
+A playbook starts in an analysis. You ask the Guide to save the analysis as a playbook. The Guide proposes one, and saves it only when you agree. The analysis you saved it from stays linked to the playbook.
+
+## Runs
+
+A run is one execution of a playbook. Each run is its own analysis, with its own steps and its own report. You own every run you start, even on a playbook another member owns.
+
+Runs are numbered per playbook, starting at 1. Numbers can skip, so the number does not count finished runs.
+
+## Reports from runs
+
+The playbook page shows the **Latest run report**. This is the report from the most recent run. The **Past Runs** list below it holds every run. It also holds the analysis the playbook was saved from and any analyses used to change it.
+
+A report does not change once it is finished. To get fresh numbers, run the playbook again.
+
+## How playbooks relate to the rest of Perch
+
+- A playbook is built from an analysis, and each run is an analysis. See [Analyses and the Guide](/analyses/overview).
+- A run's report works like any other report. You can read its insights, copy them, and pin them. See [Reports and sharing](/sharing/overview).
+
+## What you can and cannot change
+
+A new playbook is private to you. Make it public so every member of the workspace can open and run it.
+
+On a playbook you own, you can rename it, change its visibility, and set a schedule so it runs on its own and delivers its report to subscribers. You cannot edit the plan by hand. To change it, ask the Guide, and the Guide proposes the change for you to accept.
+
+On a public playbook another member owns, you can read it, open its plan, run it, and open its runs. You cannot rename it, change it, or change its schedule or subscribers.
+
+## Next
+
+- [Save a playbook](/playbooks/save-a-playbook)
+- [Run a playbook](/playbooks/run-a-playbook)
+
+{/* provenance
+- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/terminology_canon.md (Section A: playbook; Analysis step / Plan step distinct from numbered thread steps; Section D: "playbook — a saved set of repeatable analyses you can re-run with fresh data")
+- perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md (reports immutable once finalized)
+- perch-backend-stack: apps/guide-web/docs/integration/run-number-fe-integration.md (run numbers per playbook starting at 1; gaps are normal)
+- perch-backend-stack: apps/guide-web/docs/integration/user-ownership.md (playbooks default to private; a member sees public playbooks plus their own private ones)
+- perch-backend-stack: libs/chat/src/chat/tools/playbook/propose.py and libs/chat/src/chat/tools/suggestion/accept.py (the Guide proposes a playbook and saves it only on clear confirmation)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("Playbooks" section, "Reusable analyses you can re-run.")
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageHeader.tsx ("Plan" opens the "Analysis plan" dialog; owner-only rename, visibility, and "Edit the plan by chatting with the Guide"; "Run" for every member who can open the playbook)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookDetailsPage.tsx (Description, schedule card, "Latest run report" card, "Past Runs": "All historical runs of this playbook, including manual investigations.")
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookLastRunReportCard.tsx ("Latest run report")
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookScheduleCard/PlaybookScheduleCard.tsx ("Schedule & delivery"; "Set up schedule" and "Edit schedule" for the owner only; schedule hidden from non-owners until one exists)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookScheduleCard/PlaybookScheduleModal.tsx ("Repeats", "Deliver report as")
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookScheduleCard/ManageSubscribersModal.tsx ("Only the playbook owner can add or remove subscribers.")
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookVisibilityButton.tsx (owner-only "Private" / "Public")
+- perch-frontend-app: apps/bff/router/playbook.getDetails.ts (last run report is the default report of the last run analysis)
+- perch-frontend-app: apps/bff/router/playbook.execute.ts (a run creates a new analysis owned by the member who clicked Run)
+- perch-frontend-app: apps/bff/router/playbook.edit.ts (Edit creates a new analysis tied to the playbook for changing it with the Guide)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx ("Copy insight"; "Pin insight" for the analysis owner on a finalized report)
+- perch-frontend-app: apps/bff/router/thread.findMany.ts (Past Runs lists analyses pinned to or created from the playbook)
+*/}

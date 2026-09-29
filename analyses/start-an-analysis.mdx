@@ -1,0 +1,157 @@
+---
+title: "Start an analysis"
+description: "Open a new analysis from the analyses list, rename it, find it again, and delete it when you are done."
+---
+
+On this page you learn to start an analysis with the Guide, rename it, mark it as a favorite, find it again, and delete it.
+
+## Open the analyses list
+
+You land on the analyses list after you sign in. To get back to it, click the **Analyses** icon in the left sidebar, the first icon under the workspace button. From inside an analysis, you can also click the home button at the top left of the header, labelled **All Analyses**.
+
+The **Analyses** section lists every analysis in the workspace that is not private, plus your own private ones. If the workspace has any playbooks, a **Playbooks** section appears above it.
+
+Each row shows the analysis **Name**, its **Owner**, which reads **You** for your own, the number of **Reports** it contains, **Created At**, **Last Modified**, and the **Playbook** it came from, if any. Click the name to open the analysis, or the playbook name to open that playbook. Each row also has a **Clone Analysis** button, and rows you own have a **Delete Analysis** button.
+
+## Start a new analysis
+
+<Steps>
+  <Step title="Click New Analysis">
+    On the analyses list, click **New Analysis** at the right of the **Analyses** heading.
+
+    <Frame caption="The top of the analyses list, with the New Analysis button at the right.">
+      <img src="/images/start-an-analysis/click-new-analysis.png" alt="Analyses heading reading Showing 3 of 3 saved analysis, a Filters row with All, All owners, and a Search field, Page 1 of 1, and a purple New Analysis button." />
+    </Frame>
+  </Step>
+  <Step title="Wait for the analysis to open">
+    Perch creates an analysis named **Untitled** and opens it. The name is the title at the top left of the page.
+  </Step>
+  <Step title="Find your way around">
+    The middle of the page is the canvas, showing the first step, titled **Initial Analysis**. The panel on the right is headed **Guide**. See [Ask questions](/analyses/ask-questions).
+  </Step>
+</Steps>
+
+## Rename an analysis
+
+Only the owner can rename an analysis. See [What a viewer can do](/sharing/share-an-analysis#what-a-viewer-can-do).
+
+<Steps>
+  <Step title="Click the title">
+    Click the analysis title at the top left of the header. It turns into a text field.
+  </Step>
+  <Step title="Type the new name">
+    A name can be up to 255 characters. It cannot be empty, and no other analysis in the workspace can have the same name, ignoring capitalization.
+  </Step>
+  <Step title="Save">
+    Press **Enter** or click outside the field. If the name is empty or already in use, Perch keeps the old name and tells you why.
+
+    <Frame caption="The header after saving, showing the new name as the title.">
+      <img src="/images/start-an-analysis/save.png" alt="Analysis header with a home button, the title Docs: Inbound call volume trend, and a line reading Created at 09/25/2026 13:11 in Docs: Inbound call volume playbook by You." />
+    </Frame>
+  </Step>
+</Steps>
+
+## Mark an analysis as a favorite
+
+Favorites are personal and always appear at the top of your analyses list.
+
+<Steps>
+  <Step title="Click the star">
+    Inside an analysis, click the star at the top right of the header, labelled **Add to Favorites**. On the analyses list, click the star at the start of the row instead.
+
+    <Frame caption="The star at the top right of the analysis header with its tooltip.">
+      <img src="/images/start-an-analysis/click-the-star.png" alt="An empty star button with a tooltip reading Add to Favorites, next to a Private button with a lock icon and a menu button." />
+    </Frame>
+  </Step>
+  <Step title="Click the star again to remove the favorite">
+    The star is yellow while the analysis is a favorite.
+  </Step>
+</Steps>
+
+## Find an existing analysis
+
+The row under the **Analyses** heading is labelled **Filters:**.
+
+<Steps>
+  <Step title="Filter by favorite status">
+    Click the first filter, marked with a star and reading **All**. Choose **Favorites** or **No Favorites**.
+
+    <Frame caption="The favorite filter open above the analyses list.">
+      <img src="/images/start-an-analysis/filter-by-favorite-status.png" alt="Filters row with a star filter reading All, an All owners filter, and a Search field. Below the star filter an open menu lists All, highlighted, Favorites, and No Favorites." />
+    </Frame>
+  </Step>
+  <Step title="Filter by owner">
+    Click **All owners** and pick one or more members. You appear at the top as **You**. Pick **Unknown** to find analyses whose owner is no longer a member of the workspace.
+  </Step>
+  <Step title="Search by name">
+    Type part of a name in the **Search...** field. The list updates as you type and includes close matches, not only exact ones.
+  </Step>
+</Steps>
+
+The list shows the most recently modified analyses first. Click the **Created At** or **Last Modified** heading to sort by that column, and click it again to reverse the order.
+
+<Note>
+While the search field has text, results are ordered by how closely they match, and the date headings do not sort. Clear the field to sort by date again.
+</Note>
+
+## Delete an analysis
+
+Only the owner can delete an analysis.
+
+<Steps>
+  <Step title="Click Delete Analysis">
+    In an open analysis, click the menu button at the top right of the header and choose **Delete Analysis**. On the analyses list, click the trash button at the right end of the row instead.
+  </Step>
+  <Step title="Click Delete">
+    A dialog titled **Delete Analysis** opens. Click **Delete**, or **Cancel** to keep the analysis. If you were inside the analysis, Perch returns you to the analyses list.
+
+    <Frame caption="The confirmation dialog before an analysis is deleted.">
+      <img src="/images/start-an-analysis/click-delete.png" alt="Dialog titled Delete Analysis with a red warning icon, the text This analysis will be permanently deleted, a red Delete button, and a Cancel button." />
+    </Frame>
+  </Step>
+</Steps>
+
+<Warning>
+Deleting cannot be undone. [Clone the analysis](/sharing/share-an-analysis#clone-an-analysis) first if you want to keep a copy.
+</Warning>
+
+## Good to know
+
+- Analysis names are unique. If an analysis named **Untitled** already exists, the new one gets today's date added to its name.
+- The menu at the top right of the header also has **New Analysis**. It opens a new analysis in a new browser tab.
+- To give the canvas more room, click **Collapse panel** on the left edge of the **Guide** panel. Click **Expand panel** to bring it back.
+
+{/* provenance
+- perch-frontend-app: apps/www/pages/w/[workspace]/analyses/index.tsx (route renders AiHomePage)
+- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx (logo, then WorkspaceSwitcher, then WorkspaceNav)
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx (sidebar tab with tooltip and aria-label "Analyses", first tab, shown only under CHAT_AI)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx (sections "Playbooks" and "Analyses"; Playbooks section only when playbooks exist; NewExplorationButton as the section action; FiltersBar with pagination)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/NewExplorationButton.tsx ("New Analysis" button calls thread.createBlank and navigates to the new thread)
+- perch-frontend-app: apps/bff/router/thread.createBlank.ts (new thread titled via createThreadTitle('Untitled'); one step titled "Initial Analysis" with a default widget; author connection with isFavorite false)
+- perch-frontend-app: apps/bff/data/createThreadTitle.ts (duplicate titles get the date in the workspace time zone, then a counter in parentheses)
+- perch-frontend-app: apps/bff/data/defaultWidget.ts (blank step always has a LINE widget, so the canvas renders instead of the no-steps empty state)
+- perch-frontend-app: apps/www/lib/href.ts (routes /w/[workspace]/analyses, thread and playbook links)
+- perch-frontend-app: apps/www/pages/w/[workspace]/analyses/[threadId]/[title]/index.tsx and apps/www/components/pages/RootThreadPage/RootThreadPage.tsx (thread root redirects to the explore view)
+- perch-frontend-app: apps/www/components/pages/ChatThreadPage/ChatThreadPage.tsx (thread layout: ThreadHeader, canvas, AIChat panel; "Collapse panel" / "Expand panel" toggle)
+- perch-frontend-app: apps/www/components/ai/ThreadCanvas/ThreadCanvas.tsx (step header with step title)
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (panel header "Guide", shown under CHAT_AI_ACCESS)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx (home button with tooltip "All Analyses"; owner can click the title to edit; EditInput maxLength 255; toasts "Title must have at least one character." and "This title is already in use. Please choose another."; title not editable for non-owners; FavoriteButton; menu "New Analysis" opens the new thread in a new tab)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeaderMenu.tsx (icon-only menu button; items "New Analysis", "Clone Analysis", "Delete Analysis" for owners)
+- perch-frontend-app: packages/kit/components/EditInput/EditInput.tsx (autofocused field; submits on Enter or blur)
+- perch-frontend-app: apps/bff/router/thread.title.update.ts (owner only; case-insensitive uniqueness within the workspace; throws "Title must be unique")
+- perch-frontend-app: packages/kit/components/FavoriteButton/FavoriteButton.tsx (tooltip and aria-label "Add to Favorites" / "Remove from Favorites"; yellow star when favorited)
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadFavoriteButton.tsx (row star toggles the favorite)
+- perch-frontend-app: apps/bff/router/thread.toggleFavorite.ts (favorite stored per member on the thread connection)
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadListTable.tsx (columns Name, Owner, Reports, Created At, Last Modified, Playbook; date headers become plain text while searching; "Clone Analysis" and owner-only "Delete Analysis" row buttons with tooltip "Delete Analysis")
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/NameCell.tsx (row name links to the thread)
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/SortableDateHeader.tsx (default sort lastModified desc; click toggles direction)
+- perch-frontend-app: apps/www/components/ai/ThreadListTable/PlaybookChip.tsx (playbook badge links to the playbook page)
+- perch-frontend-app: apps/www/components/ai/OwnerBadge/OwnerBadge.tsx ("You" for the current member, "Unknown" when the owner is missing)
+- perch-frontend-app: apps/www/components/ai/ThreadListTableFilters/ThreadListTableFilters.tsx (favorite filter options All / Favorites / No Favorites with "All" as the initial label; owner multiselect with "All owners", "You" first and "Unknown" last; name search field)
+- perch-frontend-app: apps/www/components/v2/FilterTextField/FilterTextField.tsx and packages/kit/components/SearchTextField/SearchTextField.tsx (placeholder "Search..."; debounced as you type)
+- perch-frontend-app: packages/kit/components/FiltersBar/FiltersBar.tsx ("Filters:" label; pagination switch at the right end)
+- perch-frontend-app: apps/www/hooks/useThreads/useThreads.tsx (list query with name, favorite, owner, and sort filters; 20 per page)
+- perch-frontend-app: apps/bff/router/thread.findMany.ts (lists non-private threads plus the member's own private ones; favorites first; default order updatedAt desc; trigram similarity search on title ordered by closeness; "Unknown" owner option maps to authors not in the member list)
+- perch-frontend-app: apps/www/components/ai/DeleteThreadModal/DeleteThreadModal.tsx ("Delete Analysis" dialog with "This analysis will be permanently deleted", Delete button, Cancel, return to the analyses list after deleting from inside an analysis)
+- perch-frontend-app: apps/bff/router/thread.delete.ts (only the author can delete)
+*/}

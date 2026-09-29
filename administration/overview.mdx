@@ -1,0 +1,61 @@
+---
+title: "Administration"
+description: "Who can administer Perch and what the organization settings cover."
+---
+
+After this page you will know who sees the organization settings, what they cover, and which changes belong to the Perch team instead.
+
+## Who administers Perch
+
+A few members in your organization look after access for everyone else. They see **Settings** in the sidebar. Most members do not, because it appears only for members allowed to manage members or workspaces. If you do not see **Settings**, ask one of your administrators for any change on this page.
+
+The organization settings cover your whole organization, not a single workspace.
+
+## What the organization settings cover
+
+**Settings** opens the **Organization** panel. It has up to three parts.
+
+- **Users**: every member of your organization, with the groups each belongs to. Administrators add members, update their details, and remove them. A member who has not confirmed their account yet can be sent their invite again.
+- **Groups**: named sets of members. A group decides two things: who is in it, on its **Members** tab, and which dashboards they can see, on its **Dashboards** tab.
+- **Workspaces**: shown only to members allowed to create, update, or delete workspaces. It lists the workspaces in your organization.
+
+Groups are how access works in Perch. You do not give a dashboard to one member. You add the dashboard to a group, and every member of that group sees it in their **Dashboards** panel. That is why two members of the same workspace can see different dashboards. Alerts reach members the same way: each alert notifies groups, not people.
+
+## How administration relates to the rest of Perch
+
+Administration decides who can reach what. It does not change what anything means.
+
+- **Analyses and playbooks** belong to the members who create them. Each member controls whether their own work is private or public. See [Reports and sharing](/sharing/overview).
+- **Dashboards** are built by the Perch team. Administrators choose which groups see them. See [Dashboards](/dashboards/overview).
+- **Alerts** are configured by the Perch team, including which groups they notify. See [Alerts](/alerts/overview).
+- **Metrics and dimensions** are defined in the semantic layer, which the Perch team maintains. See [Metrics catalog](/metrics-catalog/overview).
+
+## What you can and cannot change
+
+As an administrator, you change who has access: members, groups, and the dashboards each group sees.
+
+You do not change metric definitions, how a dashboard is built, or when an alert fires. Those are managed services. Some changes are kept out of self-service on purpose, so your numbers stay consistent and comparable across time and teams. To ask for one, click **Support** in the sidebar. See [Self-service and managed services](/reference/self-service-and-managed-services).
+
+## Next
+
+- [Manage members](/administration/manage-members)
+
+{/* provenance
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§5 Managed Services and Boundaries: managed services evolve the semantic layer and add or modify dashboards and logic; some changes are intentionally not self-service to preserve consistency, accuracy, and comparability across time and teams)
+- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx ("Settings" shown only with UpdateAllWorkspaces or ManageTenantUsers permission, links to the organization users page; "Support" opens the ticket form; re-checked on develop)
+- perch-frontend-app: apps/www/components/v2/OrganizationSettingsSidebar/OrganizationSettingsSidebar.tsx ("Organization" panel: "Users", "Groups", and "Workspaces" only with workspace create, update, or delete permission; re-checked on develop)
+- perch-frontend-app: apps/www/pages/organization/users/index.tsx (route renders OrganizationSettingsUsersPage; organization-level, not under a workspace)
+- perch-frontend-app: apps/www/pages/organization/groups/index.ts (route renders OrganizationSettingsGroupsPage)
+- perch-frontend-app: apps/www/pages/organization/workspaces/index.ts (route renders OrganizationSettingsWorkspacesPage)
+- perch-frontend-app: apps/www/components/pages/OrganizationSettingsUsersPage/OrganizationSettingsUsersPage.tsx ("Add user"; row actions "Update", "Delete", and "Resend Invite" for unconfirmed users)
+- perch-frontend-app: apps/www/components/v2/UsersTable/UsersTable.tsx (columns "Name" and "Groups")
+- perch-frontend-app: apps/www/components/v2/GroupSettingsLayout/GroupSettingsLayout.tsx (tabs "Members" and "Dashboards")
+- perch-frontend-app: apps/www/components/v2/GroupDashboardsTable/GroupDashboardsTable.tsx (switch per dashboard adds it to or removes it from the group)
+- perch-frontend-app: apps/bff/router/dashboard.findMany.ts (a dashboard's groups are the groups with view or update permission over it)
+- perch-frontend-app: apps/www/components/pages/OrganizationSettingsWorkspacesPage/OrganizationSettingsWorkspacesPage.tsx (header "Workspaces", "Showing N workspaces"; PermissionOff without workspace create, update, or delete permission)
+- perch-frontend-app: apps/www/components/v2/WorkspacesTable/WorkspacesTable.tsx ("Name" column; permission-gated "Update workspace" and "Delete workspace" actions)
+- perch-frontend-app: apps/www/components/ai/VisibilityToggleButton/VisibilityToggleButton.tsx ("Private" and "Public" on the member's own work)
+- perch-frontend-app: apps/bff/router/alert.group.setNotified.ts and apps/www/components/alert/ManageTriggerForm/ManageTriggerForm.tsx ("Notify groups"; alerts are delivered to groups, set up under the ManageAlerts permission)
+- docs: dashboards/overview.mdx, alerts/overview.mdx, metrics-catalog/overview.mdx, reference/self-service-and-managed-services.mdx, getting-started/administer-a-workspace.mdx
+- AGENTS.md "Content boundaries": dashboards and alerts are configured by the Perch team during onboarding, against Perch standards
+*/}

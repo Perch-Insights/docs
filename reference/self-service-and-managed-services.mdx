@@ -1,0 +1,60 @@
+---
+title: "Self-service and managed services"
+description: "What you can change yourself, what the Perch team changes for you, and how to ask."
+---
+
+Use this page to decide whether you can make a change yourself or need to ask the Perch team.
+
+## Why some changes are not self-service
+
+Perch includes ongoing managed services. The Perch team maintains data quality, evolves the semantic layer, adds or changes dashboards and the logic behind them, and supports deeper analysis. Some changes are kept out of self-service on purpose. That keeps your numbers consistent, accurate, and comparable across time and across teams.
+
+## What you change yourself
+
+Any member can change these:
+
+- **Your analyses.** Start an analysis, ask the Guide questions, and accept the queries that become steps. Pin insights from a report, make an analysis **Public** or **Private**, clone an analysis you can open, and delete one you own. See [Analyses and the Guide](/analyses/overview) and [Share an analysis](/sharing/share-an-analysis).
+- **Your playbooks.** Save a line of analysis as a playbook when the Guide proposes one, and run it again on fresh data. See [Save a playbook](/playbooks/save-a-playbook) and [Run a playbook](/playbooks/run-a-playbook).
+- **Your favorites.** Star an analysis or a dashboard. Favorite dashboards appear under **Favorites** in the **Dashboards** panel. Favorites are your own and do not change what other members see.
+- **How you read alerts.** Narrow the **Alerts** screen with the **Triggers** and **Date** filters. See [Alerts](/alerts/overview).
+- **Your account.** **Account** at the bottom of the sidebar opens your personal settings. There you can change your **Email**, **First name**, and **Last name**, and your password under **Password**.
+
+## What your administrators change
+
+Members who see **Settings** in the sidebar manage access for your organization. They add and remove members, organize members into groups, and choose which dashboards each group can see. Some can also rename workspaces. If you need access to a workspace or a dashboard, ask them. See [Administration](/administration/overview).
+
+## What the Perch team changes for you
+
+These are managed services. You cannot change them in Perch, and neither can the Guide:
+
+- **Metric and dimension definitions.** Every metric is defined once in the semantic layer. Analyses, dashboards, and the Guide all use the same definition.
+- **Dashboards.** The Perch team configures your dashboards during onboarding, against Perch standards, and adds or changes them later.
+- **Alerts.** The Perch team configures your alerts during onboarding, including the thresholds they trigger on.
+- **Journeys.** The business journeys Perch analyzes, such as Lead to Contact or Opportunity to Sale, are part of the managed platform. The Guide does not create new ones.
+- **Data quality.** The Perch team maintains the quality of your data.
+
+If you ask the Guide for one of these changes, it tells you that it cannot make it and points you to the next step.
+
+## How to ask the Perch team
+
+Click **Support** at the bottom of the sidebar. A **New Ticket** form opens with one field, **Description**, where you describe the problem you are facing in up to 255 characters. Perch adds your name and email for you. Click **Create Ticket** to send it. **Ticket created successfully** confirms that your request was sent.
+
+Say what you want to change and where you saw it. Name the dashboard, the alert, or the metric, so the Perch team can find it.
+
+{/* provenance
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§5 Managed Services and Boundaries: maintain data quality, evolve the semantic layer, add or modify dashboards and logic, support deeper analysis; some changes intentionally not self-service to preserve consistency, accuracy, and comparability across time and teams; a request is self-service, needs Perch change management, or needs a support request; §4 the Guide does not modify metric definitions, change dashboards or semantic logic, create new journeys, or make unmanaged configuration changes, and explains the boundary and the next step when a request exceeds self-service; §2.1 all metrics and dimensions come from the semantic layer; §2.2 journeys such as Lead → Contact and Opportunity → Sale; §3.3 alerts trigger on defined thresholds)
+- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx ("Support" tooltip on the button that opens TicketCreateOrUpdateForm with the member's name and email prefilled; "Settings" only with UpdateAllWorkspaces or ManageTenantUsers permission; "Account" tooltip links to the personal settings; re-checked on develop)
+- perch-frontend-app: apps/www/components/v2/TicketCreateOrUpdateForm/TicketCreateOrUpdateForm.tsx ("New Ticket" heading; Name, Last Name, Email and the organization and environment fields are hidden and prefilled, so only "Description" shows, placeholder "Describe the problem you are facing", 255 characters; "Create Ticket" submit; "Ticket created successfully")
+- perch-frontend-app: packages/kit/components/FormControl/FormControl.tsx (the hidden prop is passed to the wrapping div, so hidden fields are not shown)
+- perch-frontend-app: apps/www/components/v2/CurrentUserSettingsSidebar/CurrentUserSettingsSidebar.tsx ("Personal" nav with "Account" and "Password"; "Password" hidden for SSO accounts, which are out of the first cut)
+- perch-frontend-app: apps/www/components/pages/CurrentUserDetailsPage/CurrentUserDetailsPage.tsx ("Account" with "Email", "First name", "Last name", "Save changes")
+- perch-frontend-app: apps/www/components/pages/CurrentUserPasswordPage/CurrentUserPasswordPage.tsx ("Change Password")
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeaderMenu.tsx ("New Analysis", "Clone Analysis", "Delete Analysis")
+- perch-frontend-app: apps/www/components/ai/VisibilityToggleButton/VisibilityToggleButton.tsx ("Private" and "Public")
+- perch-frontend-app: apps/www/components/v2/DashboardFavoriteButton/DashboardFavoriteButton.tsx (favorite a dashboard, no permission check) and apps/www/components/v2/DashboardsSidebar/DashboardsSidebar.tsx ("Favorites" group in the Dashboards panel)
+- perch-frontend-app: apps/bff/router/thread.toggleFavorite.ts (favorites stored per member)
+- perch-frontend-app: apps/www/components/pages/AlertsPage/AlertsPage.tsx, TriggerFilterButton ("Triggers") and DateFilterButton ("Date"); "Manage" only with ManageAlerts permission and not documented
+- perch-frontend-app: apps/www/components/v2/OrganizationSettingsSidebar/OrganizationSettingsSidebar.tsx and apps/www/components/pages/OrganizationSettingsWorkspacesPage/OrganizationSettingsWorkspacesPage.tsx (members, groups, group dashboard access; "Update workspace" changes the name only)
+- docs: sharing/share-an-analysis.mdx, playbooks/save-a-playbook.mdx, playbooks/run-a-playbook.mdx, getting-started/administer-a-workspace.mdx
+- AGENTS.md "Content boundaries": dashboards and alerts are configured by the Perch team during onboarding, against Perch standards
+*/}

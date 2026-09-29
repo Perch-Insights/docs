@@ -1,0 +1,71 @@
+---
+title: "Reports and sharing"
+description: "What a report and an insight are, and who can see your analyses."
+---
+
+After this page you will know what a report and an insight are, and how private and public analyses decide who sees your work.
+
+## What a report is
+
+A report is a structured write-up of findings you can revisit. The Guide writes it when it has an answer for you. It appears as an **Insight report** card in the **Guide** panel, at the point in the conversation where the Guide wrote it.
+
+A report has a title, a one-sentence summary, and a set of insights. While the Guide is writing, the card reads **Writing…**. Once the summary appears, the report is finished.
+
+A finished report never changes. If you ask the Guide to change it, the Guide writes a new report, and the earlier one stays as it was. You can copy a finished report as text or download it as a file.
+
+## What an insight is
+
+An insight is one section of a report, shown as its own card. Each insight carries one of three types:
+
+- **Monitoring**: the recurring health of a metric or how a rate is moving.
+- **Tracking**: items followed over time against a target.
+- **Investigation**: the root cause of something that changed.
+
+You can copy an insight on its own. In an analysis you own, you can also vote on it and pin it.
+
+Pinning is how you tell the Guide what matters. The Guide reads every pinned insight with each later message, so you can ask about them without pasting them in. A pin belongs to the report it was made on. A new version of a report starts with no pins.
+
+## Who sees your work
+
+Every analysis you start is private. Only you can see it or open it.
+
+Make it public and every member of the workspace sees it on their analyses list and can open it as a viewer. A viewer can read every step, the whole conversation, and every report, and can download reports. A viewer cannot message the Guide, pin insights, or save changes. You stay the owner and can make it private again.
+
+Any member who can open an analysis can clone it. The copy belongs to them, starts private, and has the same steps. The conversation with the Guide, and so its reports, does not carry over.
+
+## How reports relate to the rest of Perch
+
+- Reports are written inside analyses. See [Analyses and the Guide](/analyses/overview).
+- Each playbook run is an analysis with its own report. The playbook page shows the latest one. See [Playbooks](/playbooks/overview).
+- Playbooks use the same **Private** and **Public** setting as analyses.
+
+## Next
+
+- [Read reports and insights](/analyses/reports-and-insights)
+- [Pin insights](/sharing/pin-insights)
+- [Share an analysis](/sharing/share-an-analysis)
+
+{/* provenance
+- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/terminology_canon.md (Section A: report and finding; "insight report — a structured write-up of findings you can revisit")
+- perch-backend-stack: apps/guide-web/docs/integration/insight-reports.md (reports stream section by section and are complete once the summary is set; monitoring, tracking, and investigation types; reports immutable once finalized and a requested change produces a new report; section pins are injected into the Guide's context on later turns, stay until unpinned, and do not carry to a regenerated report)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report" header; "Writing…" until final; summary then one card per insight; "Copy report" and "Download report" once final; pinning only when final and the member owns the analysis)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx (Monitoring, Tracking, Investigation badges; "Copy insight"; feedback buttons; "Pin insight" and "Unpin insight" only when canPin)
+- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (reports rendered in place in the "Guide" panel conversation; message field disabled for non-owners)
+- perch-frontend-app: apps/bff/router/thread.chat.sendSectionFeedback.ts (insight votes kept only from the owner)
+- perch-frontend-app: apps/bff/router/thread.chat.setInsightPinned.ts ("Only the owner of this analysis can pin insights")
+- perch-backend-stack: apps/guide-web/src/guide_web/routers/agent_ws.py (pinned sections appended to the context of each new turn)
+- perch-frontend-app: apps/bff/router/guide.downloadPresentation.ts (download available to the owner or to any member when the analysis is not private)
+- perch-frontend-app: apps/bff/prisma/models/Thread.prisma (isPrivate defaults to true)
+- perch-frontend-app: apps/bff/router/thread.findMany.ts (the analyses list returns public analyses plus the member's own private ones)
+- perch-frontend-app: apps/www/components/ai/ThreadPageWrapper/ThreadPageWrapper.tsx (a non-owner cannot open a private analysis)
+- perch-frontend-app: apps/www/components/ai/VisibilityToggleButton/VisibilityToggleButton.tsx (Private and Public; "All users with access to this workspace will be able to view this analysis")
+- perch-frontend-app: apps/bff/router/thread.togglePrivate.ts (only the author can change privacy)
+- perch-frontend-app: apps/www/components/ai/ThreadCanvas/ViewOnlyPopup.tsx ("Viewer Mode": changes are not saved)
+- perch-frontend-app: apps/bff/router/thread.item.update.ts (step updates saved only for the author)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeaderMenu.tsx ("Clone Analysis")
+- perch-frontend-app: apps/bff/router/thread.createCopy.ts (the clone is private, belongs to the member who cloned it, and does not copy the Guide conversation)
+- perch-frontend-app: apps/bff/data/cloneHelpers.ts (steps copied in order)
+- perch-frontend-app: apps/bff/router/playbook.execute.ts (a run creates a new analysis)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookLastRunReportCard.tsx ("Latest run report")
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookVisibilityButton.tsx (owner-only Private / Public on a playbook)
+*/}

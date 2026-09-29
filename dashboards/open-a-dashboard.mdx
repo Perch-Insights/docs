@@ -1,0 +1,98 @@
+---
+title: "Open a dashboard"
+description: "Find a dashboard in your workspace, open it, and check when its data was refreshed."
+---
+
+After this page you will be able to find a dashboard in your workspace, open it, mark it as a favorite, and see when its data was last refreshed.
+
+The Perch team sets up your dashboards during onboarding. There is no button for you to create one. If a dashboard you need is missing, see [Self-service and managed services](/reference/self-service-and-managed-services).
+
+## Open a dashboard from the sidebar
+
+<Steps>
+  <Step title="Open the Dashboards panel">
+    Click the dashboards icon in the sidebar. Its tooltip reads **Dashboards**. A panel titled **Dashboards** opens next to the sidebar.
+  </Step>
+  <Step title="Find the dashboard">
+    The panel lists your **Favorites** first. Below them, every other dashboard is grouped under its program name. Program groups start collapsed, except the one holding the dashboard you have open. Click a program name to expand or collapse its group. To find a dashboard by name, type in the **Search...** field at the top of the panel.
+  </Step>
+  <Step title="Open it">
+    Click the dashboard's name. The panel closes and the dashboard opens.
+  </Step>
+</Steps>
+
+## Browse every dashboard
+
+The **Dashboards** screen shows all your dashboards in one table. Use it when you want to filter by program.
+
+<Steps>
+  <Step title="Open the Dashboards screen">
+    In the **Dashboards** panel, click the **Dashboards** title at the top. The screen's header reads **Dashboards**, with a count such as **Showing 12 dashboards** under it.
+  </Step>
+  <Step title="Filter the list">
+    Click **Programs** and tick one or more programs to show only their dashboards. To find a dashboard by name, type in the **Search...** field. Clear a program filter with the cross on the **Programs** button.
+  </Step>
+  <Step title="Open a dashboard">
+    The table has a **Name** column and a **Program** column. Click a dashboard's name to open it.
+  </Step>
+</Steps>
+
+## Read the dashboard header
+
+<Steps>
+  <Step title="Check the name and program">
+    The header shows the dashboard's name. The line under it shows the program the dashboard belongs to.
+  </Step>
+  <Step title="Check how fresh the data is">
+    When your workspace tracks data freshness, the same line ends with **Data Refreshed as of:** and a date and time, such as **September 29, 2026 9:15AM**. The date is the same on every dashboard in the workspace. If you do not see it, your workspace does not track data freshness.
+  </Step>
+  <Step title="Read the dashboard">
+    The dashboard itself fills the page below the header.
+  </Step>
+</Steps>
+
+## Mark a dashboard as a favorite
+
+<Steps>
+  <Step title="Click the star">
+    Click the star at the right of the dashboard header. Its tooltip reads **Add to Favorites**. In the table on the **Dashboards** screen, the same star sits before each dashboard's name.
+  </Step>
+  <Step title="Confirm the change">
+    The star turns yellow and Perch shows **Dashboard status updated**. The dashboard now appears under **Favorites** in the **Dashboards** panel.
+  </Step>
+</Steps>
+
+To remove a favorite, click the yellow star again. Its tooltip reads **Remove from Favorites**.
+
+## Good to know
+
+- You see only the dashboards you have access to. If a dashboard a colleague mentions is not in your list, ask a member who sees **Settings** in the sidebar. See [Administration](/administration/overview).
+- A dashboard link you cannot open shows **Dashboard not found** and **Nothing to see**.
+- Favorites are yours. Starring a dashboard does not change what other members see.
+- A dashboard shows what is happening, not why. When a number needs explaining, [start an analysis](/analyses/start-an-analysis) and ask the Guide.
+
+{/* provenance
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Dashboards" tooltip; button labelled "Dashboard Navigation Panel" opens DashboardsSidebar in a popover; the panel closes on navigating to a dashboard)
+- perch-frontend-app: apps/www/components/v2/DashboardsSidebar/DashboardsSidebar.tsx (SidebarHeader titled "Dashboards" linking to the workspace dashboards screen, with search; "Favorites" group first, then collapsible groups by program name, dashboards sorted by name; onNavigateToDashboard closes the panel; settings link only with dashboard permissions and not documented)
+- perch-frontend-app: packages/kit/components/SidebarHeader/SidebarHeader.tsx (title rendered as a link when a link is given; search field shown when a search handler is given)
+- perch-frontend-app: packages/kit/components/SearchTextField/SearchTextField.tsx (placeholder "Search...")
+- perch-frontend-app: apps/www/components/v2/DashboardVerticalNav/DashboardVerticalNav.tsx (collapsible group per program; each item links to the dashboard)
+- perch-frontend-app: packages/kit/components/VerticalNav/VerticalNav.tsx (clicking a collapsible group's title toggles it open or closed)
+- perch-frontend-app: apps/www/pages/w/[workspace]/index.tsx (route renders DashboardsPage)
+- perch-frontend-app: apps/www/components/pages/DashboardsPage/DashboardsPage.tsx (header "Dashboards", subtitle "Showing N dashboards"; ProgramFilterButton and dashboardName FilterTextField; favoritable DashboardsTable; "Create a dashboard" only with dashboard create permission and not documented)
+- perch-frontend-app: apps/www/hooks/useDashboards/useDashboards.tsx (list filtered by the programs filter and the dashboardName text filter)
+- perch-frontend-app: apps/www/components/v2/ProgramFilterButton/ProgramFilterButton.tsx (label "Programs", one checkbox per program)
+- perch-frontend-app: packages/kit/components/FilterButton/FilterButton.tsx (selected value shown on the button with a clear cross)
+- perch-frontend-app: apps/www/components/v2/FilterTextField/FilterTextField.tsx (text search field)
+- perch-frontend-app: apps/www/components/v2/DashboardsTable/DashboardsTable.tsx ("Name" column with favorite star before the dashboard link, "Program" column; "Actions" column with "Update dashboard", "Update permissions", "Delete dashboard" only with permissions and not documented)
+- perch-frontend-app: apps/www/components/v2/DashboardLink/DashboardLink.tsx (dashboard name links to the dashboard)
+- perch-frontend-app: apps/www/pages/w/[workspace]/p/[program]/d/[dashboard]/index.tsx (route renders DashboardPage)
+- perch-frontend-app: apps/www/components/pages/DashboardPage/DashboardPage.tsx (dashboard name as header title; subtitle program name then " - Data Refreshed as of:" when a refresh date exists; DashboardFavoriteButton in the header; dashboard content fills the page below the header; "Dashboard not found" title and "Nothing to see" when the dashboard cannot be loaded)
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeader.tsx (formatLastUpdatedTime formats the date as "MMMM d, yyyy h:mma")
+- perch-frontend-app: apps/www/hooks/useLastDataRefreshDate.tsx (refresh date fetched per workspace and only when the workspace has a data health source)
+- perch-frontend-app: apps/www/components/v2/DashboardFavoriteButton/DashboardFavoriteButton.tsx (toggles the favorite; toast "Dashboard status updated" or "Error updating dashboard status")
+- perch-frontend-app: packages/kit/components/FavoriteButton/FavoriteButton.tsx (tooltip "Add to Favorites" or "Remove from Favorites"; yellow filled star when favorited, outline star when not)
+- perch-frontend-app: apps/bff/router/dashboard.findMany.ts (list comes from the member's own dashboards, via groups)
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.1 dashboards are not the primary place for root-cause analysis)
+- AGENTS.md "Content boundaries": dashboards and alerts are configured by the Perch team during onboarding, against Perch standards
+*/}
