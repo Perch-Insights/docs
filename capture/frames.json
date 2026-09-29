@@ -459,16 +459,16 @@
     "section": "Read a field",
     "step": "Follow related fields",
     "labels": [
+      "Description",
       "Dimension",
       "Dimensions",
-      "Measure",
-      "Metrics Catalog",
-      "Related Metrics"
+      "Formula",
+      "Metrics Catalog"
     ],
     "file": "images/look-up-a-metric/follow-related-fields.png",
-    "flow": "TODO",
+    "flow": "metrics-catalog-field",
     "workspace": "readonly",
-    "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
+    "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write. Framed on the measure Adherence Ratio Day 1, whose related fields are its Dimensions group. The \"Related Metrics\" group and its \"Measure\" cards were dropped as labels: no field in Pnc Ins lists measures among its drill members (checked across all 907 fields of the catalog's field list), so that group never renders there."
   },
   {
     "id": "manage-members/open-the-organization-settings",
