@@ -40,7 +40,7 @@ if (flowIdx !== -1) {
   try {
     const mod = await import(path.join(here, 'flows', name + '.mjs'));
     opened = await openPage(mod, ctx);
-    const result = await mod.default({ page: opened.page, BASE, WORKSPACE, frame: { id: name, args: args.slice(flowIdx + 2) } });
+    const result = await mod.default({ page: opened.page, BASE, WORKSPACE, READONLY_WORKSPACE, frame: { id: name, args: args.slice(flowIdx + 2) } });
     if (result !== undefined && result !== null) console.log(JSON.stringify(result, null, 2));
     if (result && typeof result.after === 'function') await result.after();
     console.log(`ok   --flow ${name}`);
@@ -65,7 +65,7 @@ for (const frame of selected) {
     const mod = await import(path.join(here, 'flows', frame.flow + '.mjs'));
     opened = await openPage(mod, ctx);
     page = shot = opened.page;
-    let target = await mod.default({ page, BASE, WORKSPACE, frame });
+    let target = await mod.default({ page, BASE, WORKSPACE, READONLY_WORKSPACE, frame });
     if (target && typeof target === 'object' && typeof target.after === 'function') after = target.after;
     // A flow may return { page, target } to frame a page it opened in another browser context, for states the
     // signed-in session cannot show (the login page redirects signed-in members). That context is closed after the shot.
