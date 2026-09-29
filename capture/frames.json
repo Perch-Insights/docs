@@ -489,14 +489,15 @@
     "section": "Add or change a member",
     "step": "Add a member",
     "labels": [
-      "Add user",
+      "New user",
       "Email",
       "First name",
-      "Last name"
+      "Last name",
+      "Groups (optional)"
     ],
     "file": "images/manage-members/add-a-member.png",
-    "flow": "TODO",
-    "note": "Open the Add user dialog and frame it. Never click Create. Crop so no existing member row (names or emails) is in the frame."
+    "flow": "org-add-user-dialog",
+    "note": "Open the Add user dialog and frame it. Never click Create. Crop so no existing member row (names or emails) is in the frame. The dialog the Add user button opens is titled \"New user\" (UserCreateOrUpdateForm.tsx), and the crop leaves the button itself out, so the labels use the dialog title."
   },
   {
     "id": "manage-members/create-a-group",
