@@ -3,13 +3,62 @@ title: "The product at a glance"
 description: "Every part of Perch in one paragraph each, with who uses it and when."
 ---
 
-After this page you will know each part of Perch you can open from the sidebar, who uses it, and when to reach for it.
+Perch has seven areas. This page tells you what each one is, who uses it, and when to reach for it. The sidebar on the left of every screen opens most of them.
 
-{/* TODO fill */}
+## Analyses and the Guide
+
+An analysis is a conversation with the Guide about your data. You ask a question, the Guide suggests queries, and each query you accept becomes a step. This is where you work out why a number moved. Any member can start one. The **Analyses** screen lists every saved analysis in your workspace. Read [Analyses and the Guide](/analyses/overview).
+
+## Playbooks
+
+A playbook is a reusable analysis. The Guide offers to save a line of analysis as a playbook, so you can run it again on fresh data. Each run is its own analysis with its own report. The playbook page shows the latest one as its **Latest run report**. Reach for a playbook when you need the same analysis again. Playbooks sit next to your analyses on the **Analyses** screen. Read [Playbooks](/playbooks/overview).
+
+## Reports and sharing
+
+When the Guide finishes, it writes an **Insight report**. Each section of the report is an insight, shown as a card. You can copy or download the report and pin the insights that matter. Every analysis you start is private. When you make it public, every member of the workspace can open it as a viewer and clone it to build on it. Read [Reports and sharing](/sharing/overview).
+
+## Dashboards
+
+Dashboards show where your key numbers stand. They give everyone in the workspace the same snapshot of performance, and each one shows when its data was last refreshed. Use a dashboard to see what is happening. Use an analysis to find out why. The Perch team configures your dashboards during onboarding, against Perch standards. You open and read them from **Dashboards** in the sidebar. Read [Dashboards](/dashboards/overview).
+
+## Alerts
+
+An alert tells you that an important change happened, because a metric crossed a threshold. The **Alerts** screen lists your alert notifications. An alert is a signal, not an answer. It tells you where to look, and you investigate in a dashboard or an analysis. The Perch team configures your alerts during onboarding. Read [Alerts](/alerts/overview).
+
+## Metrics catalog
+
+The **Metrics Catalog** lists the metrics and dimensions in your workspace, each with its name, description, and type. These are the same definitions the Guide, your analyses, and your dashboards use. Reach for it when you want to know exactly what a metric measures. The metrics catalog is not turned on in every workspace, so your sidebar may not show it. Read [Metrics catalog](/metrics-catalog/overview).
+
+## Administration
+
+Members who manage people or workspaces see a **Settings** button in the sidebar. It opens the **Organization** settings, with **Users**, **Groups**, and **Workspaces**. Most members never see it. Metric definitions, dashboards, and alerts are not changed here. The Perch team changes them for you. Read [Administration](/administration/overview).
+
+## When you need the Perch team
+
+The **Support** button at the bottom of the sidebar opens a form where you describe the problem you are facing. Use it for anything you cannot change yourself. [Self-service and managed services](/reference/self-service-and-managed-services) lists which changes are yours and which belong to the Perch team.
+
+Next, read [Get up and running](/).
 
 {/* provenance
-- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3 Product Surfaces in Perch: dashboards, analysis threads, alerts; §5 Managed Services and Boundaries)
-- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx (sidebar tabs: "Analyses", "Dashboards", "Alerts", "Metric Catalog" under UI_METRICS_CATALOG, "Guide Demo" under COPILOT_GUIDE_DEMO and not documented)
-- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx ("Settings" button shown only with workspace or member management permissions; "Support" and "Account" buttons)
-- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("Analyses" and "Playbooks" sections)
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.1 Dashboards: high-level monitoring, status of key KPIs, a shared snapshot of performance, not the primary place for root-cause analysis; §3.2 analysis threads are the primary analytical surface for root-cause analysis; §3.3 Alerts: surface important changes, trigger on defined thresholds, prompt investigation in dashboards or threads, "Alerts are signals, not answers."; §2.1 all metrics and dimensions come from the semantic layer; §5 managed services add or modify dashboards and logic, some changes intentionally not self-service)
+- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/terminology_canon.md (Section A: "Each accepted query becomes a step in the analysis."; playbook re-run with fresh data; insight report)
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx (sidebar tabs "Analyses" matching both analyses and playbooks routes, "Dashboards" opening the dashboards panel, "Alerts", "Metric Catalog" only under UI_METRICS_CATALOG; "Guide Demo" under COPILOT_GUIDE_DEMO not documented)
+- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx ("Settings" shown only with UpdateAllWorkspaces or ManageTenantUsers permission; "Support" opens TicketCreateOrUpdateForm)
+- perch-frontend-app: apps/www/components/v2/TicketCreateOrUpdateForm/TicketCreateOrUpdateForm.tsx (Description placeholder "Describe the problem you are facing")
+- perch-frontend-app: apps/www/components/v2/OrganizationSettingsSidebar/OrganizationSettingsSidebar.tsx ("Organization" panel with "Users", "Groups", "Workspaces")
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("All saved analyses in this workspace.", "Playbooks", "Reusable analyses you can re-run.")
+- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Add as New Step")
+- perch-frontend-app: apps/www/components/ai/PlaybookProposalCard/PlaybookProposalCard.tsx ("Playbook proposal" card from the Guide; reply "save this playbook" to keep it)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookLastRunReportCard.tsx ("Latest run report")
+- perch-frontend-app: apps/bff/router/playbook.getDetails.ts (each run is an analysis: lastRunThread; the last run report is that analysis's report)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report", "Copy report", "Download report")
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx ("Pin insight")
+- perch-frontend-app: apps/bff/prisma/models/Thread.prisma (isPrivate defaults to true)
+- perch-frontend-app: apps/www/components/ai/VisibilityToggleButton/VisibilityToggleButton.tsx ("All users with access to this workspace will be able to view this analysis")
+- perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeaderMenu.tsx ("Clone Analysis")
+- perch-frontend-app: apps/www/components/pages/DashboardPage/DashboardPage.tsx ("Data Refreshed as of:")
+- perch-frontend-app: apps/www/components/pages/AlertsPage/AlertsPage.tsx (header "Alerts", "Showing N of M alert notifications"; "Manage" only with ManageAlerts permission and not documented)
+- perch-frontend-app: apps/www/components/pages/MetricsCatalogPage/MetricsCatalogPage.tsx (header "Metrics Catalog"; PermissionOff when UI_METRICS_CATALOG is off)
+- perch-frontend-app: apps/www/components/cube/CubeFieldsTable/CubeFieldsTable.tsx (columns "Name", "Description", "Type")
+- AGENTS.md "Content boundaries": dashboards and alerts are configured by the Perch team during onboarding, against Perch standards
 */}
