@@ -417,7 +417,7 @@
       "Yesterday"
     ],
     "file": "images/read-an-alert/filter-by-date.png",
-    "flow": "TODO",
+    "flow": "alerts-date-filter",
     "workspace": "readonly",
     "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
   },
