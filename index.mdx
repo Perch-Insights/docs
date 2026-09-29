@@ -1,32 +1,37 @@
 ---
-title: "Introduction"
-description: "What Perch is and how the Guide helps you get answers from your data."
+title: "Get up and running"
+description: "Pick the path that matches what you came to Perch to do."
 ---
 
-Perch is where you go to get answers from your organization's data. You sign in, open a workspace, and see every saved analysis in that workspace in one list, next to the playbooks you can run again.
+Pick the path that matches what you need from Perch today. Each path is a short list of steps that links to the pages that show you how.
 
-The Guide is Perch's AI analyst. Open an analysis, type a question about your data, and the Guide suggests queries, builds steps on the canvas, and writes insight reports you can copy, download, pin, and share. When a line of analysis is worth repeating, the Guide can save it as a playbook so you can run it again for a fresh report.
+Whichever path you pick, start by [signing in and choosing a workspace](/getting-started/sign-in). You work inside a workspace.
 
 <CardGroup cols={3}>
-  <Card title="Sign in and choose a workspace" href="/getting-started/sign-in">
-    Sign in, land in your workspace, and switch between workspaces.
+  <Card title="Analyze with the Guide" href="/getting-started/analyze-with-the-guide">
+    Ask the Guide a question, get an insight report, and save a playbook you can run again.
   </Card>
-  <Card title="Start an analysis" href="/analyses/start-an-analysis">
-    Open a new analysis and find your saved analyses.
+  <Card title="View and monitor" href="/getting-started/view-and-monitor">
+    Open your dashboards, read your alerts, and start an analysis when a number needs explaining.
   </Card>
-  <Card title="Ask the Guide a question" href="/analyses/ask-questions">
-    Type a question and accept the Guide's query suggestions.
+  <Card title="Administer a workspace" href="/getting-started/administer-a-workspace">
+    Manage the members, groups, and workspaces in your organization settings.
   </Card>
 </CardGroup>
 
+**Administer a workspace** is only for members who see the **Settings** button in the sidebar. Most members never see it.
+
+New to Perch? Read [What Perch is](/introduction/what-perch-is) first.
+
 {/* provenance
-- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("All saved analyses in this workspace.", "Reusable analyses you can re-run.")
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.1 Dashboards for monitoring; §3.2 analysis threads as the primary analytical surface; §3.3 Alerts prompt investigation in dashboards or threads)
 - perch-frontend-app: apps/www/components/v2/WorkspaceSidebar/WorkspaceSidebar.tsx (SidebarHeader title "Workspaces")
-- perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (chat panel header "Guide")
-- perch-frontend-app: apps/www/components/ai/QuestionField/QuestionField.tsx (placeholder "Ask about your data...")
-- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Query Suggestion", "Add as New Step")
-- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report", "Copy report", "Download report")
-- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx ("Pin insight")
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report")
 - perch-frontend-app: apps/www/components/ai/PlaybookProposalCard/PlaybookProposalCard.tsx ("save this playbook")
-- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageHeader.tsx (Run button)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("Reusable analyses you can re-run.")
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Dashboards" panel button, "Alerts" tab)
+- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx ("Settings" shown only with UpdateAllWorkspaces or ManageTenantUsers permission)
+- perch-frontend-app: apps/www/components/v2/OrganizationSettingsSidebar/OrganizationSettingsSidebar.tsx ("Users", "Groups", "Workspaces")
+- docs: getting-started/sign-in.mdx (sign in and choose a workspace)
+- The former introduction text on this page now lives in introduction/what-perch-is.mdx ("What you do in Perch").
 */}
