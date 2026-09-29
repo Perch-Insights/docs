@@ -372,6 +372,7 @@
     ],
     "file": "images/open-a-dashboard/open-the-dashboards-screen.png",
     "flow": "TODO",
+    "blocked": "The saved session's member has no dashboards in Pnc Ins: the Dashboards screen reads \"Showing 0 dashboards\" above the \"Nothing to see here\" empty state, so it does not show the table the step describes. Granting access would change a setting in the read-only workspace.",
     "workspace": "readonly",
     "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
   },
