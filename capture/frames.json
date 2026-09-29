@@ -505,11 +505,11 @@
     "section": "Organize members into groups",
     "step": "Create a group",
     "labels": [
-      "Add Group",
+      "New Group",
       "Name"
     ],
     "file": "images/manage-members/create-a-group.png",
-    "flow": "TODO",
-    "note": "Open the New Group dialog and frame it. Never click Create or Delete. No member names or emails in the frame."
+    "flow": "org-add-group-dialog",
+    "note": "Open the New Group dialog and frame it. Never click Create or Delete. No member names or emails in the frame. The Add Group button opens a dialog titled \"New Group\" (GroupCreateOrUpdateForm.tsx), and the crop leaves the button itself out, so the labels use the dialog title."
   }
 ]
