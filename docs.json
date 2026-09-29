@@ -13,10 +13,10 @@
       {
         "group": "Introduction",
         "pages": [
+          "index",
           "introduction/what-perch-is",
           "introduction/how-perch-organizes-analysis",
-          "introduction/product-at-a-glance",
-          "index"
+          "introduction/product-at-a-glance"
         ]
       },
       {
