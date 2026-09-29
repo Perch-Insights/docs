@@ -449,7 +449,7 @@
       "Type"
     ],
     "file": "images/look-up-a-metric/scan-the-list.png",
-    "flow": "TODO",
+    "flow": "metrics-catalog-list",
     "workspace": "readonly",
     "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
   },
