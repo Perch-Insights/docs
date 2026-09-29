@@ -9,7 +9,8 @@ const pwPkg = process.env.PW_PKG ?? 'playwright';
 const pw = await import(pwPkg.startsWith('/') ? pwPkg + '/index.mjs' : pwPkg);
 
 const BASE = 'https://demo.perchinsights.com';
-const WORKSPACE = process.env.PERCH_DOCS_WORKSPACE ?? 'b904ad6a-a64e-42d5-bd39-83996be9b279'; // Docs
+const WORKSPACE = process.env.PERCH_DOCS_WORKSPACE ?? 'b904ad6a-a64e-42d5-bd39-83996be9b279'; // Docs: flows may write here
+const READONLY_WORKSPACE = process.env.PERCH_DOCS_READONLY_WORKSPACE ?? '023ca609-8c66-4c9f-902c-631a33b811b3'; // Pnc Ins: dashboards, alerts, catalog; READ ONLY
 const state = process.env.PERCH_DOCS_STATE;
 if (!state || !fs.existsSync(state)) { console.error('PERCH_DOCS_STATE must point at the saved session file'); process.exit(2); }
 

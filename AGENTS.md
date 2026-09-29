@@ -102,14 +102,19 @@ Two page types with different rules:
 `~/workspace/perchinsights/perch-backend-stack/libs/chat/src/chat/context/docs` is the corpus the
 Guide reads. Read-only. Use it only for concept pages, and only the public tier:
 
-- **Public (use freely):** `foundations/perch_overview.md`, `semantic_layer/journey_reference.md`
-  (concepts, not field lists), `methodology/terminology_canon.md` (the user-facing vocabulary),
-  `methodology/perch_standard_way.md` (what the method is, as the product's way of analyzing).
+- **Public (use freely):** `foundations/perch_overview.md`, and the public halves of three mixed
+  documents, which will be split into separate documents in the corpus: `semantic_layer/journey_reference.md`
+  (the journey concepts; not the field lists), `methodology/terminology_canon.md` (the user-facing
+  vocabulary; not the internal contract names), `methodology/perch_standard_way.md` (what the method
+  is, as the product's way of analyzing; not the execution rules addressed to the model).
 - **Internal (never quote, never paraphrase into the docs):** everything under `examples/`,
   `guides/support_playbook.md`, `methodology/ai_guardrails.md`, `query_building_rules.md`,
   `suggestion_workflow.md`, `focus_comparison_resolution.md`, `recurring_analysis_rerun.md`,
   `root_cause_ontology.md`, `analytical_rules.md`, `semantic_layer/business_semantic_layer.md`,
   `semantic_layer/query_api_reference.md`, `index.md`.
+
+Where the corpus and the product disagree, do not fix the corpus; record the disagreement in
+key_learnings (RyanOS catalogs these) and follow the product.
 
 Rewrite for a person, not for the model: drop every "the AI Guide should" instruction, keep the
 product facts and the mental model. Where the corpus and the UI disagree, the UI wins.
@@ -151,9 +156,15 @@ Images are generated, never hand-made. `capture/README.md` explains the harness:
 is the shot list, `capture/flows/*.mjs` drive a signed-in browser to the documented state, and
 `npm run capture -- <frame-id>` asserts the step's on-screen labels are visible before saving the PNG.
 
-- Environment: `demo.perchinsights.com`, workspace **Docs** only (id in `capture/capture.mjs`). Flows may
-  create, edit, and delete analyses and playbooks in Docs. They must never open, let alone change,
-  any other workspace. Never switch workspaces in a flow.
+- Environment: `demo.perchinsights.com`. Two workspaces, two rules:
+  - **Docs** (`WORKSPACE` in `capture/capture.mjs`): flows may create, edit, and delete analyses and
+    playbooks here. Every frame that involves the Guide, analyses, playbooks, reports, or sharing is shot here.
+  - **Pnc Ins** (`READONLY_WORKSPACE` in `capture/capture.mjs`): **read-only**, for dashboards, alerts,
+    and metrics-catalog frames only, because those are configured by the Perch team and exist only
+    there. A flow in Pnc Ins may navigate, open, scroll, hover, and use filters and menus that change
+    what is shown. It may never click anything that creates, edits, deletes, saves, pins, runs,
+    shares, or changes a setting, and never types into the Guide. When in doubt, do not click.
+  - No other workspace, ever. Never open the workspace switcher panel in a flow; go to URLs directly.
 - The signed-in session comes from `PERCH_DOCS_STATE`, set in the environment. Never read, print, copy,
   or commit that file. If a capture lands on the login page, stop and report; do not try to sign in.
 - Frames are cropped to the element or band the step is about (return a locator or a clip from the
