@@ -400,6 +400,7 @@
     ],
     "file": "images/read-an-alert/open-the-alerts-screen.png",
     "flow": "TODO",
+    "blocked": "The saved session's member has no alert notifications in Pnc Ins: the Alerts screen reads \"Showing 0 of 0 alert notifications\" above the \"Nothing to see\" empty state, so it does not show the list the step describes. Producing notifications for this member would change the alert setup, a write in the read-only workspace.",
     "workspace": "readonly",
     "note": "Shoot in READONLY_WORKSPACE (Pnc Ins). Navigate, open, filter only; never a write."
   },
