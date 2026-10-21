@@ -1,10 +1,95 @@
 ---
 title: "Compare and download step data"
-description: "Add comparisons to a step's table and download the step's data."
+description: "Add comparisons to a step's table, highlight values, and download the step's data."
 ---
 
-On this page you learn to download a step's data with the **Download** button.
+On this page you learn to add comparison columns to a step's table, color the values that stand out, compare against a benchmark group, and download the step's data.
+
+Comparisons and highlights work on the table. Click **Table** in the row below the step title first. Most of them need at least one dimension. See [Build a step](/analyses/build-a-step).
+
+## Add comparisons
+
+<Steps>
+  <Step title="Open the column menu">
+    Hover over a period column under a metric, such as **May 26**, and click its three-dot menu.
+  </Step>
+  <Step title="Open the comparisons">
+    Click **Manage Comparisons**. The **Table Settings** dialog opens with that metric expanded. You can also open it from the table settings icon next to **Table**.
+  </Step>
+  <Step title="Tick the comparisons you want">
+    The comparisons are grouped:
+    - **Change Over Time**: **Relative Change vs. Prior Period** and **Absolute Change vs. Prior Period**.
+    - **Volume Mix for Selected Group**: **Volume Mix %** and **Change in Mix %**.
+    - **Compare Against Selected Group**: **Delta vs. Average Group Performance**.
+    - **Volume Mix for Benchmark Group** and **Compare Against Benchmark Group**: the same, for the benchmark group.
+
+    Hover over a comparison and its info icon to read what it shows. Each one you tick adds a column next to the metric's periods.
+  </Step>
+  <Step title="Close the dialog">
+    Click the X. The table keeps the new columns.
+  </Step>
+</Steps>
+
+## Highlight performance
+
+<Steps>
+  <Step title="Open the formatting">
+    In a column menu, click **Highlight Performance**. Or, in **Table Settings**, click the paint icon next to a metric or a ticked comparison.
+  </Step>
+  <Step title="Choose what to highlight">
+    Under **Choose values to highlight**, pick **Above or Below a Threshold**, **Relative Performance**, or **Top and Bottom Performers**.
+  </Step>
+  <Step title="Set the details">
+    For a threshold, pick **Average**, **Median**, or **Custom Benchmark** and type a value. Then choose **Across** the whole column or **Within** each value of the first dimension, and **Gradient** or **Solid** colors.
+  </Step>
+  <Step title="Apply">
+    Click **Apply**. To remove it, open the same formatting and click **Clear Formatting**.
+  </Step>
+</Steps>
+
+## Compare with a benchmark group
+
+The selected group is the data the step's filters return. The benchmark group is the same data with its own filters.
+
+<Steps>
+  <Step title="Set the benchmark filters">
+    Below the table, under **Summary Statistics**, click **Benchmark Filters** and pick dimension values, as in the **Filters** picker.
+  </Step>
+  <Step title="Compare the groups">
+    Click **Compare Groups**. Click the settings icon to choose, for each metric, which statistic to compare for the **Selected** and **Benchmark** groups, such as **Average** or **Median**. Click **Selected Group** or **Benchmark Group** to see one group's statistics.
+  </Step>
+</Steps>
+
+## Download the step's data
+
+<Steps>
+  <Step title="Open the menu">
+    Click the **Download** icon in the step row, next to **Duplicate Analysis Step**.
+  </Step>
+  <Step title="Pick a format">
+    For a table, click **Table as Formatted XLSX**, **Table as Formatted CSV**, or **Table as Raw CSV**. For a line chart, click **Chart as PNG**.
+  </Step>
+</Steps>
+
+The formatted files match the table as you see it, with your comparisons and all rows expanded. The raw file has one column for each dimension and each metric period, unformatted, without comparisons. The file is named after the step.
+
+## Good to know
+
+- Change columns need more than one period. The first period has no prior period to compare with.
+- Volume mix comparisons appear only for metrics that add up, not for ratios. For a ratio, the delta compares with the overall value instead of the average.
+- With two dimensions, more comparisons appear, such as the delta against the parent group.
+- **Download** is unavailable while the step has no metrics or no rows.
+- If you are not the owner of the analysis, comparisons and highlights apply to your view only and are not saved.
 
 {/* provenance
-- perch-frontend-app: apps/www/components/ai/WidgetCard/Settings.tsx (button "Download"; table options "Table as Formatted XLSX", "Table as Formatted CSV", "Table as Raw CSV"; chart option "Chart as PNG"; disabled when the step has no metrics or no rows)
+- perch-frontend-app: apps/www/components/ai/WidgetCard/Settings.tsx (step "Download" menu: "Table as Formatted XLSX", "Table as Formatted CSV", "Table as Raw CSV", "Table as PNG (slow for larger tables)" behind flag EXPORT_TABLE_AS_PNG, "Chart as PNG" for a line chart; disabled with no metrics, an error, or no rows; "Configure table settings" button opens the Table Settings dialog)
+- perch-frontend-app: apps/www/hooks/createTableWidgetExportData/createTableWidgetExportData.ts (raw export: one column per dimension and metric period, no comparison columns; formatted export follows the table with rows expanded; file named after the step)
+- perch-frontend-app: apps/www/components/ai/TableWidget/TableWidgetHeaderCell/TableWidgetHeaderCell.tsx and ColumnPopover.tsx (three-dot column menu only with a dimension; "Manage Comparisons", "Highlight Performance", "Adjust Decimals")
+- perch-frontend-app: apps/www/components/ai/TableWidget/TableWidgetSettingsModal/TableWidgetSettingsModal.tsx, TableWidgetSettingsContent.tsx, TableWidgetSettingsMetricsList.tsx ("Table Settings"; groups "Change Over Time", "Volume Mix for Selected Group", "Compare Against Selected Group", "Volume Mix for Benchmark Group", "Compare Against Benchmark Group"; paint icon per metric and per ticked comparison; "Click paint icon to apply conditional formatting")
+- perch-frontend-app: apps/bff/data/specialColumnsHeaders.ts (comparison labels and descriptions; mix only for additive metrics; change columns not for the first period; "Overall" instead of "Average" for ratios; parent-group comparisons with two dimensions)
+- perch-frontend-app: apps/www/components/ai/TableWidget/ConditionalFormattingForm.tsx ("Choose values to highlight:", "Above or Below a Threshold", "Relative Performance", "Top and Bottom Performers", "Select your threshold:", "Custom Benchmark", "Across", "Within <dimension>", "Gradient", "Solid", "Apply", "Clear Formatting")
+- perch-frontend-app: apps/www/components/ai/TableWidget/SubTable/SubTable.tsx, SummaryHeader.tsx, CompareOptionsMenu.tsx ("Summary Statistics", "Selected Group", "Benchmark Group", "Compare Groups", "Benchmark Filters"; "Compare Options" with "Selected" and "Benchmark" per metric: "Overall", "Average", "Median", percentiles, quartile averages)
+- perch-frontend-app: apps/bff/data/internalQueryToCubeQuery.ts (selected group uses the step filters; benchmark group uses the benchmark filters)
+- perch-frontend-app: apps/www/components/ai/TableWidget/useUpdateWidgetSpecialColumns.ts (comparisons, formatting, and decimals are saved for the owner only; others see them in their view)
+- screen, Docs workspace, a copy of step 1 in fixture analysis 1268 with one dimension added, deleted afterwards (capture/flows/_probe-table.mjs): Download menu "Table as Formatted XLSX", "Table as Formatted CSV", "Table as Raw CSV"; column menu "Sort Ascending", "Sort Descending", "Manage Comparisons", "Highlight Performance", "Adjust Decimals"; Table Settings groups and comparisons as listed; formatting form "Average", "Median", "Custom Benchmark", "Within Active Producer Flag", "Across"; "Summary Statistics", "Selected Group", "Benchmark Group", "Compare Groups", "Benchmark Filters"
 */}
