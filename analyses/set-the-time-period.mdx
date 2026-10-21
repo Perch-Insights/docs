@@ -3,11 +3,124 @@ title: "Set the time period"
 description: "Choose the dates a step covers and how its data is grouped over time."
 ---
 
-On this page you learn to set the dates a step covers with the time period selector, which has three modes: **Range**, **Period**, and **Compare**.
+On this page you learn to set the dates a step covers and how its data is grouped over time.
+
+Two buttons sit after **Filters** in the row below the step title. The first shows the granularity, such as **Monthly**. The second shows the time period, such as `05/01/26 to 07/31/26`. As with the other pickers, your changes wait until you click **Update Analysis**. See [Build a step](/analyses/build-a-step).
+
+## Choose the granularity
+
+The granularity sets how the data is grouped: one row or point per day, week, month, or year.
+
+<Steps>
+  <Step title="Open the menu">
+    Click the granularity button.
+  </Step>
+  <Step title="Pick a grouping">
+    Click **Daily**, **Weekly**, **Monthly**, or **Yearly**. Click **All** to get one total for each period you select instead of a breakdown over time.
+  </Step>
+  <Step title="Apply">
+    Click outside the menu, then click **Update Analysis**.
+  </Step>
+</Steps>
+
+## Pick a date range
+
+<Steps>
+  <Step title="Open the time period">
+    Click the time period button, then click **Range**.
+  </Step>
+  <Step title="Pick the dates">
+    Click a start date and an end date on the calendar. You cannot pick a date after today.
+  </Step>
+  <Step title="Add more ranges">
+    Click **Add Range** to add another range, up to ten. Click a range in the list to change it, or its X to remove it. With more than one range, the button reads **Date Ranges**.
+  </Step>
+  <Step title="Apply">
+    Click outside the time period, then click **Update Analysis**.
+  </Step>
+</Steps>
+
+## Pick whole periods
+
+Use **Period** to pick whole days, weeks, months, or years, such as April, May, and June.
+
+<Steps>
+  <Step title="Switch to periods">
+    Open the time period and click **Period**. The button then reads **Time Period**.
+  </Step>
+  <Step title="Choose the unit">
+    Click the unit above the calendar, such as **Monthly**, and pick **Daily**, **Weekly**, **Monthly**, or **Yearly**. Changing the unit clears your picks.
+  </Step>
+  <Step title="Pick periods">
+    Click each period you want. Click a picked period again to remove it.
+  </Step>
+  <Step title="Apply">
+    Click outside the time period, then click **Update Analysis**.
+  </Step>
+</Steps>
+
+## Compare a period with earlier ones
+
+Use **Compare** to set a current period and the periods to compare it with. A step set to **Last Week** moves forward on its own each week. You do not edit the dates again.
+
+<Steps>
+  <Step title="Switch to compare">
+    Open the time period and click **Compare**.
+  </Step>
+  <Step title="Choose the unit">
+    Under **Granularity**, click **Day**, **Week**, **Month**, or **Year**. The step's granularity changes to match.
+  </Step>
+  <Step title="Choose the current period">
+    Under **Select a period to analyze**, pick the current or last one, such as **Today**, **Yesterday**, **This Week**, or **Last Month**. Or pick the custom option, such as **Custom Week**, and choose a date.
+  </Step>
+  <Step title="Choose what to compare with">
+    Under **Select a period to compare**, tick the box before **prior weeks** (or days, months, years) and choose how many, such as 4. With **Day**, you can also compare with the same weekday a number of weeks back. With **Month**, you can compare with the same month a number of years back.
+  </Step>
+  <Step title="Apply">
+    Click outside the time period, then click **Update Analysis**.
+  </Step>
+</Steps>
+
+## Keep only some days
+
+<Steps>
+  <Step title="Open the filters">
+    In the time period, click **Advanced Filters**.
+  </Step>
+  <Step title="Choose days">
+    Under **Days of Week**, click **Weekdays** or **Weekends**, or click single days. Under **Days of Month**, click days, or set **Select days** from one day to another and click **Apply**. With **Yearly** or **All**, **Months of Year** lets you keep only some months.
+  </Step>
+  <Step title="Apply">
+    Click outside the time period, then click **Update Analysis**.
+  </Step>
+</Steps>
+
+## Apply to every step
+
+Tick **Apply these dates to all steps** in the time period, or **Apply this granularity to all steps** in the granularity menu. Click **Update Analysis**. Every step in the analysis takes the new setting. You cannot leave a step out. Applying dates keeps each step's own granularity.
+
+## Good to know
+
+- With **All**, each range, period, or comparison becomes one column with its total. Last week compared with the 4 prior weeks gives two columns. Three ranges give three columns.
+- Weeks run Monday to Sunday.
+- If no data exists for the dates you pick, the step says **Unfortunately, we couldn't find any data for this request.** Change the dates and update again.
+- If you are not the owner of the analysis, your changes apply to your view only and are not saved.
 
 {/* provenance
-- perch-frontend-app: apps/www/components/ai/DateRangeOrPeriodPickerDropdown/DateRangeOrPeriodPickerDropdown.tsx (mode toggle "Range", "Period", "Compare"; button reads the date range, "Date Ranges", "Time Period", or "Compare"; changes apply when the popover closes)
-- perch-frontend-app: apps/www/components/ai/CompareDatePicker (compare mode)
-- perch-frontend-app: apps/www/components/ai/TimeDimensionFiltersPanel (date filters inside the selector)
-- perch-frontend-app: apps/www/components/ai/GranularityFilter (granularity selector)
+- perch-frontend-app: apps/www/components/ai/WidgetCard/QueryBuilderBar.tsx (GranularityPicker and DateRangeOrPeriodPickerDropdown after the pickers; "Apply this granularity to all steps", "Apply these dates to all steps"; switching to Compare or changing its unit sets the step granularity to the compare unit)
+- perch-frontend-app: apps/www/components/ai/GranularityFilter/GranularityFilter.tsx ("Daily", "Weekly", "Monthly", "Yearly", "All"; "Quarterly" behind a flag)
+- perch-frontend-app: apps/www/components/ai/DateRangeOrPeriodPickerDropdown/DateRangeOrPeriodPickerDropdown.tsx (toggle "Range", "Period", "Compare"; button reads the range, "Date Ranges", "Time Period", or "Compare"; changes are applied when the popover closes; latest date is today)
+- perch-frontend-app: apps/www/components/ai/MultiDateRangePicker/MultiDateRangePicker.tsx ("Add Range", up to 10 ranges, remove with X when more than one)
+- perch-frontend-app: apps/www/components/ai/MultiDatePeriodWithGranularityPicker/MultiDatePeriodWithGranularityPicker.tsx (unit menu "Daily", "Weekly", "Monthly", "Yearly" in Period mode; changing it clears the selection)
+- perch-frontend-app: packages/kit/components/DatePicker/MultiDatePeriodPicker.tsx (click to add or remove a period)
+- perch-frontend-app: apps/www/components/ai/CompareDatePicker/CompareDatePicker.tsx, Period1Selection.tsx, Period2Selection.tsx, constants.ts ("Granularity:" with "Day", "Week", "Month", "Year"; "Select a period to analyze" with "Today", "Yesterday", "This Week", "Last Week", "This Month", "Last Month", "This Year", "Last Year", and "Custom ..."; "Select a period to compare" with "prior <unit>s", "weeks back, same day", "years back, same month")
+- perch-frontend-app: apps/bff/data/internalQueryToCubeQuery.ts (relative compare periods are computed from today on every load; the prior periods are one block; each range, period, or comparison is pivoted into its own time column)
+- perch-frontend-app: apps/bff/data/cubeAnnotationToFields.ts and packages/helpers/field.ts (with All the time column is a label per selection)
+- perch-frontend-app: apps/www/components/ai/TimeDimensionFiltersPanel/TimeDimensionFiltersPanel.tsx ("Advanced Filters", "Days of Week" with "Weekdays", "Weekends", "Clear"; "Days of Month" with "Select days", "to", "Apply", "Clear All"; "Months of Year" only at quarter, year, or All)
+- perch-frontend-app: apps/www/components/ai/ThreadCanvas/useQueryBuilder.tsx (apply to all steps updates every step; dates keep each step's granularity; saved for the owner only)
+- perch-frontend-app: apps/www/components/ai/WidgetCard/WidgetCard.tsx ("Unfortunately, we couldn't find any data for this request.")
+- perch-frontend-app: apps/www/hooks/useFetchWidgetData/useFetchWidgetData.ts (a non-owner's change updates the local view only)
+- perch-frontend-app: packages/helpers/date.ts and packages/kit/components/DatePicker/useDatePicker.tsx (weeks start on Monday)
+- screen, Docs workspace, fixture analysis 1268 (capture/flows/_probe-time.mjs): granularity menu "Daily", "Weekly", "Monthly", "Yearly", "All", "Apply this granularity to all steps"; Range calendar starting Mon, "Add Range"; Period with "Monthly" unit and months; Compare with "Granularity: Month", "Period 1: Last Week", "prior weeks", "weeks back, same day (Tuesday)", "years back, same month (September)"; "Advanced Filters" with "Days of Week", "Weekdays", "Weekends", "Days of Month", "Select days"; "Apply these dates to all steps"
+- screen, Docs workspace, a copy of step 1 in fixture analysis 1268, deleted afterwards (capture/flows/_probe-all.mjs): choosing Compare at Week changed the granularity from Monthly to Weekly; a period with no data shows "Unfortunately, we couldn't find any data for this request."
 */}
