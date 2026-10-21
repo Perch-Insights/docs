@@ -3,12 +3,98 @@ title: "Manage steps"
 description: "Move between the steps of an analysis, and add, copy, duplicate, reorder, and delete them."
 ---
 
-On this page you learn to move between the steps of an analysis and to add, copy, duplicate, and delete steps and sub-steps.
+On this page you learn to move between the steps of an analysis and to add, copy, duplicate, reorder, and delete steps and sub-steps.
 
-Open the **Analysis Steps** panel with **View All Steps** at the top left of the canvas. Use **Go to previous step** and **Go to next step** to move one step at a time.
+An analysis is a set of steps. Each step shows one set of data, built from metrics, dimensions, filters, a time period, and a granularity. You see one step at a time on the canvas, as a line chart or a table. Switch between them with the **Line Chart** and **Table** buttons above the data.
+
+The canvas has three rows. The analysis header is at the top. Below it is the step row, with the step number, the step title, and the step actions. Below that is the row where you build the step. See [Build a step](/analyses/build-a-step).
+
+Steps have two levels. A step can have sub-steps, so you can group related views under one theme. Steps are numbered **1**, **2**, **3**, and sub-steps **1.1**, **1.2** under their step. Numbers follow the order in the list.
+
+Only the owner of an analysis can add, change, reorder, or delete its steps. Anyone who can open the analysis can move between steps and copy them.
+
+## Move between steps
+
+<Steps>
+  <Step title="Use the arrows">
+    In the step row, click **Go to previous step** or **Go to next step**, the up and down arrows next to the step number.
+  </Step>
+  <Step title="Open the steps panel">
+    Click the step number at the top left, labelled **View All Steps**. The **Analysis Steps** panel opens with the number of steps beside its heading. The current step has a coloured border.
+  </Step>
+  <Step title="Pick a step">
+    Click any step in the panel to show it on the canvas. Click the arrow at the start of a step to collapse or expand its sub-steps.
+  </Step>
+</Steps>
+
+## Add a step or sub-step
+
+<Steps>
+  <Step title="Click New Step">
+    At the bottom of the **Analysis Steps** panel, click **+ New Step**.
+  </Step>
+  <Step title="Choose the level">
+    Choose **Create new step** for a top-level step after the current step and its sub-steps. Choose **Create new sub-step** for a sub-step under the current step.
+  </Step>
+  <Step title="Build the step">
+    The new step is titled **Untitled Step** and opens on the canvas. Click the title in the step row to rename it.
+  </Step>
+</Steps>
+
+You can also click **More Options**, the three-dot button in the step row, and choose **Add a step**.
+
+## Copy, duplicate, and paste a step
+
+<Steps>
+  <Step title="Open the step menu">
+    In the **Analysis Steps** panel, hover over a step and click its three-dot button.
+  </Step>
+  <Step title="Duplicate or copy">
+    Choose **Duplicate** to place a copy with the same metrics, filters, and time period below it, to try a variation. The **Duplicate Analysis Step** button in the step row does the same. Choose **Copy** to keep the step on the clipboard for pasting.
+  </Step>
+  <Step title="Paste">
+    Open the menu of the step you want the copy to follow, in this analysis or another one in the same workspace. Choose **Paste Below**. The copy is pasted as a new step, or as a new sub-step if you paste below a sub-step.
+  </Step>
+</Steps>
+
+## Reorder steps
+
+In the **Analysis Steps** panel, drag a step to a new position. Drop it onto a top-level step to make it a sub-step of that step. The numbers update to match the new order. A step that has sub-steps cannot become a sub-step itself.
+
+## Mark a step as a draft
+
+Open the step menu in the panel and choose **Mark as draft**. A draft step is greyed out and shows a draft icon. Choose **Remove as draft** to clear it. In the step row, the same options are under **More Options** as **Mark as draft** and **Unmark as draft**.
+
+## Delete a step
+
+<Steps>
+  <Step title="Choose Delete">
+    Open the step menu in the panel, or **More Options** in the step row, and choose **Delete**.
+  </Step>
+  <Step title="Confirm">
+    A dialog asks you to confirm. Click **Delete**.
+  </Step>
+</Steps>
+
+<Warning>
+Deleting a step cannot be undone. Deleting a step also deletes its sub-steps. You cannot delete the last step of an analysis.
+</Warning>
+
+## Good to know
+
+- Click the star on a step in the panel to mark it as a favorite. Viewers see the star on favorited steps.
+- A copied step stays on the clipboard for 15 minutes.
+- Until you rename a step, its title updates to describe the data each time you change it.
 
 {/* provenance
-- perch-frontend-app: apps/www/components/ai/ThreadCanvas/ThreadCanvas.tsx ("View All Steps", "Go to previous step", "Go to next step", "Duplicate Analysis Step", "More Options", "Add a step", "Delete")
-- perch-frontend-app: apps/www/components/ai/ThreadStepManagementPanel/ThreadStepManagementPanel.tsx ("Analysis Steps", "Create new step", "Create new sub-step")
-- perch-frontend-app: apps/www/components/ai/ThreadStepManagementPanel/ThreadItemListItem.tsx ("Copy", "Duplicate", "Delete", "Paste Below")
+- perch-frontend-app: apps/www/components/ai/ThreadCanvas/ThreadCanvas.tsx (step row: "View All Steps" step-number button, "Go to previous step", "Go to next step", editable step title for owners, "Duplicate Analysis Step", owner-only "More Options" with "Add a step", "Mark as draft" / "Unmark as draft", "Delete" disabled on the last step; QueryBuilderBar row below; auto title applied only when hasManualTitle is false)
+- perch-frontend-app: apps/www/components/ai/WidgetTypeToggle/WidgetTypeToggle.tsx ("Line Chart" and "Table" toggle)
+- perch-frontend-app: apps/www/components/ai/WidgetCard/QueryBuilderBar.tsx (MetricsPicker, DimensionsPicker, FiltersPicker, GranularityPicker, DateRangeOrPeriodPickerDropdown)
+- perch-frontend-app: apps/www/components/ai/ThreadStepManagementPanel/ThreadStepManagementPanel.tsx ("Analysis Steps" heading with count badge; collapsible groups; drag reorder and nest-on-drop disabled for non-owners; a step with sub-steps cannot be nested; owner-only "+ New Step" menu with "Create new step" (after the current step's group) and "Create new sub-step")
+- perch-frontend-app: apps/www/components/ai/ThreadStepManagementPanel/ThreadItemListItem.tsx (row menu "Mark as draft" / "Remove as draft", "Copy" for everyone, owner-only "Duplicate", "Delete" disabled when it would empty the analysis, "Paste Below" as new step or sub-step; star toggles isFavorited, shown to viewers only when set; draft rows faded with draft icon)
+- perch-frontend-app: apps/www/hooks/useStepHierarchy.ts (display numbers 1, 1.1, 1.2 from list position)
+- perch-frontend-app: apps/www/hooks/useThreadItemClipboard/useThreadItemClipboard.ts (toast "Step copied to clipboard - paste in any analysis in this workspace"; 15-minute expiry; same workspace only)
+- perch-frontend-app: apps/bff/router/thread.item.createBlank.ts (new step title "Untitled Step")
+- perch-frontend-app: apps/www/components/ai/DeleteThreadItemModal/DeleteThreadItemModal.tsx ("Are you sure you want to delete Step N?", irreversible, deletes sub-steps, "Delete" button)
+- screen, Docs workspace, fixture analysis 1268 (capture/flows/_probe-steps.mjs): More Options, Analysis Steps panel, row menu, and + New Step menu labels as above
 */}
