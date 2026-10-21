@@ -1,5 +1,7 @@
 // Debugging aid, not a frame: `npm run capture -- --flow _probe <what> [arg] [png-suffix]`.
 //   analyses            print the Docs analyses list text
+//   landing             print the path the site root redirects to, with the workspace id masked
+//   owners              open the All owners filter, print the option count and first/last names
 //   catalog <term>      print the Metrics Catalog search for a term
 //   thread|page <url> [suffix] [wait-ms]   print the page text and save capture/_probe<suffix>.png (page = full page)
 //                       after wait-ms (default 8000)
@@ -24,6 +26,23 @@ export default async function ({ page, BASE, WORKSPACE, frame }) {
     await page.goto(`${BASE}/w/${WORKSPACE}/analyses`, { waitUntil: 'load' });
     await page.waitForTimeout(5000);
     return (await page.locator('body').innerText()).slice(0, 2500);
+  }
+  if (what === 'landing') {
+    // where the site root sends a signed-in member (the URL only; the workspace id is the Docs one or another)
+    await page.goto(`${BASE}/`, { waitUntil: 'load' });
+    await page.waitForURL(/\/w\/[^/]+\//, { timeout: 30000 }).catch(() => {});
+    await page.waitForTimeout(3000);
+    return new URL(page.url()).pathname.replace(/\/w\/[^/]+\//, '/w/<workspace>/');
+  }
+  if (what === 'owners') {
+    // open the owner filter on the Docs analyses list, print its option count and the first and last labels, close it
+    await page.goto(`${BASE}/w/${WORKSPACE}/analyses`, { waitUntil: 'networkidle' });
+    await page.getByText('All owners', { exact: true }).first().click();
+    await page.waitForTimeout(1500);
+    // no screenshot and no full list: the options show every person's email address
+    const options = (await page.getByRole('option').allInnerTexts()).map(o => o.split('\n')[0]);
+    await page.keyboard.press('Escape');
+    return JSON.stringify({ count: options.length, first: options[0], last: options[options.length - 1] });
   }
   if (what === 'thread' || what === 'page') {
     // log console errors and failed requests to stderr: the Guide panel loads its history over a live connection,

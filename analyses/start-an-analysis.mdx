@@ -7,11 +7,11 @@ On this page you learn to start an analysis with the Guide, rename it, mark it a
 
 ## Open the analyses list
 
-You land on the analyses list after you sign in. To get back to it, click the **Analyses** icon in the left sidebar, the first icon under the workspace button. From inside an analysis, you can also click the home button at the top left of the header, labelled **All Analyses**.
+You land on the analyses list of your first workspace after you sign in. If you signed in from a link to another page, you land on that page instead. Each workspace has its own analyses. See [Switch to another workspace](/getting-started/sign-in#switch-to-another-workspace). To get back to it, click the **Analyses** icon in the left sidebar, the first icon under the workspace button. From inside an analysis, you can also click the home button at the top left of the header, labelled **All Analyses**.
 
 The **Analyses** section lists every analysis in the workspace that is not private, plus your own private ones. If the workspace has any playbooks, a **Playbooks** section appears above it.
 
-Each row shows the analysis **Name**, its **Owner**, which reads **You** for your own, the number of **Reports** it contains, **Created At**, **Last Modified**, and the **Playbook** it came from, if any. Click the name to open the analysis, or the playbook name to open that playbook. Each row also has a **Clone Analysis** button, and rows you own have a **Delete Analysis** button.
+Each row shows the analysis **Name**, its **Owner**, which reads **You** for your own and the owner's name for anyone else's, the number of **Reports** it contains, **Created At**, **Last Modified**, and the **Playbook** it came from, if any. Click the name to open the analysis, or the playbook name to open that playbook. Each row also has a **Clone Analysis** button, and rows you own have a **Delete Analysis** button.
 
 ## Start a new analysis
 
@@ -81,17 +81,17 @@ The row under the **Analyses** heading is labelled **Filters:**.
     </Frame>
   </Step>
   <Step title="Filter by owner">
-    Click **All owners** and pick one or more members. You appear at the top as **You**. Pick **Unknown** to find analyses whose owner is no longer a member of the workspace.
+    Click **All owners** and pick one or more people. The list has everyone in your organization, by first name, and you can type in **Filter by owner** to narrow it. You appear at the top as **You**. Pick **Unknown**, at the bottom, to find analyses whose owner is no longer in your organization. The filter then shows the name you picked, or how many you picked.
   </Step>
   <Step title="Search by name">
     Type part of a name in the **Search...** field. The list updates as you type and includes close matches, not only exact ones.
   </Step>
 </Steps>
 
-The list shows the most recently modified analyses first. Click the **Created At** or **Last Modified** heading to sort by that column, and click it again to reverse the order.
+The list shows your favorites first, then the most recently modified analyses. Click the **Created At** or **Last Modified** heading to sort by that column, and click it again to reverse the order. Your favorites stay at the top in every order. No other column sorts.
 
 <Note>
-While the search field has text, results are ordered by how closely they match, and the date headings do not sort. Clear the field to sort by date again.
+While the search field has text, results are ordered by how closely they match, after your favorites, and the date headings do not sort. Clear the field to sort by date again.
 </Note>
 
 ## Delete an analysis
@@ -123,6 +123,8 @@ Deleting cannot be undone. [Clone the analysis](/sharing/share-an-analysis#clone
 
 {/* provenance
 - perch-frontend-app: apps/www/pages/w/[workspace]/analyses/index.tsx (route renders AiHomePage)
+- perch-frontend-app: apps/www/hooks/useWorkspaceAutoRedirect/useWorkspaceAutoRedirect.tsx (site root opens the first workspace's analyses list when CHAT_AI is on); screen: the site root lands on /w/<workspace>/analyses
+- perch-frontend-app: apps/www/components/auth/LoginForm/LoginForm.tsx and apps/www/components/pages/SignInPage/SignInPage.tsx (after sign-in, go to redirectTo if set, otherwise home)
 - perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx (logo, then WorkspaceSwitcher, then WorkspaceNav)
 - perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx (sidebar tab with tooltip and aria-label "Analyses", first tab, shown only under CHAT_AI)
 - perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx (sections "Playbooks" and "Analyses"; Playbooks section only when playbooks exist; NewExplorationButton as the section action; FiltersBar with pagination)
@@ -146,12 +148,13 @@ Deleting cannot be undone. [Clone the analysis](/sharing/share-an-analysis#clone
 - perch-frontend-app: apps/www/components/ai/ThreadListTable/NameCell.tsx (row name links to the thread)
 - perch-frontend-app: apps/www/components/ai/ThreadListTable/SortableDateHeader.tsx (default sort lastModified desc; click toggles direction)
 - perch-frontend-app: apps/www/components/ai/ThreadListTable/PlaybookChip.tsx (playbook badge links to the playbook page)
-- perch-frontend-app: apps/www/components/ai/OwnerBadge/OwnerBadge.tsx ("You" for the current member, "Unknown" when the owner is missing)
-- perch-frontend-app: apps/www/components/ai/ThreadListTableFilters/ThreadListTableFilters.tsx (favorite filter options All / Favorites / No Favorites with "All" as the initial label; owner multiselect with "All owners", "You" first and "Unknown" last; name search field)
+- perch-frontend-app: apps/www/components/ai/OwnerBadge/OwnerBadge.tsx ("You" for the current member, the owner's first and last name otherwise, "Unknown" when the owner is missing)
+- perch-frontend-app: apps/www/components/ai/ThreadListTableFilters/ThreadListTableFilters.tsx (favorite filter options All / Favorites / No Favorites with "All" as the initial label; owner multiselect from user.findAll with placeholder "Filter by owner", "You" first and "Unknown" last; label "All owners", the one name, or "N selected"; name search field)
+- perch-frontend-app: apps/bff/router/user.findAll.ts (every user in the organization's user list, not only workspace members, sorted by first name); screen: owner menu with **Filter by owner**, **You** first, **Unknown** last, names with emails
 - perch-frontend-app: apps/www/components/v2/FilterTextField/FilterTextField.tsx and packages/kit/components/SearchTextField/SearchTextField.tsx (placeholder "Search..."; debounced as you type)
 - perch-frontend-app: packages/kit/components/FiltersBar/FiltersBar.tsx ("Filters:" label; pagination switch at the right end)
 - perch-frontend-app: apps/www/hooks/useThreads/useThreads.tsx (list query with name, favorite, owner, and sort filters; 20 per page)
-- perch-frontend-app: apps/bff/router/thread.findMany.ts (lists non-private threads plus the member's own private ones; favorites first; default order updatedAt desc; trigram similarity search on title ordered by closeness; "Unknown" owner option maps to authors not in the member list)
+- perch-frontend-app: apps/bff/router/thread.findMany.ts (lists the workspace's non-private threads plus the member's own private ones; favorites first, also when sorting by created date and when searching; default order updatedAt desc; trigram similarity search on title ordered by closeness; "Unknown" owner option maps to authors not in the member list)
 - perch-frontend-app: apps/www/components/ai/DeleteThreadModal/DeleteThreadModal.tsx ("Delete Analysis" dialog with "This analysis will be permanently deleted", Delete button, Cancel, return to the analyses list after deleting from inside an analysis)
 - perch-frontend-app: apps/bff/router/thread.delete.ts (only the author can delete)
 */}
