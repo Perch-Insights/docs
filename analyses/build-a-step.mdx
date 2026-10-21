@@ -3,11 +3,92 @@ title: "Build a step"
 description: "Choose the metrics, dimensions, and filters a step shows."
 ---
 
-On this page you learn to choose what a step shows with the **Metrics**, **Dimensions**, and **Filters** pickers above the chart.
+On this page you learn to choose what a step shows with the **Metrics**, **Dimensions**, and **Filters** pickers above the data.
+
+The pickers sit in the row below the step title. Each shows a count of what is selected. Next to them are the granularity and the time period, covered in [Set the time period](/analyses/set-the-time-period).
+
+Your changes are not applied while you pick. When you close a picker, the data is blurred and two buttons appear. Click **Update Analysis** to run the step with your changes. Click **Cancel** to go back, and then **Discard all Changes** to confirm.
+
+## Choose metrics
+
+<Steps>
+  <Step title="Open the picker">
+    Click **Metrics**. The list of metrics in your workspace is on the left. **Selected Metrics** is on the right.
+  </Step>
+  <Step title="Find a metric">
+    Type in **Search for metrics...** to narrow the list by name. Each metric shows a green label for the area of the business it comes from. Hover over the label to read what that area covers.
+  </Step>
+  <Step title="Check the definition">
+    Hover over a metric and click its info icon. A dialog shows the **Description** and the **Formula**. Click the open icon next to the metric name to open its entry in the [metrics catalog](/metrics-catalog/look-up-a-metric).
+  </Step>
+  <Step title="Add, hide, or remove">
+    Click a metric to add it to **Selected Metrics**. Drag selected metrics to change their order. Click the eye icon to hide a metric from the chart and table without removing it. Click the X to remove it. **Clear** removes all of them.
+  </Step>
+  <Step title="Apply">
+    Click outside the picker, then click **Update Analysis**.
+  </Step>
+</Steps>
+
+A step needs at least one metric. With none selected, the canvas shows **Select at least 1 metric to update the query** and you cannot update.
+
+## Break down by dimensions
+
+A dimension splits each metric into one row or line per value, such as one per agent or per channel.
+
+<Steps>
+  <Step title="Open the picker">
+    Click **Dimensions**. Type in **Search for dimensions...** or scroll the list. Each dimension has the same green label and info icon as a metric.
+  </Step>
+  <Step title="Add and order">
+    Click a dimension to add it to **Selected Dimensions**. Drag to change the order. Click the X to remove one, or **Clear** to remove all.
+  </Step>
+  <Step title="Apply">
+    Click outside the picker, then click **Update Analysis**.
+  </Step>
+</Steps>
+
+## Filter the data
+
+<Steps>
+  <Step title="Open the picker">
+    Click **Filters**. The left side lists dimensions. Dimensions you already break down by appear first under **Suggested Dimensions**.
+  </Step>
+  <Step title="Pick a dimension">
+    Click a dimension to see its values on the right. Type in **Search for values...** to find a value.
+  </Step>
+  <Step title="Choose values">
+    Tick the values to keep. **Select all** ticks every value. **Clear** unticks them. The dimension shows how many values it filters.
+  </Step>
+  <Step title="Add more filters">
+    Pick another dimension and choose its values. Each dimension you filter adds to the others. **Clear** above the dimension list removes every filter.
+  </Step>
+  <Step title="Apply">
+    Click outside the picker, then click **Update Analysis**.
+  </Step>
+</Steps>
+
+## Good to know
+
+- You can filter on the values of a dimension only. You cannot filter on the value of a metric, such as only rows above a threshold.
+- The Perch team sets up and maintains the metrics and dimensions in your workspace. You cannot add or edit them. See [Self-service and managed services](/reference/self-service-and-managed-services).
+- If you are not the owner of the analysis, you can change a step to explore, but your changes are not saved to the analysis.
+- Until you rename a step, its title updates to describe the new data each time you update it.
 
 {/* provenance
-- perch-frontend-app: apps/www/components/ai/MetricsPicker/MetricsPicker.tsx (picker labelled "Metrics"; "Clear")
-- perch-frontend-app: apps/www/components/ai/DimensionsPicker/DimensionsPicker.tsx (picker labelled "Dimensions"; "Clear")
-- perch-frontend-app: apps/www/components/ai/FiltersPicker/FiltersPickerDimensionsList.tsx ("Suggested Dimensions"; "Clear")
-- perch-frontend-app: apps/www/components/ai/FiltersPicker/FiltersPickerValuesList.tsx ("Select all", "Clear", "No value found")
+- perch-frontend-app: apps/www/components/ai/WidgetCard/QueryBuilderBar.tsx (MetricsPicker, DimensionsPicker, FiltersPicker, then GranularityPicker and DateRangeOrPeriodPickerDropdown in the same row)
+- perch-frontend-app: apps/www/components/ai/MetricsPicker/MetricsPicker.tsx (button "Metrics" with count badge; "Search for metrics..."; "Selected Metrics" with "Clear"; eye toggle saves hidden fields; reorder; applied to pending state on outside click)
+- perch-frontend-app: apps/www/components/ai/DimensionsPicker/DimensionsPicker.tsx (button "Dimensions" with count badge; "Search for dimensions..."; "Selected Dimensions" with "Clear"; no eye toggle)
+- perch-frontend-app: apps/www/components/ai/OrderableFilterList/OrderableFilterList.tsx (drag to reorder, eye icon for metrics only, X "Remove", info icon)
+- perch-frontend-app: apps/www/components/ai/FieldWithTags/FieldWithTags.tsx and apps/www/components/ai/query-builder-common/MetadataTagsRow.tsx (each item shows its business area label with a description tooltip, and an info icon on hover)
+- perch-frontend-app: packages/services/cube/SemanticLayerSchema.ts (the business area label is the title of the field's group in the semantic layer)
+- perch-frontend-app: apps/www/components/ai/MetricCatalogModal/MetricsCatalogModal.tsx (dialog with field label, open-in-new link to the metrics catalog entry, "Description", "Formula")
+- perch-frontend-app: apps/www/components/ai/FiltersPicker/FiltersPicker.tsx (button "Filters" with count badge; values per dimension; filters combine)
+- perch-frontend-app: apps/www/components/ai/FiltersPicker/FiltersPickerDimensionsList.tsx ("Search for Dimensions..."; "Suggested Dimensions" are the step's breakdown dimensions; "Dimensions" with "Clear" removing every filter; count of filtered values per dimension; dimensions only, no metrics)
+- perch-frontend-app: apps/www/components/ai/FiltersPicker/FiltersPickerValuesList.tsx ("Search for values...", "Select all", "Clear", "No value found")
+- perch-frontend-app: apps/www/components/ai/WidgetCard/FilterApplyOverlay.tsx (blurred overlay; "Cancel" then "Discard changes" dialog with "Discard all Changes"; "Update Analysis")
+- perch-frontend-app: apps/www/components/ai/ThreadCanvas/useQueryBuilderCore.ts ("Select at least 1 metric to update the query")
+- perch-frontend-app: apps/www/components/ai/ThreadCanvas/ThreadCanvas.tsx (overlay shown when the query has pending changes; auto title only when hasManualTitle is false)
+- perch-frontend-app: apps/www/hooks/useFetchWidgetData/useFetchWidgetData.ts (a non-owner's query change updates the local view only and is not saved)
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§5 the Perch team evolves the semantic layer; metric definitions are not self-service)
+- screen, Docs workspace, fixture analysis 1268 (capture/flows/_probe-pickers.mjs): Metrics picker with "Search for metrics...", green labels, "Selected Metrics", "Clear", eye and X icons; info dialog with "Description" and "Formula"; Dimensions picker with "Selected Dimensions" and "Add a dimension to break down your analysis"; Filters picker with "Search for Dimensions...", "Dimensions", "Clear", and "Search for values..."; no Business Area filter shown; closing a picker without changes shows no overlay
 */}
