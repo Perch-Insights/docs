@@ -34,7 +34,11 @@
           "analyses/overview",
           "analyses/start-an-analysis",
           "analyses/ask-questions",
-          "analyses/reports-and-insights"
+          "analyses/reports-and-insights",
+          "analyses/manage-steps",
+          "analyses/build-a-step",
+          "analyses/set-the-time-period",
+          "analyses/compare-and-download"
         ]
       },
       {
