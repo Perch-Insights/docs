@@ -119,6 +119,24 @@ key_learnings (RyanOS catalogs these) and follow the product.
 Rewrite for a person, not for the model: drop every "the AI Guide should" instruction, keep the
 product facts and the mental model. Where the corpus and the UI disagree, the UI wins.
 
+## Transcripts and other spoken sources
+
+`~/workspace/everythAIng/vault/research/perch-docs/` holds internal call transcripts and a claims
+checklist derived from them. A transcript is a **claim, not evidence.** It tells you what to look for
+and the words the team uses; it never goes into a page on its own authority. For every claim:
+
+1. Find it in the product source (component, route, hook) and, where a read-only flow can reach it,
+   on screen. Then it is a fact and the page cites the source files, not the transcript.
+2. If the product has changed since the call, the product wins; note the change in the alignment report.
+3. If you cannot find it in the source, it does not enter a page. Record it in the alignment report
+   as "could not verify" with where you looked.
+4. Anything the call describes as roadmap, backlog, or "we are planning" is never documented as a
+   feature. A boundary the product has today ("you cannot filter on a metric's value") may be stated
+   as a boundary when the source confirms it.
+
+Never quote the transcript, name the speakers, or mention the call in a page. Internal names, emails,
+and client names in a transcript stay out of the repo.
+
 ## Content boundaries
 
 Dashboards and alerts are configured by the Perch team during onboarding, against Perch standards.
