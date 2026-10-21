@@ -57,7 +57,7 @@ Favorites are personal and always appear at the top of your analyses list.
 
 <Steps>
   <Step title="Click the star">
-    Inside an analysis, click the star at the top right of the header, labelled **Add to Favorites**. On the analyses list, click the star at the start of the row instead.
+    Inside an analysis, click the star at the top right of the header, labelled **Add to Favorites**. On the analyses list, click the star at the start of the row instead. Both stars mark the same favorite.
 
     <Frame caption="The star at the top right of the analysis header with its tooltip.">
       <img src="/images/start-an-analysis/click-the-star.png" alt="An empty star button with a tooltip reading Add to Favorites, next to a Private button with a lock icon and a menu button." />
@@ -143,7 +143,7 @@ Deleting cannot be undone. [Clone the analysis](/sharing/share-an-analysis#clone
 - perch-frontend-app: apps/bff/router/thread.title.update.ts (owner only; case-insensitive uniqueness within the workspace; throws "Title must be unique")
 - perch-frontend-app: packages/kit/components/FavoriteButton/FavoriteButton.tsx (tooltip and aria-label "Add to Favorites" / "Remove from Favorites"; yellow star when favorited)
 - perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadFavoriteButton.tsx (row star toggles the favorite)
-- perch-frontend-app: apps/bff/router/thread.toggleFavorite.ts (favorite stored per member on the thread connection)
+- perch-frontend-app: apps/bff/router/thread.toggleFavorite.ts (favorite stored per member on the thread connection; the header star in ThreadHeader.tsx and the row star in ThreadFavoriteButton.tsx both call this mutation)
 - perch-frontend-app: apps/www/components/ai/ThreadListTable/ThreadListTable.tsx (columns Name, Owner, Reports, Created At, Last Modified, Playbook; date headers become plain text while searching; "Clone Analysis" and owner-only "Delete Analysis" row buttons with tooltip "Delete Analysis")
 - perch-frontend-app: apps/www/components/ai/ThreadListTable/NameCell.tsx (row name links to the thread)
 - perch-frontend-app: apps/www/components/ai/ThreadListTable/SortableDateHeader.tsx (default sort lastModified desc; click toggles direction)

@@ -36,6 +36,7 @@ When you open an analysis that another member made public, you are a viewer. The
 As a viewer you can:
 
 - Read every step, and change the query and chart settings on a step to explore. Nothing you change is saved.
+- Add comparisons, highlight performance, and adjust decimals in a table. These show only in your view and are not saved.
 - Read the whole conversation with the Guide, including its reports and insights.
 - Add the analysis to your favorites with the star in the header. Favorites are your own and do not affect the owner.
 - Clone the analysis to get a copy you own.
@@ -78,6 +79,8 @@ You can clone any analysis you can open, whether or not you own it.
 
 - The copy belongs to you, is private until you make it public, and has the same steps in the same order with their titles, queries, chart settings, and draft marks.
 - The copy starts with a fresh conversation. The original's conversation with the Guide does not carry over.
+- If the owner deletes the original, your copy stays.
+- An analysis has one owner. Only the owner's changes are saved, and you cannot give another member edit rights.
 - A playbook page has the same **Private** and **Public** button, shown only to its owner. See [Make a playbook public or private](/playbooks/save-a-playbook#make-a-playbook-public-or-private).
 
 {/* provenance
@@ -96,6 +99,9 @@ You can clone any analysis you can open, whether or not you own it.
 - perch-frontend-app: apps/www/components/ai/ThreadCanvas/ThreadCanvas.tsx (step rename, Duplicate Analysis Step, and the More Options menu with Add a step, Mark as draft, and Delete are owner only; Viewer Mode box shown to non-owners)
 - perch-frontend-app: apps/www/components/ai/ThreadCanvas/useQueryBuilder.tsx (viewer query changes are applied locally and only saved when the member is the owner)
 - perch-frontend-app: apps/bff/router/thread.item.update.ts (step updates are saved only for the analysis author)
+- perch-frontend-app: apps/www/components/ai/TableWidget/useUpdateWidgetSpecialColumns.ts (a viewer's comparisons, conditional formatting, and decimals apply to their view and are persisted only when isOwner)
+- perch-frontend-app: apps/bff/prisma/models/Thread.prisma and apps/bff/prisma/models/UserToThread.prisma (one authorId and an isPrivate flag per analysis; the member connection holds only favorite and last viewed, so there is no per-member access or editor role; copiedFrom is set to null when the original is deleted, so copies survive)
+- screen: fixture analysis header as owner shows the star, Private, and the menu with New Analysis, Clone Analysis, Delete Analysis; viewer mode verified in source only (no second member session)
 - perch-frontend-app: apps/www/components/ai/AIChat/AIChat.tsx (message field and Stop disabled for non-owners)
 - perch-frontend-app: apps/www/components/ai/ThreadHeader/ThreadHeaderMenu.tsx ("Clone Analysis" menu item; "Copy Share Link" only under CHAT_AI_SHARE_BUTTON and not documented)
 - perch-frontend-app: apps/www/components/ai/CloneThreadForm/CloneThreadForm.tsx ("Create a Copy of this Analysis"; "Analysis Name" field prefilled with "Copy of <title>", auto-selected, 255 characters; "Should not contain only spaces." and "Title must be different from the original." validation; non-owner note that viewer changes do not carry over and the copy reflects the owner's last saved changes; Clone button; opens in the current tab from the list and a new tab from an analysis, keeping the step)
