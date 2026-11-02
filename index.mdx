@@ -1,20 +1,37 @@
 ---
-title: "Introduction"
-description: "Welcome to your project"
+title: "Get up and running"
+description: "Pick the path that matches what you came to Perch to do."
 ---
 
-Write a short description of your product here. What it does, who it's for, and what they can accomplish with it.
+Pick the path that matches what you need from Perch today. Each path is a short list of steps that links to the pages that show you how.
 
-<Tip>
-  Ready to make this your own? Start by editing this page. Update your `docs.json` file to customize your site. Then fill out the [Quickstart](/quickstart) page.
-</Tip>
+Whichever path you pick, start by [signing in and choosing a workspace](/getting-started/sign-in). You work inside a workspace.
 
-<Card title="Quickstart" icon="rocket" href="/quickstart">
-  This card links to the quickstart page in your project.
-</Card>
-<Card title="Components" icon="puzzle-piece" href="https://mintlify.com/docs/components">
-  Add cards, callouts, steps, tabs, and more to design and structure your pages.
-</Card>
-<Card title="Settings" icon="gear" href="https://mintlify.com/docs/organize/settings">
-  Set your site name, branding, and navigation in the `docs.json` file.
-</Card>
+<CardGroup cols={3}>
+  <Card title="Analyze with the Guide" href="/getting-started/analyze-with-the-guide">
+    Ask the Guide a question, get an insight report, and save a playbook you can run again.
+  </Card>
+  <Card title="View and monitor" href="/getting-started/view-and-monitor">
+    Open your dashboards, read your alerts, and start an analysis when a number needs explaining.
+  </Card>
+  <Card title="Administer a workspace" href="/getting-started/administer-a-workspace">
+    Manage the members, groups, and workspaces in your organization settings.
+  </Card>
+</CardGroup>
+
+**Administer a workspace** is only for members who see the **Settings** button in the sidebar. Most members never see it.
+
+New to Perch? Read [What Perch is](/introduction/what-perch-is) first.
+
+{/* provenance
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.1 Dashboards for monitoring; §3.2 analysis threads as the primary analytical surface; §3.3 Alerts prompt investigation in dashboards or threads)
+- perch-frontend-app: apps/www/components/v2/WorkspaceSidebar/WorkspaceSidebar.tsx (SidebarHeader title "Workspaces")
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report")
+- perch-frontend-app: apps/www/components/ai/PlaybookProposalCard/PlaybookProposalCard.tsx ("save this playbook")
+- perch-frontend-app: apps/www/components/pages/AiHomePage/AiHomePage.tsx ("Reusable analyses you can re-run.")
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Dashboards" panel button, "Alerts" tab)
+- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx ("Settings" shown only with UpdateAllWorkspaces or ManageTenantUsers permission)
+- perch-frontend-app: apps/www/components/v2/OrganizationSettingsSidebar/OrganizationSettingsSidebar.tsx ("Users", "Groups", "Workspaces")
+- docs: getting-started/sign-in.mdx (sign in and choose a workspace)
+- The former introduction text on this page now lives in introduction/what-perch-is.mdx ("What you do in Perch").
+*/}

@@ -1,0 +1,57 @@
+---
+title: "Dashboards"
+description: "What dashboards are for and how they relate to analyses."
+---
+
+After this page you will know what your dashboards show, when to use one instead of an analysis, and that the Perch team sets them up for you during onboarding.
+
+## What a dashboard is
+
+A dashboard is a shared view of where your key numbers stand. It gives you high-level monitoring and the status of your key KPIs. Every member who can open a dashboard sees the same snapshot of performance.
+
+Each dashboard belongs to a program. The **Dashboards** panel in the sidebar lists your **Favorites** first, then every other dashboard grouped by program name.
+
+You see only the dashboards you have access to. Access is given to groups of members, so two members of one workspace can see different lists.
+
+## Dashboards and analyses
+
+A dashboard tells you what is happening. It is not the place for deep root-cause analysis. When a number moves and you need to know why, start an analysis and ask the Guide. An alert works the same way: it tells you something changed, and you look closer in a dashboard or an analysis.
+
+Dashboards, analyses, and the Guide all use the same metric definitions, so a number means the same thing in each.
+
+## How fresh the data is
+
+When your workspace tracks data freshness, the line under a dashboard's name shows its program and **Data Refreshed as of:** with a date and time. That date belongs to the workspace's data, not to the one dashboard. Check it before you act on a number.
+
+Some workspaces also have a data health status in the sidebar, shown as an icon with a green, yellow, or red dot. Hover it to see each **Business Domain** with its **Last Updated** time and **Status**. Click it to open the **Data Health Dashboard**.
+
+## What you can and cannot change
+
+The Perch team configures your dashboards during onboarding, against Perch standards, and changes them for you later. You do not build or edit a dashboard, and neither does the Guide.
+
+What is yours to change:
+
+- **Favorites.** Star a dashboard to keep it at the top of the panel. Your favorites do not change what other members see.
+- **What you are looking at.** Filter the **Dashboards** screen by program or by name.
+
+If you need access to a dashboard, ask a member who sees **Settings** in the sidebar. See [Administration](/administration/overview).
+
+## Next
+
+- [Open a dashboard](/dashboards/open-a-dashboard)
+
+{/* provenance
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.1 Dashboards: high-level monitoring, KPI status, shared snapshot; not the primary place for root-cause analysis; §3.2 analysis threads are the primary surface for root-cause analysis; §3.3 alerts prompt investigation in dashboards or threads; §2.1 all metrics and dimensions come from the semantic layer; §4 the Guide does not change dashboards; §5 managed services add or modify dashboards)
+- perch-frontend-app: apps/www/pages/w/[workspace]/index.tsx (route renders DashboardsPage)
+- perch-frontend-app: apps/www/pages/w/[workspace]/p/[program]/d/[dashboard]/index.tsx (route renders DashboardPage)
+- perch-frontend-app: apps/www/components/pages/DashboardsPage/DashboardsPage.tsx (header "Dashboards", "Showing N dashboards"; program and name filters; "Create a dashboard" only with dashboard create permission and not documented)
+- perch-frontend-app: apps/www/components/v2/DashboardsTable/DashboardsTable.tsx (favorite star in the name cell; "Update dashboard", "Update permissions", "Delete dashboard" only with permissions and not documented)
+- perch-frontend-app: apps/www/components/pages/DashboardPage/DashboardPage.tsx (dashboard name as title, program name and "Data Refreshed as of:" subtitle, favorite button, "Nothing to see" when not found; "Data Health Dashboard" title)
+- perch-frontend-app: apps/www/hooks/useLastDataRefreshDate.tsx (refresh date is fetched per workspace and only when the workspace has a data health source)
+- perch-frontend-app: apps/www/components/v2/GlobalSidebar/GlobalSidebar.tsx (health icon with Red, Yellow, or Green dot shown only when a status exists; hover lists "Business Domain", "Last Updated", "Status"; click opens the Data Health Dashboard)
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Dashboards" button opens a dashboards panel)
+- perch-frontend-app: apps/www/components/v2/DashboardsSidebar/DashboardsSidebar.tsx (panel titled "Dashboards", "Favorites" group, then dashboards grouped by program name)
+- perch-frontend-app: apps/www/components/v2/DashboardFavoriteButton/DashboardFavoriteButton.tsx (favorite a dashboard, no permission check)
+- perch-frontend-app: apps/bff/router/dashboard.findMany.ts (list comes from the member's own dashboards; a dashboard's groups are the groups with view or update permission over it)
+- AGENTS.md "Content boundaries": dashboards and alerts are configured by the Perch team during onboarding, against Perch standards
+*/}

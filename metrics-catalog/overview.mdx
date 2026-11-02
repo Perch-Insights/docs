@@ -1,0 +1,58 @@
+---
+title: "Metrics catalog"
+description: "What the metrics catalog lists and why every metric has one definition."
+---
+
+After this page you will know what the metrics catalog lists and why the metrics and dimensions in it are the ones the Guide uses.
+
+## What the metrics catalog is
+
+The **Metrics Catalog** is the list of every metric and dimension in your workspace's semantic layer. A metric is a number Perch measures. A dimension is a way to break a metric down, such as by region. The screen calls them fields and shows how many there are at the top.
+
+Each row in the list shows:
+
+- **Name**: the field's readable name, with its technical name underneath.
+- **Description**: what the field means.
+- **Type**: **Measure** for a metric, **Dimension** for a dimension.
+
+Open a field to see its own page. It shows the full **Description** and, where the field is calculated, a **Formula** with any **Filters** it applies. Fields named inside a formula link to their own pages. A field's page can also list **Related Metrics** and **Dimensions**, each linking to its page, so you can move from one definition to the next.
+
+## Why every metric has one definition
+
+Perch keeps one shared set of metrics and dimensions, each with a clear, fixed definition. The catalog shows you those definitions. It does not hold a copy of them.
+
+That matters because everything else in Perch uses the same set:
+
+- **The Guide** answers from these metrics and dimensions. It does not invent a definition or a calculation.
+- **Analyses** are built from them, step by step.
+- **Dashboards** and **alerts** report the same metrics.
+
+So when a number looks surprising in a dashboard, an alert, or a Guide answer, the catalog tells you exactly what that number measures. Two people looking at the same metric are always looking at the same calculation.
+
+## What you can and cannot change
+
+The catalog is read-only. You cannot add, edit, or remove a metric or dimension there, and the Guide cannot change a definition either. The Perch team maintains the semantic layer and evolves it with you. Some changes are kept out of self-service on purpose, so your numbers stay consistent and comparable across time and teams. If a definition looks wrong, or you need a metric that is not listed, ask the Perch team. See [Self-service and managed services](/reference/self-service-and-managed-services).
+
+What is yours is your view. You can narrow the list by type or search it by name. That changes only what you see.
+
+The metrics catalog is not turned on in every workspace. If your sidebar has no **Metric Catalog** icon, it is not available to you yet.
+
+## Next
+
+- [Look up a metric](/metrics-catalog/look-up-a-metric)
+
+{/* provenance
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§2.1 Data Platform First: a semantic layer of metrics and dimensions with clear, deterministic definitions; all metrics and dimensions come from the semantic layer, never invent definitions or calculations; §3.2 each analysis step adds metrics and dimensions; §4 the Guide does not modify metric definitions or semantic logic; §5 managed services evolve the semantic layer, some changes intentionally not self-service to preserve consistency, accuracy, and comparability across time and teams)
+- perch-frontend-app: apps/www/pages/w/[workspace]/metrics-catalog/index.tsx (route renders MetricsCatalogPage)
+- perch-frontend-app: apps/www/components/pages/MetricsCatalogPage/MetricsCatalogPage.tsx (header "Metrics Catalog", "Showing N fields"; type filter and name filter; PermissionOff when UI_METRICS_CATALOG is off)
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Metric Catalog" tooltip, shown only under UI_METRICS_CATALOG)
+- perch-frontend-app: apps/www/components/cube/CubeFieldsTable/CubeFieldsTable.tsx (columns "Name" with label and technical name, "Description", "Type" showing measure or dimension; each name links to the field page)
+- perch-frontend-app: apps/www/components/cube/CubeFieldTypeFilterButton/CubeFieldTypeFilterButton.tsx ("Types" filter: Measure, Dimension)
+- perch-frontend-app: apps/www/hooks/useWorkspaceCubesFields/useWorkspaceCubesFields.tsx (name search and type filter applied client-side to the fetched list)
+- perch-frontend-app: apps/bff/router/workspace.cube.field.findMany.ts (the list is the workspace semantic layer's measures, dimensions, and time dimensions; read-only query)
+- perch-frontend-app: apps/www/pages/w/[workspace]/metrics-catalog/[...fieldNames].tsx (route renders MetricsCatalogFieldPage)
+- perch-frontend-app: apps/www/components/pages/MetricsCatalogFieldPage/MetricsCatalogFieldPage.tsx (field page; no edit actions)
+- perch-frontend-app: apps/www/components/cube/CubeFieldDetails/CubeFieldDetails.tsx ("Description", formula, related fields)
+- perch-frontend-app: apps/www/components/cube/CubeFieldFormula/CubeFieldFormula.tsx ("Formula", "Filters"; referenced fields link to their pages)
+- perch-frontend-app: apps/www/components/cube/CubeFieldDrillMembers/CubeFieldDrillMembers.tsx ("Related Metrics", "Dimensions"; each links to its field page)
+*/}

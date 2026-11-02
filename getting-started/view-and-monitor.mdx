@@ -1,0 +1,37 @@
+---
+title: "View and monitor"
+description: "The path for keeping an eye on performance with dashboards and alerts."
+---
+
+Follow this path to open your dashboards, read your alerts, and move into an analysis when something needs explaining.
+
+Dashboards show you where your key numbers stand. Alerts tell you when one of them changes in a way that matters. Neither one tells you why. When you need the why, you ask the Guide in an analysis. The Perch team sets up your dashboards and alerts during onboarding, so there is nothing to build before you start. Each step below links to the page that covers it.
+
+1. **Sign in and choose a workspace.** Your dashboards and alerts belong to a workspace. Switch to the right one before you look. See [Sign in and choose a workspace](/getting-started/sign-in).
+2. **Open a dashboard.** Click **Dashboards** in the sidebar. The panel lists your **Favorites** first, then every dashboard grouped by program, with a search to find one by name. Mark the dashboards you use most as favorites. See [Dashboards](/dashboards/overview).
+3. **Check how fresh the data is.** When your workspace tracks data freshness, a dashboard shows **Data Refreshed as of:** under its name. Look at it before you act on a number. See [Dashboards](/dashboards/overview).
+4. **Read your alerts.** Click **Alerts** in the sidebar to see your alert notifications. Narrow the list by **Triggers**, **Date**, or text, and click **Read More** on a notification to open its details. See [Alerts](/alerts/overview).
+5. **Look up what a metric means.** If a number is unclear, the **Metrics Catalog** gives each metric and dimension its name, description, and type. It is not turned on in every workspace. See [Metrics catalog](/metrics-catalog/overview).
+6. **Find out why in an analysis.** An alert is a signal, not an answer. When a dashboard or an alert shows a change you need to explain, start an analysis and ask the Guide. See [Start an analysis](/analyses/start-an-analysis) and [Ask the Guide a question](/analyses/ask-questions).
+
+If a dashboard or an alert needs to change, the Perch team changes it for you. [Self-service and managed services](/reference/self-service-and-managed-services) explains how to ask. To go deeper into an investigation, follow [Analyze with the Guide](/getting-started/analyze-with-the-guide).
+
+{/* provenance
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.1 Dashboards: high-level monitoring, status of key KPIs, not the primary place for root-cause analysis; §3.2 analysis threads are where root-cause analysis happens; §3.3 Alerts: surface important changes, prompt investigation in dashboards or threads, "Alerts are signals, not answers."; §5 managed services add or modify dashboards)
+- perch-frontend-app: apps/www/components/v2/WorkspaceNav/WorkspaceNav.tsx ("Dashboards" opens the dashboards panel, "Alerts", "Metric Catalog" only under UI_METRICS_CATALOG)
+- perch-frontend-app: apps/www/components/v2/DashboardsSidebar/DashboardsSidebar.tsx (panel titled "Dashboards" with search, "Favorites" group, then dashboards grouped by program name; settings link only with dashboard permissions and not documented; re-checked on develop)
+- perch-frontend-app: apps/www/pages/w/[workspace]/index.tsx (route renders DashboardsPage)
+- perch-frontend-app: apps/www/components/pages/DashboardsPage/DashboardsPage.tsx (header "Dashboards"; ProgramFilterButton and dashboardName FilterTextField, re-checked on develop)
+- perch-frontend-app: apps/www/components/pages/DashboardPage/DashboardPage.tsx ("Data Refreshed as of:" subtitle; DashboardFavoriteButton, re-checked on develop)
+- perch-frontend-app: apps/www/hooks/useLastDataRefreshDate.tsx (refresh date shown only when the workspace has a data health source)
+- perch-frontend-app: apps/www/pages/w/[workspace]/alerts/index.tsx (route renders AlertsPage)
+- perch-frontend-app: apps/www/components/pages/AlertsPage/AlertsPage.tsx (header "Alerts", "alert notifications"; TriggerFilterButton, DateFilterButton, textFilter FilterTextField; "Notification Details" panel; "Manage" only with ManageAlerts permission and not documented; re-checked on develop)
+- perch-frontend-app: apps/www/components/v2/TriggerFilterButton/TriggerFilterButton.tsx (label "Triggers", re-checked on develop)
+- perch-frontend-app: apps/www/components/v2/DateFilterButton/DateFilterButton.tsx (label "Date", re-checked on develop)
+- perch-frontend-app: apps/www/components/v2/alert/AlertCard/AlertCard.tsx ("Read More", re-checked on develop)
+- perch-frontend-app: apps/www/components/pages/MetricsCatalogPage/MetricsCatalogPage.tsx (header "Metrics Catalog"; PermissionOff when UI_METRICS_CATALOG is off)
+- perch-frontend-app: apps/www/components/cube/CubeFieldsTable/CubeFieldsTable.tsx (columns "Name", "Description", "Type")
+- docs: getting-started/sign-in.mdx (choosing and switching workspaces)
+- docs: analyses/start-an-analysis.mdx and analyses/ask-questions.mdx (starting an analysis and asking the Guide)
+- AGENTS.md "Content boundaries": dashboards and alerts are configured by the Perch team during onboarding, against Perch standards
+*/}

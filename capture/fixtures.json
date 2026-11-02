@@ -1,0 +1,22 @@
+{
+  "analysis": {
+    "name": "Docs: Inbound call volume trend",
+    "id": 1268,
+    "url": "https://demo.perchinsights.com/w/b904ad6a-a64e-42d5-bd39-83996be9b279/analyses/1268"
+  },
+  "playbook": {
+    "name": "Docs: Inbound call volume playbook",
+    "id": 189,
+    "url": "https://demo.perchinsights.com/w/b904ad6a-a64e-42d5-bd39-83996be9b279/playbooks/189"
+  },
+  "run": {
+    "id": 1269,
+    "url": "https://demo.perchinsights.com/w/b904ad6a-a64e-42d5-bd39-83996be9b279/analyses/1269/september-25-2026-run-1",
+    "title": "September 25, 2026 • Run 1"
+  },
+  "publicAnalysis": {
+    "name": "Docs: Shared analysis",
+    "id": 1270,
+    "url": "https://demo.perchinsights.com/w/b904ad6a-a64e-42d5-bd39-83996be9b279/analyses/1270"
+  }
+}

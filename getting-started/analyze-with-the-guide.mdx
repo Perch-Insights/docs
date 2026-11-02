@@ -1,0 +1,38 @@
+---
+title: "Analyze with the Guide"
+description: "The path from your first question to a report you can share and a playbook you can run again."
+---
+
+Follow this path to go from your first question to the Guide, through a finished report, to a playbook you can run again.
+
+Something changed in your numbers and you want to know why. In Perch you work that out in an analysis, a conversation with the Guide. You ask, the Guide suggests queries, and each query you accept becomes a step. The Guide then writes up what it found as a report. Each step below links to the page that shows you how.
+
+1. **Sign in and choose a workspace.** Perch opens the analyses list of your first workspace. Switch to another workspace if your data lives there. See [Sign in and choose a workspace](/getting-started/sign-in).
+2. **Start an analysis.** Start from **New Analysis** on the analyses list. The analysis opens with the canvas in the middle and the **Guide** panel on the right. See [Start an analysis](/analyses/start-an-analysis).
+3. **Ask your question and build the steps.** Ask the Guide in plain words, by typing or by speaking. The Guide may ask a few questions of its own first. It proposes each query as a **Query Suggestion**. Each one you accept becomes a step on the canvas. See [Ask the Guide a question](/analyses/ask-questions).
+4. **Read the insight report.** The Guide writes up its findings as an **Insight report** in the **Guide** panel. Each insight is its own card. You can copy the report, vote on it, or download it as a file. See [Read reports and insights](/analyses/reports-and-insights).
+5. **Pin the insights that matter.** A pinned insight stays in the Guide's mind for every later question, and you can find it again with one click. See [Pin insights](/sharing/pin-insights).
+6. **Share the analysis.** Every analysis you start is private. Make it public, and every member of the workspace can open it as a viewer and clone it. See [Share an analysis](/sharing/share-an-analysis).
+7. **Save it as a playbook and run it again.** When you will need the same analysis again, ask the Guide to save it as a playbook. Each **Run** of the playbook creates a new analysis with its own report. See [Save a playbook](/playbooks/save-a-playbook) and [Run a playbook](/playbooks/run-a-playbook).
+
+To see how analyses, steps, and the Guide fit together, read [Analyses and the Guide](/analyses/overview). If you mostly watch your numbers rather than investigate them, follow [View and monitor](/getting-started/view-and-monitor) instead.
+
+{/* provenance
+- perch-backend-stack: libs/chat/src/chat/context/docs/foundations/perch_overview.md (§3.2 Analysis Threads: guided, step-based, designed for root-cause analysis; from "Something changed" to "Here is why it changed and what to do next")
+- perch-backend-stack: libs/chat/src/chat/context/docs/methodology/terminology_canon.md (step row: "Each accepted query becomes a step in the analysis."; playbook as a saved set of repeatable analyses you can re-run with fresh data)
+- perch-frontend-app: apps/www/components/pages/AiHomePage/NewExplorationButton.tsx ("New Analysis" button, re-checked on develop)
+- perch-frontend-app: apps/www/components/ai/QueryProposalCard/QueryProposalCard.tsx ("Query Suggestion", "Add as New Step", re-checked on develop)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/InsightReportCard.tsx ("Insight report", re-checked on develop)
+- perch-frontend-app: apps/www/components/ai/InsightReportCard/SectionSubcard.tsx ("Pin insight", re-checked on develop)
+- perch-frontend-app: apps/www/components/ai/PlaybookProposalCard/PlaybookProposalCard.tsx ("save this playbook", re-checked on develop)
+- perch-frontend-app: apps/www/components/pages/PlaybookDetailsPage/PlaybookPageHeader.tsx ("Run" button, re-checked on develop)
+- perch-frontend-app: apps/bff/prisma/models/Thread.prisma (isPrivate defaults to true)
+- docs: getting-started/sign-in.mdx (first workspace, switching workspaces)
+- docs: analyses/start-an-analysis.mdx (New Analysis, canvas and Guide panel)
+- docs: analyses/ask-questions.mdx (typed or dictated questions, Guide Question cards, Query Suggestion becomes a step)
+- docs: analyses/reports-and-insights.mdx (insight cards, copy, vote, download)
+- docs: sharing/pin-insights.mdx (the Guide reads pinned insights with every later question; find them again with one click)
+- docs: sharing/share-an-analysis.mdx (private by default; public analyses open as a viewer; Clone Analysis)
+- docs: playbooks/save-a-playbook.mdx (the Guide saves a playbook after it proposes one and you agree)
+- docs: playbooks/run-a-playbook.mdx (each run gets its own analysis and report)
+*/}
