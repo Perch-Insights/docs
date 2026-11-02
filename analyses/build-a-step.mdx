@@ -18,6 +18,9 @@ Your changes are not applied while you pick. When you close a picker, the data i
   <Step title="Find a metric">
     Type in **Search for metrics...** to narrow the list by name. Each metric shows a green label for the area of the business it comes from. Hover over the label to read what that area covers.
   </Step>
+  <Step title="Narrow by business area or tag">
+    Click **Business Area** above the list and tick one or more areas to narrow the list. Where your workspace's metrics carry tags, **Tags** works the same way. Each choice shows as a pill below the button. Click the X on a pill to remove it.
+  </Step>
   <Step title="Check the definition">
     Hover over a metric and click its info icon. A dialog shows the **Description** and the **Formula**. Click the open icon next to the metric name to open its entry in the [metrics catalog](/metrics-catalog/look-up-a-metric).
   </Step>
@@ -37,7 +40,7 @@ A dimension splits each metric into one row or line per value, such as one per a
 
 <Steps>
   <Step title="Open the picker">
-    Click **Dimensions**. Type in **Search for dimensions...** or scroll the list. Each dimension has the same green label and info icon as a metric.
+    Click **Dimensions**. Type in **Search for dimensions...** or scroll the list. Each dimension has the same green label and info icon as a metric, and the same **Business Area** and **Tags** buttons narrow the list.
   </Step>
   <Step title="Add and order">
     Click a dimension to add it to **Selected Dimensions**. Drag to change the order. Click the X to remove one, or **Clear** to remove all.
@@ -51,7 +54,7 @@ A dimension splits each metric into one row or line per value, such as one per a
 
 <Steps>
   <Step title="Open the picker">
-    Click **Filters**. The left side lists dimensions. Dimensions you already break down by appear first under **Suggested Dimensions**.
+    Click **Filters**. The left side lists dimensions. Dimensions you already break down by appear first under **Suggested Dimensions**. **Business Area** and **Tags** narrow this list too.
   </Step>
   <Step title="Pick a dimension">
     Click a dimension to see its values on the right. Type in **Search for values...** to find a value.
@@ -75,6 +78,7 @@ A dimension splits each metric into one row or line per value, such as one per a
 - Until you rename a step, its title updates to describe the new data each time you update it.
 
 {/* provenance
+- perch-frontend-app: apps/www/components/ai/query-builder-common/MetadataFilterPills.tsx ("Business Area" and "Tags" checkbox dropdowns with removable pills in the Metrics, Dimensions and Filters pickers; Tags only when fields carry tags; flag QUERY_BUILDER_TAGS, confirmed on for clients by Ryan 2026-11-02)
 - perch-frontend-app: apps/www/components/ai/WidgetCard/QueryBuilderBar.tsx (MetricsPicker, DimensionsPicker, FiltersPicker, then GranularityPicker and DateRangeOrPeriodPickerDropdown in the same row)
 - perch-frontend-app: apps/www/components/ai/MetricsPicker/MetricsPicker.tsx (button "Metrics" with count badge; "Search for metrics..."; "Selected Metrics" with "Clear"; eye toggle saves hidden fields; reorder; applied to pending state on outside click)
 - perch-frontend-app: apps/www/components/ai/DimensionsPicker/DimensionsPicker.tsx (button "Dimensions" with count badge; "Search for dimensions..."; "Selected Dimensions" with "Clear"; no eye toggle)

@@ -67,7 +67,7 @@ The selected group is the data the step's filters return. The benchmark group is
     Click the **Download** icon in the step row, next to **Duplicate Analysis Step**.
   </Step>
   <Step title="Pick a format">
-    For a table, click **Table as Formatted XLSX**, **Table as Formatted CSV**, or **Table as Raw CSV**. For a line chart, click **Chart as PNG**.
+    For a table, click **Table as Formatted XLSX**, **Table as Formatted CSV**, **Table as Raw CSV**, or **Table as PNG (slow for larger tables)**. For a line chart, click **Chart as PNG**.
   </Step>
 </Steps>
 
@@ -82,6 +82,7 @@ The formatted files match the table as you see it, with your comparisons and all
 - If you are not the owner of the analysis, comparisons and highlights apply to your view only and are not saved.
 
 {/* provenance
+- Ryan 2026-11-02: flag EXPORT_TABLE_AS_PNG is on for clients, so Table as PNG is documented.
 - perch-frontend-app: apps/www/components/ai/WidgetCard/Settings.tsx (step "Download" menu: "Table as Formatted XLSX", "Table as Formatted CSV", "Table as Raw CSV", "Table as PNG (slow for larger tables)" behind flag EXPORT_TABLE_AS_PNG, "Chart as PNG" for a line chart; disabled with no metrics, an error, or no rows; "Configure table settings" button opens the Table Settings dialog)
 - perch-frontend-app: apps/www/hooks/createTableWidgetExportData/createTableWidgetExportData.ts (raw export: one column per dimension and metric period, no comparison columns; formatted export follows the table with rows expanded; file named after the step)
 - perch-frontend-app: apps/www/components/ai/TableWidget/TableWidgetHeaderCell/TableWidgetHeaderCell.tsx and ColumnPopover.tsx (three-dot column menu only with a dimension; "Manage Comparisons", "Highlight Performance", "Adjust Decimals")
